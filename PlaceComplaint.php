@@ -11,11 +11,14 @@ if (isset($_POST["submit"])){
     $sql = "INSERT INTO placecomplaint (Student_ID, PC_ID, Description) VALUES ('$Student_ID', '$PC_ID', '$Description')";
 
     if(mysqli_query($conn, $sql)){
-        echo "Inserted";
+        echo '<script>alert("Complaint Placed Succesfully!");
+        location="StudentPage.html";
+        </script>';
     }
     else {
-        echo "Not Inserted";
+        
     }
+    
 }
 
 ?>
