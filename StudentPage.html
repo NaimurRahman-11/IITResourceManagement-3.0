@@ -53,6 +53,7 @@
 
 
     <!-- Bootstrap Modal Starts From Here -->
+    <form action="PlaceComplaint.php" method="post">
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -61,30 +62,32 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="PlaceComplaint.php" method="post">
+        <!-- <form action="PlaceComplaint.php" method="post"> -->
+          
           <div class="mb-3">
             <label for="student-id" class="col-form-label">Student ID:</label>
-            <input type="text" class="form-control" id="studentId">
+            <input type="text" class="form-control" id="studentId" name="StudentID">
           </div>
 
           <div class="mb-3">
             <label for="pcId" class="col-form-label">PC ID:</label>
-            <input type="text" class="form-control" id="pcId">
+            <input type="text" class="form-control" id="pcId" name="PCID">
           </div>
 
           <div class="mb-3">
             <label for="message-text" class="col-form-label">Describe your complaint:</label>
-            <textarea class="form-control" id="messageText"></textarea>
+            <textarea class="form-control" id="messageText" name="description"></textarea>
           </div>
-        </form>
+        <!-- </form> -->
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Submit</button>
+        <input type="submit" class="btn btn-primary" value="Submit" name="submit">
       </div>
     </div>
   </div>
 </div>
+</form>
      <!-- Bootstrap Modal Ends Here -->
   
 
