@@ -21,7 +21,8 @@
 <body>
   
   <div class="header">
-    <h1>Student's Dashboard</h1> 
+    <h1>Student's Dashboard</h1>
+    <a href="StudentPage.html"><p class="home"><i class="fa-solid fa-house-user"></i> Home</p> </a> 
     <a href="logInPage.html"><p class="log-out"><i class="fa-solid fa-right-from-bracket"></i> log out</p> </a>
   </div>
     
@@ -34,6 +35,16 @@
             <div class="card-body">
               <i class="fa-solid fa-message fa-5x center"></i>
               <a href="logInPage.html" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Place Complaint</a>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-sm-4 py-3 py-sm-0" id="YourComplaintsCard">
+          <div class="card box-shadow" style="width: 18rem;">
+            <div class="card-body">
+              <i class="fa-solid fa-eye fa-5x center"></i>
+              <a href="" class="btn btn-primary">Your Complaints</a>
             </div>
           </div>
         </div>
@@ -53,7 +64,9 @@
 
 
     <!-- Bootstrap Modal Starts From Here -->
+    
     <form action="PlaceComplaint.php" method="post">
+
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">

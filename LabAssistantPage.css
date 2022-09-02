@@ -11,13 +11,21 @@
 h1{
     text-align: center;
     padding: 5%;
+    color: #ffff;
+}
+
+body{
+    padding-bottom: 10px;
+}
+
+.header{
+    background-color: #30336b;
 }
 
 
 .container{
     padding: 10%;
-    
-    background-color: #dff9fb;
+    background-color: #74b9ff;
 }
 
 .btn{
@@ -49,8 +57,23 @@ h1{
     float: right;
     margin-top: -117px;
     margin-right: 25px;
+    color: #c7ecee;
 }
 
+.log-out:hover{
+    color: #ffff;
+}
+
+.home{
+    float: right;
+    margin-top: -118px;
+    margin-right: 160px;
+    color: #c7ecee;
+}
+
+.home:hover{
+    color: #ffff;
+}
 #RequestItemButton{
     margin-left: 25%;
 }
