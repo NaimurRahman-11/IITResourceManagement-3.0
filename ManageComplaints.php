@@ -41,7 +41,8 @@
   <?php
   include('DatabaseConnection.php');
 
-  $sql = "SELECT * From placecomplaint";
+  $sql = "SELECT * From placecomplaint
+  ORDER BY Complaint_No DESC";
 
   $res = mysqli_query($conn, $sql);
 
@@ -51,22 +52,22 @@
 
     if($count>0){
         while($rows = mysqli_fetch_assoc($res)){
-            $complaintNo = $rows['Complaint_No'];
-            $StudentID = $rows['Student_ID'];
-            $PCID = $rows['PC_ID'];
-            $Desc = $rows['Description'];
+            $Complaint_No = $rows['Complaint_No'];
+            $Student_ID = $rows['Student_ID'];
+            $PC_ID = $rows['PC_ID'];
+            $Description = $rows['Description'];
             $Date = $rows['Date'];       
 
     ?>
 
                 <tr>
-                    <td><?php echo $complaintNo; ?></td>
-                    <td><?php echo $StudentID; ?> </td>
-                    <td><?php echo $PCID; ?></td>
-                    <td><?php echo $Desc; ?></td>
+                    <td><?php echo $Complaint_No; ?></td>
+                    <td><?php echo $Student_ID; ?> </td>
+                    <td><?php echo $PC_ID; ?></td>
+                    <td><?php echo $Description; ?></td>
                     <td><?php echo $Date; ?></td>
                     <td>
-                        <a href="#" class="trash-button">Trash</a>
+                        <a href="DeleteComplaints.php?id=<?php echo $Complaint_No; ?>" class="trash-button">Trash</a>
                         <a href="#" class="accept-button">Resolved</a>
                     </td>
                 </tr>
