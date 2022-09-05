@@ -68,7 +68,7 @@
                     <td><?php echo $Date; ?></td>
                     <td>
                         <a href="DeleteComplaints.php?id=<?php echo $Complaint_No; ?>" class="trash-button">Trash</a>
-                        <a href="#" class="accept-button">Resolved</a>
+                        <a href="SolvedComplaints.php?idd=<?php echo $Complaint_No; ?>" class="accept-button">Resolved</a>
                     </td>
                 </tr>
 
