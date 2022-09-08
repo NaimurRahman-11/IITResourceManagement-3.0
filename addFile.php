@@ -2,10 +2,11 @@
 
 include('DatabaseConnection.php');
 
-$fileName='notices';
-$fileLocation='Almirah1 row1 column 2';
+$fileName=$_POST['FileName'];
 
-$sql= "insert into file (`FileName`,`FIleLocation`)
+$fileLocation=$_POST['FileLocation'];
+
+$sql= "insert into file (`FileName`,`FileLocation`)
 values('$fileName','$fileLocation')";
 
 mysqli_query($conn,$sql);
