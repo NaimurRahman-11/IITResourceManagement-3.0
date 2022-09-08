@@ -21,11 +21,6 @@ h1{
     background-color: #30336b;
 }
 
-.container{
-    padding: 10%;
-    background-color: #74b9ff;
-}
-
 .btn{
     margin-top: 2%;
 }
@@ -35,19 +30,6 @@ h1{
     width: 100%;
 }
 
-.card{
-    transition: .4s;
-    margin-left: 10%;
-}
-
-.card:hover{
-    transform: scale(1.1);
-    cursor: pointer;
-}
-
-.box-shadow{
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
-}
 
 .log-out{
     float: right;
@@ -71,22 +53,4 @@ h1{
     color: #ffff;
 }
 
-#ManageFilesButton{
-    margin-left: 26%;
-}
 
-#SeeRequestsButton{
-    margin-left: 22%;
-}
-
-#ResourcesButton{
-    margin-left: 30%;
-}
-
-#RequisitionsButton{
-    margin-left: 27%;
-}
-
-#Requisitions{
-    margin-top: 3%;
-}
