@@ -55,7 +55,7 @@ while($row= mysqli_fetch_assoc($fetchfile))
     {
         
         $id=$row['id'];
-        $FileName=['FileName'];
+        $FileName=$row['FileName'];
         $FileLocation=$row['FileLocation'];
         
         ?>
