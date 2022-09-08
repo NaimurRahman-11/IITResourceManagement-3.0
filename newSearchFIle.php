@@ -55,18 +55,29 @@ while($row= mysqli_fetch_assoc($fetchfile))
 {
     if(preg_match($fileName,$row['FileName']))
     {
-        echo "<tr>";
-        echo "<td>".$row['id'].'</td>';
-        echo "<td>".$row['FileName'].'</td>';
-        echo "<td>".$row['FileLocation'].'</td>';
-        echo '</tr>';
-    }
+        
+        $id=$row['id'];
+        $FileName=['FileName'];
+        $FileLocation=$row['FileLocation'];
+        
+        ?>
+          <tr>
+                    <td><?php echo $id; ?></td>
+                    <td><?php echo $FileName; ?> </td>
+                    <td><?php echo $FileLocation; ?></td>
+                    
+                    <td>
+                        <a href="DeleteComplaints.php?id=<?php echo $Complaint_No; ?>" class="trash-button">Trash</a>
+                        
+                    </td>
+                </tr>
+
+<?php 
+   }
     
 }
-
-
-
 ?>
+
   
 </table>
     
