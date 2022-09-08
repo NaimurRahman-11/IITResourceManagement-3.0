@@ -17,24 +17,6 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
-<style>
-    table {
-    border: 1px solid;
-    text-align: center;
-    width: 100%;
-  }
-
-  td{
-    width: 20px;
-    border: 1px solid;
-    text-align: center;
-  }
-
-  tr:nth-child(even) {background-color: #f2f2f2;}
-
-
-
-</style>
 
 </head>
 <body>
