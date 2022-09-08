@@ -1,7 +1,12 @@
 <?php
-include('FetchAllFiles.php');
-$fileName='notices';
+include('DatabaseConnection.php');
+
+$fileName=$_POST['FileName'];
 $fileName= '/'.$fileName.'/i';
+
+$sql= "select * from file";
+$fetchfile= mysqli_query($conn,$sql);
+
 
 echo "<table border=1>";
 
