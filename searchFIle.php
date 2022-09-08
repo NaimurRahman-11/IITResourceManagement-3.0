@@ -27,10 +27,7 @@
   </div>
     
 
-<div class="buttons text-center">
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add File</button>&nbsp; &nbsp;
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">Search File</button>
-</div>
+
 
 
 <?php
