@@ -19,7 +19,7 @@ while($row= mysqli_fetch_assoc($fetchfile))
         echo "<tr>";
         echo "<td>".$row['id'].'</td>';
         echo "<td>".$row['FileName'].'</td>';
-        echo "<td>".$row['FIleLocation'].'</td>';
+        echo "<td>".$row['FileLocation'].'</td>';
         echo '</tr>';
     }
     
