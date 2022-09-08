@@ -1,0 +1,92 @@
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    padding-bottom: 10px;
+}
+
+h1{
+    text-align: center;
+    padding: 5%;
+    color: #ffff;
+}
+
+.header{
+    background-color: #30336b;
+}
+
+.container{
+    padding: 10%;
+    background-color: #74b9ff;
+}
+
+.btn{
+    margin-top: 2%;
+}
+
+.center {
+    text-align: center;
+    width: 100%;
+}
+
+.card{
+    transition: .4s;
+    margin-left: 10%;
+}
+
+.card:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.box-shadow{
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.log-out{
+    float: right;
+    margin-top: -117px;
+    margin-right: 25px;
+    color: #c7ecee;
+}
+
+.log-out:hover{
+    color: #ffff;
+}
+
+.home{
+    float: right;
+    margin-top: -118px;
+    margin-right: 160px;
+    color: #c7ecee;
+}
+
+.home:hover{
+    color: #ffff;
+}
+
+#ManageFilesButton{
+    margin-left: 26%;
+}
+
+#SeeRequestsButton{
+    margin-left: 22%;
+}
+
+#ResourcesButton{
+    margin-left: 30%;
+}
+
+#RequisitionsButton{
+    margin-left: 27%;
+}
+
+#Requisitions{
+    margin-top: 3%;
+}
