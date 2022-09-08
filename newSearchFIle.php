@@ -30,11 +30,9 @@
 <table>
 
 <tr>
-  <th>Complaint No</th>
-  <th>Student ID</th>
-  <th>PC ID</th>
-  <th>Description</th>
-  <th>Date & Time</th>
+  <th>Id</th>
+  <th>File Name</th>
+  <th>File Location</th>
   <th>Actions</th>
 </tr>
 
