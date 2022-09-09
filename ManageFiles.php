@@ -98,19 +98,19 @@
    </form>
 
     <!-- Search File Modal Ends here -->
+    <table>
     <tr>
       <th>Id</th>
       <th>File Name</th>
       <th>File Location</th>
-      <th>Actions</th>
+
     </tr>
     
     
-    <?php
+  <?php
     include('DatabaseConnection.php');
     
-    $fileName=$_POST['FileName'];
-    $fileName= '/'.$fileName.'/i';
+  
     
     $sql= "select * from file";
     $fetchfile= mysqli_query($conn,$sql);
@@ -120,30 +120,24 @@
     
     while($row= mysqli_fetch_assoc($fetchfile))
     {
-        if(preg_match($fileName,$row['FileName']))
-        {
+        
             
             $id=$row['id'];
             $FileName=$row['FileName'];
             $FileLocation=$row['FileLocation'];
             
-            ?>
+  ?>
               <tr>
-                        <td><?php echo $id; ?></td>
-                        <td><?php echo $FileName; ?> </td>
-                        <td><?php echo $FileLocation; ?></td>
-                        
-                        <td>
-                            <a href="#" class="delete-button">Delete</a>
-                            
-                        </td>
-                    </tr>
+                  <td><?php echo $id; ?></td>
+                  <td><?php echo $FileName; ?> </td>
+                  <td><?php echo $FileLocation; ?></td>
+              </tr>
     
-    <?php 
-       }
+  <?php 
+       
         
     }
-    ?>
+  ?>
     
       
     </table>
