@@ -59,7 +59,11 @@ function createGroupArray()
         {
             if(count($element) > $i)
             {
-                $string= $string.$element[$i].", ";
+                $string= $string.$element[$i];
+                if(($i+1) < count($element))
+                {
+                    $string= $string.", ";
+                }
             }
             
         
