@@ -8,10 +8,14 @@ if (isset($_POST["submit"])){
     $Description = $_POST["description"];
     
     
-    $sql = "INSERT INTO placecomplaint (Student_ID, PC_ID, Description) VALUES ('$Student_ID', '$PC_ID', '$Description')";
-
-    if(mysqli_query($conn, $sql)){
-       
+    
+    
+    while(){}
+    $insertsql = "INSERT INTO placecomplaint (Student_ID, PC_ID, Description) 
+    VALUES ('$Student_ID', '$PC_ID', '$Description')";
+    
+    if(mysqli_query($conn, $insertsql))
+    {
       echo '<script>alert("Complaint Placed Succesfully!");
         location="StudentPage.html";
         </script>';

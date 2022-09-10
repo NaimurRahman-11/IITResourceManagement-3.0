@@ -21,116 +21,47 @@
 <body>
   
   <div class="header">
-    <h1>Office Assistant's Dashboard</h1> 
+    <h1>Lab Assistant's Dashboard</h1> 
     <a href="OfficeAssistantPage.html"><p class="home"><i class="fa-solid fa-house-user"></i> Home</p> </a> 
     <a href="logInPage.html"><p class="log-out"><i class="fa-solid fa-right-from-bracket"></i> log out</p> </a>
   </div>
     
 
 <div class="buttons text-center">
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Current assigned PC list</button>&nbsp; &nbsp;
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">New assigned PC list</button>
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">New assigned PC list</button>
 </div>
 
-
-<!-- Add File Modal Starts here -->
-    
-<form action="addFile.php" method="post">
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-
-            
-              <div class="mb-3">
-                <label for="YourID" class="col-form-label">File Name:</label>
-                <input type="text" class="form-control" id="FileName" name="FileName">
-              </div>
-
-              <div class="mb-3">
-                <label for="YourID" class="col-form-label">File Location:</label>
-                <input type="text" class="form-control" id="FileLocation" name="FileLocation">
-              </div>
-            
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <input type="submit" class="btn btn-primary" value="Add" name="add" id="add">
-          </div>
-        </div>
-      </div>
-    </div>
-   </form>
-
-    <!-- Add File Modal Ends here -->
-
-    <!-- Search File Modal Starts here -->
-    
-<form action="newSearchFIle.php" method="post">
-    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-
-            
-              <div class="mb-3">
-                <label for="YourID" class="col-form-label">File Name:</label>
-                <input type="text" class="form-control" id="FileName" name="FileName">
-              </div>
-
-            
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <input type="submit" class="btn btn-primary" value="Search" name="Search" id="Search">
-          </div>
-        </div>
-      </div>
-    </div>
-   </form>
-
-    <!-- Search File Modal Ends here -->
-    <table>
-    <tr>
+<table>
+<tr>
       <th>Id</th>
-      <th>File Name</th>
-      <th>File Location</th>
+      <th>PC Id</th>
+      <th>Assigned roll</th>
 
     </tr>
-    
-    
-  <?php
+<?php
     include('DatabaseConnection.php');
     
   
     
-    $sql= "select * from file";
-    $fetchfile= mysqli_query($conn,$sql);
+    $sql= "select * from pcassignedlist";
+    $fetch= mysqli_query($conn,$sql);
     
     
     
     
-    while($row= mysqli_fetch_assoc($fetchfile))
+    while($row= mysqli_fetch_assoc($fetch))
     {
         
             
             $id=$row['id'];
-            $FileName=$row['FileName'];
-            $FileLocation=$row['FileLocation'];
+            $PC_Id=$row['PC_Id'];
+            $Assigned_roll=$row['Assigned_roll'];
             
   ?>
               <tr>
                   <td><?php echo $id; ?></td>
-                  <td><?php echo $FileName; ?> </td>
-                  <td><?php echo $FileLocation; ?></td>
+                  <td><?php echo $PC_Id; ?> </td>
+                  <td><?php echo $Assigned_roll; ?></td>
               </tr>
     
   <?php 
@@ -141,6 +72,7 @@
     
       
     </table>
+    
 
     
 </body>
