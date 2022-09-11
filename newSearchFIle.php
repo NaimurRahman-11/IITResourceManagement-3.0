@@ -33,22 +33,22 @@
   <th>Id</th>
   <th>File Name</th>
   <th>File Location</th>
-  <th>Actions</th>
+  
 </tr>
-
 
 <?php
 include('DatabaseConnection.php');
 
-$fileName=$_POST['FileName'];
+$fileName=$_POST['fileName'];
 $fileName= '/'.$fileName.'/i';
 
 $sql= "select * from file";
 $fetchfile= mysqli_query($conn,$sql);
+?>
 
 
 
-
+<?php
 while($row= mysqli_fetch_assoc($fetchfile))
 {
     if(preg_match($fileName,$row['FileName']))
@@ -64,10 +64,7 @@ while($row= mysqli_fetch_assoc($fetchfile))
                     <td><?php echo $FileName; ?> </td>
                     <td><?php echo $FileLocation; ?></td>
                     
-                    <td>
-                        <a href="DeleteComplaints.php?deleteFileId=<?php echo $File_no; class="delete-button">Delete</a>
-                        
-                    </td>
+                    
                 </tr>
 
 <?php 

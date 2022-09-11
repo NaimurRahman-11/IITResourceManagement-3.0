@@ -83,7 +83,7 @@
             
               <div class="mb-3">
                 <label for="YourID" class="col-form-label">File Name:</label>
-                <input type="text" class="form-control" id="FileName" name="FileName">
+                <input type="text" class="form-control" id="FileName" name="fileName">
               </div>
 
             
@@ -103,7 +103,7 @@
       <th>Id</th>
       <th>File Name</th>
       <th>File Location</th>
-
+      <th>Actions</th>
     </tr>
     
     
@@ -131,6 +131,11 @@
                   <td><?php echo $id; ?></td>
                   <td><?php echo $FileName; ?> </td>
                   <td><?php echo $FileLocation; ?></td>
+                  <td>
+                    
+                    <a href="DeleteFileInfo.php?fileId=<?php echo $id?>"; class="delete-button">Delete</a>
+                        
+                  </td>
               </tr>
     
   <?php 
