@@ -65,7 +65,7 @@ while($row= mysqli_fetch_assoc($fetchfile))
                     <td><?php echo $FileLocation; ?></td>
                     
                     <td>
-                        <a href="#" class="delete-button">Delete</a>
+                        <a href="DeleteComplaints.php?deleteFileId=<?php echo $File_no; class="delete-button">Delete</a>
                         
                     </td>
                 </tr>
