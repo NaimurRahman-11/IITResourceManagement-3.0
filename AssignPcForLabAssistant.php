@@ -25,12 +25,37 @@
     <a href="LabAssistantPage.html"><p class="home"><i class="fa-solid fa-house-user"></i> Home</p> </a> 
     <a href="logInPage.html"><p class="log-out"><i class="fa-solid fa-right-from-bracket"></i> log out</p> </a>
   </div>
-    
+  
 
 <div class="buttons text-center">
-  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">New assigned PC list</button>
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">Create New assigned PC list</button>
 </div>
 
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+
+            
+              <div class="mb-3">
+                <label for="YourID" class="col-form-label">Are you sure? The current list will be vanished</label>
+                
+              </div>
+
+            
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Close</button>
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onClick="javascript:window.location.href='createNewAssignedList.php'">Ok</button>
+            
+          </div>
+        </div>
+      </div>
+    </div>
 <table>
 <tr>
       <th>Id</th>

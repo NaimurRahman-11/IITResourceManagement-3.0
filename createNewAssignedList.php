@@ -101,7 +101,7 @@ function insertAssignedRoll($assignedRollArray)
 
 createGroupArray();
 echo '<script>alert("Student rolls are successfully assigned to lab Pcs");
-    location="AssignPc.php";
+    location="AssignPcForLabAssistant.php";
     </script>';
 
 
