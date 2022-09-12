@@ -44,7 +44,7 @@
           <div class="card box-shadow" style="width: 18rem;">
             <div class="card-body">
                 <i class="fa-solid fa-file-circle-plus fa-5x center"></i>
-              <a href="#" class="btn btn-primary" id="LabRequisitionButton">Lab Requisition</a>
+              <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" id="LabRequisitionButton">Lab Requisition</a>
             </div>
           </div>
         </div>
@@ -86,6 +86,66 @@
     </div>
     <!-- Bootstrap Cards Ends Here -->
   
+
+    <!-- Bootstrap Lab Requisition Modal Starts From Here -->
+    
+    <form action="" method="post">
+
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Place Your Requisition Here!</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                
+                <div class="mb-3">
+                  <label for="lab-assistant-name" class="col-form-label">Lab Assistant Name:</label>
+                  <input type="text" class="form-control" id="studentId" name="StudentID">
+                </div>
+      
+                <div class="mb-3">
+                  <label for="cars">Choose an Item:</label>
+
+                      <select name="items" id="items">
+                        <optgroup label="Electric Items">
+                        <option value="null" selected>Null</option>
+                        <option value="projector">Projector</option>
+                        <option value="multiplug">Multiplug</option>
+                        <option value="bulb">Bulb</option>
+                        <option value="AC">Air Conditioner</option>
+                      </optgroup>
+
+                      <optgroup label="Computer Items">
+                        <option value="monitor">Monitor</option>
+                        <option value="keyboard">Keyboard</option>
+                        <option value="mouse">Mouse</option>
+                        <option value="ups">UPS</option>
+                      </optgroup>
+                      </select>
+                </div>
+
+                <div class="mb-3">
+                  <label for="pcId" class="col-form-label">Item Quantity:</label>
+                  <input type="text" class="form-control" id="pcId" name="PCID">
+                </div>
+      
+                <div class="mb-3">
+                  <label for="message-text" class="col-form-label">Reason For The Requisition:</label>
+                  <textarea class="form-control" id="messageText" name="description" placeholder="Describe within 300 words..."></textarea>
+                </div>
+             
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <input type="submit" class="btn btn-primary" value="Submit" name="submit" id="submit">
+            </div>
+          </div>
+        </div>
+      </div>
+      </form>
+           <!-- Bootstrap Lab Requisition Modal Ends Here -->
 
     
 </body>
