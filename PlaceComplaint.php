@@ -19,6 +19,7 @@ if (isset($_POST["submit"])){
         $insertsql = "INSERT INTO placecomplaint (Student_ID, PC_ID, Description) 
         VALUES ('$Student_ID', '$PC_ID', '$Description')";
         mysqli_query($conn, $insertsql);
+
         echo '<script>alert("Complaint Placed Succesfully!");
         location="StudentPage.html";
         </script>';
