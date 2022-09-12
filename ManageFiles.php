@@ -31,7 +31,7 @@
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add File</button>&nbsp; &nbsp;
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">Search File</button>
 </div>
-
+<br>
 
 <!-- Add File Modal Starts here -->
     
@@ -133,8 +133,8 @@
                   <td><?php echo $FileLocation; ?></td>
                   <td>
                     
-                    <a href="DeleteFileInfo.php?fileId=<?php echo $id?>"; class="delete-button">Delete</a>
-                        
+                    <a href="DeleteFileInfo.php?fileId=<?php echo $id; ?>" class="delete-button">Delete</a>
+    
                   </td>
               </tr>
     

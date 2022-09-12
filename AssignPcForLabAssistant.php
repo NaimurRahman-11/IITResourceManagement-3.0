@@ -31,6 +31,8 @@
   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">Create New assigned PC list</button>
 </div>
 
+<br>
+
 <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
