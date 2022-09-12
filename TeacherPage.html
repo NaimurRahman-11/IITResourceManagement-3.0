@@ -34,7 +34,7 @@
           <div class="card box-shadow" style="width: 18rem;">
             <div class="card-body">
                 <i class="fa-solid fa-pen-ruler fa-5x center"></i>
-              <a href="#" class="btn btn-primary" id="RequestItemButton">Request Item</a>
+              <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2" id="RequestItemButton">Request Item</a>
             </div>
           </div>
         </div>
@@ -44,7 +44,7 @@
           <div class="card box-shadow" style="width: 18rem;">
             <div class="card-body">
                 <i class="fa-solid fa-file-circle-plus fa-5x center"></i>
-              <a href="#" class="btn btn-primary" id="PlaceRequisitionButton">Place Requisition</a>
+              <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" id="PlaceRequisitionButton">Place Requisition</a>
             </div>
           </div>
         </div>
@@ -76,6 +76,104 @@
     </div>
     <!-- Bootstrap Cards Ends Here -->
   
+
+    <!-- Bootstrap Place Requisition Modal Starts Here -->
+    <form action="PlaceRequisitionForTeacher.php" method="post">
+
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Place Your Requisition Here!</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                
+                <div class="mb-3">
+                  <label for="student-id" class="col-form-label">Teacher's Name:</label>
+                  <input type="text" class="form-control" id="studentId" name="StudentID">
+                </div>
+      
+                <div class="mb-3">
+                  <label for="pcId" class="col-form-label">Item Name:</label>
+                  <input type="text" class="form-control" id="pcId" name="PCID">
+                </div>
+
+                <div class="mb-3">
+                  <label for="pcId" class="col-form-label">Item Quantity:</label>
+                  <input type="text" class="form-control" id="pcId" name="PCID">
+                </div>
+      
+                <div class="mb-3">
+                  <label for="message-text" class="col-form-label">Reason For The Requisition:</label>
+                  <textarea class="form-control" id="messageText" name="description" placeholder="Describe within 300 words..."></textarea>
+                </div>
+             
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <input type="submit" class="btn btn-primary" value="Submit" name="submit" id="submit">
+            </div>
+          </div>
+        </div>
+      </div>
+      </form>
+    <!-- Bootstrap Place Requisition Ends Here -->
+
+
+    <!-- Bootstrap Item Request Modal Starts Here -->
+    <form action="" method="post">
+
+      <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Place Your Item Request Here!</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                
+                <div class="mb-3">
+                  <label for="student-id" class="col-form-label">Teacher's Name:</label>
+                  <input type="text" class="form-control" id="studentId" name="StudentID">
+                </div>
+      
+                <div class="mb-3">
+                  <label for="cars">Choose an Item:</label>
+
+                      <select name="items" id="items">
+                        <optgroup label="Stationary Items">
+                        <option value="null" selected>Null</option>
+                        <option value="marker">Marker</option>
+                        <option value="duster">Duster</option>
+                        <option value="pen">Pen</option>
+                        <option value="A4Paper">A4 Paper</option>
+                      </optgroup>
+
+                      <optgroup label="Personal Items">
+                        <option value="tissueBox">Tissue Box</option>
+                        <option value="waterBottle">Water Bottle</option>
+                        <option value="airFreshner">Air Freshner</option>
+                      </optgroup>
+                      </select>
+                </div>
+
+                <div class="mb-3">
+                  <label for="pcId" class="col-form-label">Item Quantity:</label>
+                  <input type="text" class="form-control" id="pcId" name="PCID">
+                </div>
+      
+             
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <input type="submit" class="btn btn-primary" value="Submit" name="submit" id="submit">
+            </div>
+          </div>
+        </div>
+      </div>
+      </form>
+    <!-- Bootstrap Item Request Modal Ends Here -->
 
     
 </body>
