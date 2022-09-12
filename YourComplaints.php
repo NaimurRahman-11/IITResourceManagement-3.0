@@ -35,19 +35,46 @@ if (isset($_POST["submit2"])){
    
     $Your_ID = $_POST["YourID"];
     
-    $sql = "SELECT * FROM placecomplaint WHERE Student_ID = '$Your_ID'";
+    $fetchRollSql="select `Academic_roll` from student where Academic_roll= '$Your_ID'";
+    $fetchComplaintsSql = "SELECT * FROM placecomplaint WHERE Student_ID = '$Your_ID'";
 
-    $result = $conn->query($sql);
+    $fetchComplaintsSqlresult = mysqli_query($conn,$fetchComplaintsSql);
 
+    $fetchRollSqlResult= mysqli_query($conn,$fetchRollSql);
 
-    echo "<table border=1>";
-    echo "<tr><td>Complaint_No</td><td>Student_ID</td><td>PC_ID</td><td>Description</td><td>Date</td></tr>";
-    while ($row = $result->fetch_assoc()) {
-        echo "<tr><td>{$row['Complaint_No']}</td><td>{$row['Student_ID']}</td><td>{$row['PC_ID']}</td><td>{$row['Description']}</td><td>{$row['Date']}</td></tr>";
     
-    }
 
-    echo "</table>";
+    $noOfRowsOfComplaints= mysqli_num_rows($fetchComplaintsSqlresult);
+
+    $rollIsFound= mysqli_num_rows($fetchRollSqlResult);
+    if($rollIsFound > 0)
+    {
+      if($noOfRowsOfComplaints > 0)
+      {
+        echo "<table border=1>";
+        echo "<tr><td>Complaint_No</td><td>Student_ID</td><td>PC_ID</td><td>Description</td><td>Date</td></tr>";
+        while ($row = $fetchComplaintsSqlresult->fetch_assoc()) 
+        {
+          echo "<tr><td>{$row['Complaint_No']}</td><td>{$row['Student_ID']}</td><td>{$row['PC_ID']}</td>
+          <td>{$row['Description']}</td><td>{$row['Date']}</td></tr>";    
+        }
+
+      echo "</table>";  
+      }
+      else
+      {
+        echo '<script>alert("You have no complaints to see!");
+        location="StudentPage.html";
+        </script>';
+      }
+    }
+    else 
+    {
+      echo '<script>alert("Your roll number is wrong.!");
+      location="StudentPage.html";
+      </script>';
+    }
+    
 
 }
 ?>
