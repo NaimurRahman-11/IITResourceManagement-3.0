@@ -13,9 +13,11 @@ if (isset($_POST["submit"])){
     
     while($row=mysqli_fetch_assoc($fetchResult))
     {
+     
       if(($row['PC_Id']==$PC_ID) && validateRoll($row['Assigned_roll'],$Student_ID))
       {
         $flag= true;
+       
         $insertsql = "INSERT INTO placecomplaint (Student_ID, PC_ID, Description) 
         VALUES ('$Student_ID', '$PC_ID', '$Description')";
         mysqli_query($conn, $insertsql);
@@ -33,24 +35,21 @@ if (isset($_POST["submit"])){
     
     }
     
+    
 }
 function validateRoll($rollList, $roll)
 {
   $flag= false;
   $rollListArray[]=explode(", ",$rollList);
-  for($i=0; $i<count($rollListArray); $i++)
+  for($i=0; $i<count($rollListArray[0]); $i++)
   {
-    $string=$rollListArray[$i];
-    if(strcasecmp($string,$roll) == 0)
+   if(strcasecmp($rollListArray[0][$i],$roll) == 0)
     {
       $flag= true;
       break;
     }
-  }
-
+}
   return $flag;
-
-
 }
 ?>
 
