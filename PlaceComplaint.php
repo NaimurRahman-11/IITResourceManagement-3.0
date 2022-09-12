@@ -18,9 +18,10 @@ if (isset($_POST["submit"])){
       if(($row['PC_Id']==$PC_ID) && validateRoll($row['Assigned_roll'],$Student_ID))
       {
         $flag= true;
-        $updatePcStatus= "update pc set PC_status='Under Maintenance', NoOfComplaints= NoOfComplaints+1
+        $updatePcStatusAndNoOfComplaints= "update pc set PC_status='Under Maintenance', NoOfComplaints= NoOfComplaints+1
         where PC_Id=$PC_ID";
-        mysqli_query($conn, $updatePcStatus);
+        mysqli_query($conn, $updatePcStatusAndNoOfComplaints);
+        
         $insertsql = "INSERT INTO placecomplaint (Student_ID, PC_ID, Description) 
         VALUES ('$Student_ID', '$PC_ID', '$Description')";
         mysqli_query($conn, $insertsql);
