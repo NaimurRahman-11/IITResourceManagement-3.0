@@ -42,14 +42,10 @@ if (isset($_POST["submit2"])){
 
     $fetchRollSqlResult= mysqli_query($conn,$fetchRollSql);
 
-    
-
-    $noOfRowsOfComplaints= mysqli_num_rows($fetchComplaintsSqlresult);
-
-    $rollIsFound= mysqli_num_rows($fetchRollSqlResult);
-    if($rollIsFound > 0)
+     
+    if(mysqli_num_rows($fetchRollSqlResult) > 0)
     {
-      if($noOfRowsOfComplaints > 0)
+      if(mysqli_num_rows($fetchComplaintsSqlresult) > 0)
       {
         echo "<table border=1>";
         echo "<tr><td>Complaint_No</td><td>Student_ID</td><td>PC_ID</td><td>Description</td><td>Date</td></tr>";
