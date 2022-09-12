@@ -2,20 +2,27 @@
 include('DatabaseConnection.php');
 
 $Complaint_No = $_GET['idd'];
+$PC_ID='';
 
-// $sql = "SELECT * FROM placecomplaint WHERE Complaint_No=$Complaint_No";
+$selectForUpdateSql= "SELECT  PC_ID FROM placecomplaint
+WHERE Complaint_No=$Complaint_No";
+$selectForUpdateSqlResult= mysqli_query($conn, $selectForUpdateSql);
+while($row=mysqli_fetch_assoc($selectForUpdateSqlResult))
+{
 
-$sql = "INSERT INTO solvedcomplaints (`Complaint_No`, `Student_ID`, `PC_ID`, `Description`)
+}
+
+$insertSql = "INSERT INTO solvedcomplaints (`Complaint_No`, `Student_ID`, `PC_ID`, `Description`)
 SELECT Complaint_No, Student_ID, PC_ID, Description FROM placecomplaint
 WHERE Complaint_No=$Complaint_No";
 
-$res = mysqli_query($conn, $sql);
+$insertSqlRes = mysqli_query($conn, $insertSql);
 
-$sql = "DELETE FROM placecomplaint WHERE Complaint_No=$Complaint_No";
+$DeleteSql = "DELETE FROM placecomplaint WHERE Complaint_No=$Complaint_No";
 
-$res = mysqli_query($conn, $sql);
+$DeleteSqlRes = mysqli_query($conn, $sql);
 
-if($res==true){
+if($DeleteSqlRes==true){
   header('location: ManageComplaints.php');
 }
 

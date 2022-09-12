@@ -145,7 +145,6 @@
     else
     {
       echo '<script>alert("No file info to show.!");
-      
       </script>';
     }
    
