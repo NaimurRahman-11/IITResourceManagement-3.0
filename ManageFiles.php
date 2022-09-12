@@ -117,31 +117,38 @@
     
     
     
-    
-    while($row= mysqli_fetch_assoc($fetchfile))
+    if(mysqli_num_rows($fetchfile) > 0)
     {
-        
-            
-            $id=$row['id'];
-            $FileName=$row['FileName'];
-            $FileLocation=$row['FileLocation'];
-            
+      while($row= mysqli_fetch_assoc($fetchfile))
+      {      
+        $id=$row['id'];
+        $FileName=$row['FileName'];
+        $FileLocation=$row['FileLocation'];
+              
   ?>
-              <tr>
-                  <td><?php echo $id; ?></td>
-                  <td><?php echo $FileName; ?> </td>
-                  <td><?php echo $FileLocation; ?></td>
-                  <td>
-                    
-                    <a href="DeleteFileInfo.php?fileId=<?php echo $id; ?>" class="delete-button">Delete</a>
-    
-                  </td>
-              </tr>
-    
+                <tr>
+                    <td><?php echo $id; ?></td>
+                    <td><?php echo $FileName; ?> </td>
+                    <td><?php echo $FileLocation; ?></td>
+                    <td>
+                      
+                      <a href="DeleteFileInfo.php?fileId=<?php echo $id; ?>" class="delete-button">Delete</a>
+      
+                    </td>
+                </tr>
+      
   <?php 
-       
-        
+         
+          
+      }
     }
+    else
+    {
+      echo '<script>alert("No file info to show.!");
+      
+      </script>';
+    }
+   
   ?>
     
       

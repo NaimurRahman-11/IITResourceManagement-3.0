@@ -36,43 +36,54 @@
   
 </tr>
 
-<?php
-include('DatabaseConnection.php');
-
-$fileName=$_POST['fileName'];
-$fileName= '/'.$fileName.'/i';
-
-$sql= "select * from file";
-$fetchfile= mysqli_query($conn,$sql);
-?>
-
-
 
 <?php
-while($row= mysqli_fetch_assoc($fetchfile))
-{
-    if(preg_match($fileName,$row['FileName']))
-    {
-        
-        $id=$row['id'];
-        $FileName=$row['FileName'];
-        $FileLocation=$row['FileLocation'];
-        
-        ?>
-          <tr>
-                    <td><?php echo $id; ?></td>
-                    <td><?php echo $FileName; ?> </td>
-                    <td><?php echo $FileLocation; ?></td>
-                    
-                    
-                </tr>
-
-<?php 
-   }
+    include('DatabaseConnection.php');
     
-}
-?>
+    $fileName=$_POST['fileName'];
+    $fileName= '/'.$fileName.'/i';
 
+    $sql= "select * from file";
+    $fetchfile= mysqli_query($conn,$sql);
+    $countFileMatch=0;
+    
+    if(mysqli_num_rows($fetchfile) > 0)
+    {
+      while($row= mysqli_fetch_assoc($fetchfile))
+      {
+        if(preg_match($fileName,$row['FileName']))
+        {
+          $countFileMatch++;      
+          $id=$row['id'];
+          $FileName=$row['FileName'];
+          $FileLocation=$row['FileLocation'];
+              
+  ?>
+          <tr>
+              <td><?php echo $id; ?></td>
+              <td><?php echo $FileName; ?> </td>
+              <td><?php echo $FileLocation; ?></td>                    
+          </tr>
+      
+  <?php 
+        }    
+      }
+      if($countFileMatch == 0)
+      {
+        echo '<script>alert("We have not found any result of our search.!");
+        location="ManageFiles.php";
+        </script>';
+      }
+    }
+    else
+    {
+      echo '<script>alert("We have not found any result of our search.!");
+      location="ManageFiles.php";
+      </script>';
+    }
+   
+  ?>
+    
   
 </table>
     
