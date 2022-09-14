@@ -92,3 +92,8 @@ h1{
 #RequestStatus{
     margin-top: 3%;
 }
+
+#quantity{
+    border-radius: 5px;
+    border-width: thin;
+}

@@ -131,32 +131,56 @@
                 <div class="mb-3">
                   <label for="student-id" class="col-form-label">Teacher's Name:</label>
                   <input type="text" class="form-control" id="studentId" name="StudentID">
-                </div>
-      
+                </div> <br>
+
+
+
+                <!-- Bootstrap dynamic toggolable pills starts from here -->
                 <div class="mb-3">
-                  <label for="cars">Choose an Item:</label>
+                  <div class="toggolable">
+                    <ul class="nav nav-pills">
+                      <li class="nav-item"><a data-bs-toggle="pill" class="nav-link active" href="#stationaryItems">Stationary Items</a></li>
+                      <li class="nav-item"><a data-bs-toggle="pill" class="nav-link" href="#personalItems">Personal Items</a></li>
+                    </ul><br>
 
-                      <select name="items" id="items">
-                        <optgroup label="Stationary Items">
-                        <option value="null" selected>Null</option>
-                        <option value="marker">Marker</option>
-                        <option value="duster">Duster</option>
-                        <option value="pen">Pen</option>
-                        <option value="A4Paper">A4 Paper</option>
-                      </optgroup>
+                    <div class="tab-content">
+                      <div id="stationaryItems" class="tab-pane active">
+                        <input type="checkbox" onclick="markerVisible()" id="marker" name="marker" value="marker">
+                        <label for="marker">Marker</label> &nbsp;
+                        <span id="markerQuantity"></span> <br> <br>
 
-                      <optgroup label="Personal Items">
-                        <option value="tissueBox">Tissue Box</option>
-                        <option value="waterBottle">Water Bottle</option>
-                        <option value="airFreshner">Air Freshner</option>
-                      </optgroup>
-                      </select>
+                        <input type="checkbox" onclick="markerVisible()" id="duster" name="duster" value="duster">
+                        <label for="duster">Duster</label> &nbsp;
+                        <span id="dusterQuantity"></span> <br><br>
+
+                        <input type="checkbox" onclick="markerVisible()" id="pen" name="pen" value="pen">
+                        <label for="pen">Pen</label> &nbsp;
+                        <span id="penQuantity"></span> <br><br>
+
+                        <input type="checkbox" onclick="markerVisible()" id="A4Paper" name="A4Paper" value="A4Paper">
+                        <label for="A4Paper">A4 Paper</label> &nbsp;
+                        <span id="A4PaperQuantity"></span> <br><br>
+
+
+                      </div>
+
+                      <div id="personalItems" class="tab-pane fade">
+                        <input type="checkbox" onclick="markerVisible()" id="tissue" name="tissue" value="tissue">
+                        <label for="tissue"> Tissue Box</label> &nbsp;
+                        <span id="tissueQuantity"></span> <br><br>
+
+                        <input type="checkbox" onclick="markerVisible()" id="waterBottle" name="waterBottle" value="waterBottle">
+                        <label for="waterBottle">Water Bottle</label> &nbsp;
+                        <span id="waterBottleQuantity"></span> <br><br>
+
+                        <input type="checkbox" onclick="markerVisible()" id="airFreshner" name="airFreshner" value="airFreshner">
+                        <label for="airFreshner">Air Freshner</label> &nbsp;
+                        <span id="airFreshnerQuantity"></span> <br><br>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-
-                <div class="mb-3">
-                  <label for="pcId" class="col-form-label">Item Quantity:</label>
-                  <input type="text" class="form-control" id="pcId" name="PCID">
-                </div>
+                <!-- Bootstrap dynamic toggolable pills ends here -->
       
              
             </div>
@@ -170,6 +194,44 @@
       </form>
     <!-- Bootstrap Item Request Modal Ends Here -->
 
-    
+<script>
+  function markerVisible(){
+    var checkBox1 = document.getElementById("marker");
+    var checkBox2 = document.getElementById("duster");
+    var checkBox3 = document.getElementById("pen");
+    var checkBox4 = document.getElementById("A4Paper");
+    var checkBox5 = document.getElementById("tissue");
+    var checkBox6 = document.getElementById("waterBottle");
+    var checkBox7 = document.getElementById("airFreshner");
+
+    if(checkBox1.checked == true){
+      document.getElementById("markerQuantity").innerHTML = '<label for="quantity">Quantity:</label><input type="number" id="quantity" name="quantity" min="1" max="5">';
+    }
+
+    if(checkBox2.checked == true){
+      document.getElementById("dusterQuantity").innerHTML = '<label for="quantity">Quantity:</label><input type="number" id="quantity" name="quantity" min="1" max="5">';
+    }
+
+    if(checkBox3.checked == true){
+      document.getElementById("penQuantity").innerHTML = '<label for="quantity">Quantity:</label><input type="number" id="quantity" name="quantity" min="1" max="5">';
+    }
+
+    if(checkBox4.checked == true){
+      document.getElementById("A4PaperQuantity").innerHTML = '<label for="quantity">Quantity:</label><input type="number" id="quantity" name="quantity" min="1" max="5">';
+    }
+
+    if(checkBox5.checked == true){
+      document.getElementById("tissueQuantity").innerHTML = '<label for="quantity">Quantity:</label><input type="number" id="quantity" name="quantity" min="1" max="5">';
+    }
+
+    if(checkBox6.checked == true){
+      document.getElementById("waterBottleQuantity").innerHTML = '<label for="quantity">Quantity:</label><input type="number" id="quantity" name="quantity" min="1" max="5">';
+    }
+
+    if(checkBox7.checked == true){
+      document.getElementById("airFreshnerQuantity").innerHTML = '<label for="quantity">Quantity:</label><input type="number" id="quantity" name="quantity" min="1" max="5">';
+    }
+  }
+</script>    
 </body>
 </html>
