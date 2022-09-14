@@ -6,12 +6,12 @@ $teacherName=$_POST['teacherName'];
 $itemName= $_POST['itemName'];
 $description= $_POST['description'];
 
-$requisitionStatus= "waiting for Director's approval";
+$requisitionStatus= "waiting for approval of The Director";
 
 $sql= "INSERT into requisition (`TeacherName`,`ItemName`,`Description`,`RequisitionStatus`)
 values('$teacherName','$itemName','$description','$requisitionStatus')";
 
-/*if(mysqli_query($conn, $sql)){
+if(mysqli_query($conn, $sql)){
        
     echo '<script>alert("Your requisition is placed successfully!");
       location="TeacherPage.html";
@@ -21,5 +21,5 @@ values('$teacherName','$itemName','$description','$requisitionStatus')";
   else {
     echo '<script>alert("failed to place your requisition!");
     location="TeacherPage.html";
-    </script>';}*/
+    </script>';}
   
