@@ -23,7 +23,9 @@ body{
 
 .container{
     padding: 10%;
-    background-color: #74b9ff;
+    
+    background-image: url('./img/doodle.png');
+    
 }
 
 .btn{
@@ -40,11 +42,13 @@ body{
 .card{
     transition: .4s;
     margin-left: 8%;
+    
 }
 
 .card:hover{
     transform: scale(1.1);
     cursor: pointer;
+    
 }
 
 .box-shadow{
