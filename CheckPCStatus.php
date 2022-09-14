@@ -28,19 +28,39 @@
     
 
 <div class="buttons text-center">
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add PC</button>&nbsp; &nbsp;
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">Delete PC</button>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add PC</button>
+    
 </div>
 <br>
 
 
-    <table>
-    <tr>
-      <th>Id</th>
-      <th>PC ID</th>
-      <th>PC Status</th>
-      <th>No of complaints</th>
-    </tr>
+<form action="addPC.php" method="post">
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+
+            
+              <div class="mb-3">
+                <label for="YourID" class="col-form-label">PC Id:</label>
+                <input type="text" class="form-control" id="PC_Id" name="PC_Id">
+              </div>
+
+             
+            
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <input type="submit" class="btn btn-primary" value="Add" name="add" id="add">
+          </div>
+        </div>
+      </div>
+    </div>
+   </form>
     
     
   <?php
@@ -55,6 +75,17 @@
     
     if(mysqli_num_rows($fetchfile) > 0)
     {
+  ?>
+  <table>
+    <tr>
+      <th>Id</th>
+      <th>PC ID</th>
+      <th>PC Status</th>
+      <th>No of complaints</th>
+      <th>Action</th>
+    </tr>
+  <?php
+      
       while($row= mysqli_fetch_assoc($fetchfile))
       {      
         $id=$row['id'];
@@ -67,6 +98,9 @@
                     <td><?php echo $PC_Id; ?> </td>
                     <td><?php echo $PC_status; ?></td>
                     <td><?php echo $NoOfComplaints; ?></td>
+                    <td>
+                    <a href="DeletePc.php?PcId=<?php echo $PC_Id; ?>" class="delete-button">Delete</a>
+                    </td>
                 </tr>
       
   <?php 

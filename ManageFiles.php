@@ -98,13 +98,7 @@
    </form>
 
     <!-- Search File Modal Ends here -->
-    <table>
-    <tr>
-      <th>Id</th>
-      <th>File Name</th>
-      <th>File Location</th>
-      <th>Actions</th>
-    </tr>
+    
     
     
   <?php
@@ -119,6 +113,15 @@
     
     if(mysqli_num_rows($fetchfile) > 0)
     {
+  ?>
+  <table>
+    <tr>
+      <th>Id</th>
+      <th>File Name</th>
+      <th>File Location</th>
+      <th>Actions</th>
+    </tr>
+  <?php
       while($row= mysqli_fetch_assoc($fetchfile))
       {      
         $id=$row['id'];
