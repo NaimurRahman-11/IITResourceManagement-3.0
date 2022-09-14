@@ -4,7 +4,7 @@ include('DatabaseConnection.php');
 
 $PC_Id=$_POST['PC_Id'];
 $PC_status= "Active";
-$NoOfComplaint=0;
+$NoOfComplaint=0; 
 
 $sql= "insert into pc (`PC_Id`,`PC_status`,`NoOfComplaints`)
 values('$PC_Id','$PC_status','$NoOfComplaint')";
