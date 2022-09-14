@@ -77,7 +77,7 @@
             <div class="card box-shadow" style="width: 18rem;">
               <div class="card-body">
                 <i class="fa-solid fa-box-open fa-5x center"></i>
-                <a href="#" class="btn btn-primary" id="RequestStatusButton">Your Requisitions</a>
+                <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal3" id="RequestStatusButton">Your Requisitions</a>
               </div>
             </div>
           </div>
@@ -90,7 +90,7 @@
     <!-- Bootstrap Cards Ends Here -->
   
 
-    <!-- Bootstrap Place Requisition Modal Starts Here -->
+    <!-- Bootstrap for your requisition Modal Starts Here -->
     <form action="PlaceRequisitionForTeacher.php" method="post">
 
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -126,9 +126,37 @@
         </div>
       </div>
       </form>
+    <!-- Bootstrap for your requisition Ends Here -->
+
+ <!-- Bootstrap Place Requisition Modal Starts Here -->
+    <form action="PlaceRequisitionForTeacher.php" method="post">
+
+      <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">See your submitted requisition here!</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                
+                <div class="mb-3">
+                  <label for="student-id" class="col-form-label">Teacher's Name:</label>
+                  <input type="text" class="form-control" id="StudentID" name="teacherName">
+                </div>
+                
+                
+             
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <input type="submit" class="btn btn-primary" value="Submit" name="submit" id="submit">
+            </div>
+          </div>
+        </div>
+      </div>
+      </form>
     <!-- Bootstrap Place Requisition Ends Here -->
-
-
 
     <!-- Bootstrap Item Request Modal Starts Here -->
     <form action="" method="post">
