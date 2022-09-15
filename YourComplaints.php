@@ -48,11 +48,22 @@ if (isset($_POST["submit2"])){
       if(mysqli_num_rows($fetchComplaintsSqlresult) > 0)
       {
         echo "<table border=1>";
-        echo "<tr><td>Complaint_No</td><td>Student_ID</td><td>PC_ID</td><td>Description</td><td>Date</td></tr>";
+        echo "<tr>
+        <td> Complaint_No </td>
+        <td> Student_ID </td>
+        <td> PC_ID </td>
+        <td> Description </td>
+        <td> Date </td>
+        </tr>";
         while ($row = $fetchComplaintsSqlresult->fetch_assoc()) 
         {
-          echo "<tr><td>{$row['Complaint_No']}</td><td>{$row['Student_ID']}</td><td>{$row['PC_ID']}</td>
-          <td>{$row['Description']}</td><td>{$row['Date']}</td></tr>";    
+          echo "<tr>
+          <td> {$row['Complaint_No']} </td>
+          <td> {$row['Student_ID']} </td>
+          <td> {$row['PC_ID']} </td>
+          <td> {$row['Description']} </td>
+          <td> {$row['Date']} </td>
+          </tr>";    
         }
 
       echo "</table>";  

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Office Assistant's Dashboard</title>
+    <title>Teacher's Dashboard</title>
 
     <script src="https://kit.fontawesome.com/9778dd3679.js" crossorigin="anonymous"></script>
 
@@ -21,7 +21,7 @@
 <body>
   
   <div class="header">
-    <h1>Lab Assistant's Dashboard</h1> 
+    <h1>Teacher's Dashboard</h1> 
     <a href="LabAssistantPage.html"><p class="home"><i class="fa-solid fa-house-user"></i> Home</p> </a> 
     <a href="logInPage.html"><p class="log-out"><i class="fa-solid fa-right-from-bracket"></i> log out</p> </a>
   </div>
