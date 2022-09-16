@@ -6,8 +6,10 @@ $fileName=$_POST['FileName'];
 
 $fileLocation=$_POST['FileLocation'];
 
-$sql= "insert into file (`FileName`,`FileLocation`)
-values('$fileName','$fileLocation')";
+$fileCategory=$_POST['FileCategory'];
+
+$sql= "insert into file (`FileName`,`FileLocation`,`FileCategory`)
+values('$fileName','$fileLocation','$fileCategory')";
 
 if(mysqli_query($conn, $sql)){
        

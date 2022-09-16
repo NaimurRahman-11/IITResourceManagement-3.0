@@ -68,6 +68,21 @@ h1{
 }
 
 
+.update-button{
+    background-color: #7bed9f;
+    padding: 4%;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+}
+
+.update-button:hover{
+    background-color: #2ed573;
+    color: black;
+}
+
 td{
     padding: 2%;
 }
