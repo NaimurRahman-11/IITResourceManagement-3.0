@@ -34,45 +34,63 @@
 <br>
 
 
+<?php
 
+session_start();
+function returnName()
+{
+  if(isset($_POST['teacherName']))
+  {
+    $_SESSION['name']=$_POST['teacherName'];
+
+  }
+  return $_SESSION['name'];
+}
+
+ 
+?>
     
   <?php
     include('DatabaseConnection.php');
+     
+    $name=returnName();
+
+    $sql= "select * from requisition where TeacherName= '$name'";
+    $fetchRequisition= mysqli_query($conn,$sql);
     
-  
-    
-    $sql= "select * from pc";
-    $fetchfile= mysqli_query($conn,$sql);
     
     
-    
-    if(mysqli_num_rows($fetchfile) > 0)
+    if(mysqli_num_rows($fetchRequisition) > 0)
     {
   ?>
   <table>
     <tr>
       <th>Id</th>
-      <th>PC ID</th>
-      <th>PC Status</th>
-      <th>No of complaints</th>
+      <th>Teacher's Name</th>
+      <th>Items</th>
+      <th>Description</th>
+      <th>Status of Requisition</th>
       <th>Action</th>
     </tr>
   <?php
       
-      while($row= mysqli_fetch_assoc($fetchfile))
+      while($row= mysqli_fetch_assoc($fetchRequisition))
       {      
         $id=$row['id'];
-        $PC_Id=$row['PC_Id'];
-        $PC_status=$row['PC_status'];
-        $NoOfComplaints= $row['NoOfComplaints'];             
+        $TeacherName=$row['TeacherName'];
+        $ItemName=$row['ItemName'];
+        $Description= $row['Description'];
+        $RequisitionStatus=$row['RequisitionStatus'];    
+
   ?>
                 <tr>
                     <td><?php echo $id; ?></td>
-                    <td><?php echo $PC_Id; ?> </td>
-                    <td><?php echo $PC_status; ?></td>
-                    <td><?php echo $NoOfComplaints; ?></td>
+                    <td><?php echo $TeacherName; ?> </td>
+                    <td><?php echo $ItemName; ?></td>
+                    <td><?php echo $Description; ?></td>
+                    <td><?php echo $RequisitionStatus; ?></td>
                     <td>
-                    <a href="#?PcId=<?php echo $PC_Id; ?>" class="cancel-button">Cancel</a>
+                    <a href="cancelRequisition.php?cancelRequisition=<?php echo $id; ?>" class="cancel-button">Cancel</a>
                     </td>
                 </tr>
       
@@ -91,6 +109,16 @@
     
       
     </table>
+    
+  
+    
+    
+    
+    
+    
+    
+  ?>
+  
 
     
 </body>
