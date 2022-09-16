@@ -19,7 +19,6 @@
 
 </head>
 <body>
-
   
   <div class="header">
     <h1>Office Assistant's Dashboard</h1> 
@@ -38,28 +37,124 @@
                     <li class="nav-item"><a data-bs-toggle="pill" class="nav-link" href="#furnitures">Furnitures</a></li>
                     <li class="nav-item"><a data-bs-toggle="pill" class="nav-link" href="#electronics">Electric & Electronics</a></li>
                   </ul><br>
-                  
 
                   <div class="tab-content center">
                     <div id="stationaryItems" class="tab-pane active">
-                   
+                      <!-- Stationary Table will be added here -->
+                      
+                      <table>
+
+                        <tr>
+                          <th>ID</th>
+                          <th>Stationary Type</th>
+                          <th>Amount</th>
+                          <th>Actions</th>
+                        </tr>
+                                              <?php
+                        include('DatabaseConnection.php');
+
+                        $sql = "SELECT * From stationaryitems";
+
+                        $res = mysqli_query($conn, $sql);
+
+                        if($res==true){
+
+                          $count = mysqli_num_rows($res);
+
+                          if($count>0){
+                              while($rows = mysqli_fetch_assoc($res)){
+                                  $id = $rows['id'];
+                                  $StationaryType = $rows['StationaryType'];
+                                  $amount = $rows['amount'];      
+
+                          ?>
+
+                                      <tr>
+                                          <td><?php echo $id; ?></td>
+                                          <td><?php echo $StationaryType; ?> </td>
+                                          <td><?php echo $amount; ?></td>
+                                          
+                                          <td>
+                                              <a href="#?id=<?php echo $Complaint_No; ?>" class="trash-button">Update</a>
+                                              
+                                          </td>
+                                      </tr>
+
+                                  <?php
+                              }
+                          }
+
+                        }
+
+                        ?>         
+
+
+</table>
                     </div>
 
 
+                    <div id="furnitures" class="tab-pane">
+                        <!-- Furniture Table will be added here -->
+                        <table>
 
-                      wemf;ewkmkew;
+<tr>
+  <th>ID</th>
+  <th>Furniture Type</th>
+  <th>Amount</th>
+  <th>Actions</th>
+</tr>
+                      <?php
+include('DatabaseConnection.php');
+
+$sql = "SELECT * From furniture";
+
+$res = mysqli_query($conn, $sql);
+
+if($res==true){
+
+  $count = mysqli_num_rows($res);
+
+  if($count>0){
+      while($rows = mysqli_fetch_assoc($res)){
+          $id = $rows['id'];
+          $FurnitureType = $rows['FurnitureType'];
+          $amount = $rows['amount'];      
+
+  ?>
+
+              <tr>
+                  <td><?php echo $id; ?></td>
+                  <td><?php echo $FurnitureType; ?> </td>
+                  <td><?php echo $amount; ?></td>
+                  
+                  <td>
+                      <a href="#?id=<?php echo $Complaint_No; ?>" class="trash-button">Update</a>
                       
+                  </td>
+              </tr>
 
+          <?php
+      }
+  }
+
+}
+
+?>         
+
+
+</table>
+                      
+                      
                       </div>
 
 
                     <div id="personalItems" class="tab-pane fade">
-                    
+                      <!-- Personal Table will be added here -->
                     </div>
 
 
                     <div id="electronics" class="tab-pane fade">
-                    
+                        <!-- Electronic Table will be added here -->
                       </div>
 
                   </div>
