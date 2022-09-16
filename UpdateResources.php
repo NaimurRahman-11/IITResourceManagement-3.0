@@ -37,25 +37,27 @@
                     <li class="nav-item"><a data-bs-toggle="pill" class="nav-link" href="#furnitures">Furnitures</a></li>
                     <li class="nav-item"><a data-bs-toggle="pill" class="nav-link" href="#electronics">Electric & Electronics</a></li>
                   </ul><br>
+                  
 
                   <div class="tab-content center">
                     <div id="stationaryItems" class="tab-pane active">
-                      <!-- Stationary Table will be added here -->
+                   
+                   
                     </div>
 
 
                     <div id="furnitures" class="tab-pane">
-                        <!-- Furniture Table will be added here -->
+                                 
                       </div>
 
 
                     <div id="personalItems" class="tab-pane fade">
-                      <!-- Personal Table will be added here -->
+                    
                     </div>
 
 
                     <div id="electronics" class="tab-pane fade">
-                        <!-- Electronic Table will be added here -->
+                    
                       </div>
 
                   </div>
