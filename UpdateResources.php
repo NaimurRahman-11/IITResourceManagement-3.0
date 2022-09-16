@@ -29,6 +29,7 @@
 
 
               <!-- Bootstrap dynamic toggolable pills starts from here -->
+              <br>
               <div class="mb-3">
                 <div class="toggolable">
                   <ul class="nav nav-pills justify-content-center">
@@ -50,7 +51,8 @@
                           <th>Amount</th>
                           <th>Actions</th>
                         </tr>
-                                              <?php
+
+                        <?php
                         include('DatabaseConnection.php');
 
                         $sql = "SELECT * From stationaryitems";
@@ -75,7 +77,7 @@
                                           <td><?php echo $amount; ?></td>
                                           
                                           <td>
-                                              <a href="#?id=<?php echo $Complaint_No; ?>" class="trash-button">Update</a>
+                                              <a href="#?id=<?php echo $Complaint_No; ?>" class="update-button">Update</a>
                                               
                                           </td>
                                       </tr>
@@ -89,7 +91,8 @@
                         ?>         
 
 
-</table>
+                    </table>
+
                     </div>
 
 
@@ -97,52 +100,53 @@
                         <!-- Furniture Table will be added here -->
                         <table>
 
-<tr>
-  <th>ID</th>
-  <th>Furniture Type</th>
-  <th>Amount</th>
-  <th>Actions</th>
-</tr>
-                      <?php
-include('DatabaseConnection.php');
-
-$sql = "SELECT * From furniture";
-
-$res = mysqli_query($conn, $sql);
-
-if($res==true){
-
-  $count = mysqli_num_rows($res);
-
-  if($count>0){
-      while($rows = mysqli_fetch_assoc($res)){
-          $id = $rows['id'];
-          $FurnitureType = $rows['FurnitureType'];
-          $amount = $rows['amount'];      
-
-  ?>
-
-              <tr>
-                  <td><?php echo $id; ?></td>
-                  <td><?php echo $FurnitureType; ?> </td>
-                  <td><?php echo $amount; ?></td>
-                  
-                  <td>
-                      <a href="#?id=<?php echo $Complaint_No; ?>" class="trash-button">Update</a>
+                      <tr>
+                        <th>ID</th>
+                        <th>Furniture Type</th>
+                        <th>Amount</th>
+                        <th>Actions</th>
+                      </tr>
                       
-                  </td>
-              </tr>
+                      <?php
+                      include('DatabaseConnection.php');
 
-          <?php
-      }
-  }
+                      $sql = "SELECT * From furniture";
 
-}
+                      $res = mysqli_query($conn, $sql);
 
-?>         
+                      if($res==true){
+
+                        $count = mysqli_num_rows($res);
+
+                        if($count>0){
+                            while($rows = mysqli_fetch_assoc($res)){
+                                $id = $rows['id'];
+                                $FurnitureType = $rows['FurnitureType'];
+                                $amount = $rows['amount'];      
+
+                        ?>
+
+                                    <tr>
+                                        <td><?php echo $id; ?></td>
+                                        <td><?php echo $FurnitureType; ?> </td>
+                                        <td><?php echo $amount; ?></td>
+                                        
+                                        <td>
+                                            <a href="#?id=<?php echo $Complaint_No; ?>" class="update-button">Update</a>
+                                            
+                                        </td>
+                                    </tr>
+
+                                <?php
+                            }
+                        }
+
+                      }
+
+                      ?>         
 
 
-</table>
+                      </table>
                       
                       
                       </div>
@@ -150,11 +154,110 @@ if($res==true){
 
                     <div id="personalItems" class="tab-pane fade">
                       <!-- Personal Table will be added here -->
+                      <table>
+
+                      <tr>
+                        <th>ID</th>
+                        <th>Personal Items Type</th>
+                        <th>Amount</th>
+                        <th>Actions</th>
+                      </tr>
+                      
+                      <?php
+                      include('DatabaseConnection.php');
+
+                      $sql = "SELECT * From personalitems";
+
+                      $res = mysqli_query($conn, $sql);
+
+                      if($res==true){
+
+                        $count = mysqli_num_rows($res);
+
+                        if($count>0){
+                            while($rows = mysqli_fetch_assoc($res)){
+                                $id = $rows['id'];
+                                $personalItemsType = $rows['personalItemsType'];
+                                $amount = $rows['amount'];      
+
+                        ?>
+
+                                    <tr>
+                                        <td><?php echo $id; ?></td>
+                                        <td><?php echo $personalItemsType; ?> </td>
+                                        <td><?php echo $amount; ?></td>
+                                        
+                                        <td>
+                                            <a href="#?id=<?php echo $Complaint_No; ?>" class="update-button">Update</a>
+                                            
+                                        </td>
+                                    </tr>
+
+                                <?php
+                            }
+                        }
+
+                      }
+
+                      ?>         
+
+
+                      </table>
                     </div>
 
 
                     <div id="electronics" class="tab-pane fade">
                         <!-- Electronic Table will be added here -->
+
+                        <table>
+
+                      <tr>
+                        <th>ID</th>
+                        <th>Electric Or Electronic Type</th>
+                        <th>Amount</th>
+                        <th>Actions</th>
+                      </tr>
+                      
+                      <?php
+                      include('DatabaseConnection.php');
+
+                      $sql = "SELECT * From electricorelectronic";
+
+                      $res = mysqli_query($conn, $sql);
+
+                      if($res==true){
+
+                        $count = mysqli_num_rows($res);
+
+                        if($count>0){
+                            while($rows = mysqli_fetch_assoc($res)){
+                                $id = $rows['id'];
+                                $ELectricOrElectronicType = $rows['ELectricOrElectronicType'];
+                                $amount = $rows['amount'];      
+
+                        ?>
+
+                                    <tr>
+                                        <td><?php echo $id; ?></td>
+                                        <td><?php echo $ELectricOrElectronicType; ?> </td>
+                                        <td><?php echo $amount; ?></td>
+                                        
+                                        <td>
+                                            <a href="#?id=<?php echo $Complaint_No; ?>" class="update-button">Update</a>
+                                            
+                                        </td>
+                                    </tr>
+
+                                <?php
+                            }
+                        }
+
+                      }
+
+                      ?>         
+
+
+                      </table>
                       </div>
 
                   </div>
