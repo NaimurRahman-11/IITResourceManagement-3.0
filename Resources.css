@@ -1,0 +1,54 @@
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    padding-bottom: 10px;
+}
+
+h1{
+    text-align: center;
+    padding: 5%;
+    color: #ffff;
+}
+
+.header{
+    background-color: #535c68;
+}
+
+
+
+.center {
+    text-align: center;
+    width: 100%;
+}
+
+
+
+.log-out{
+    float: right;
+    margin-top: -117px;
+    margin-right: 25px;
+    color: #c7ecee;
+}
+
+.log-out:hover{
+    color: #ffff;
+}
+
+.home{
+    float: right;
+    margin-top: -118px;
+    margin-right: 160px;
+    color: #c7ecee;
+}
+
+.home:hover{
+    color: #ffff;
+}
+
