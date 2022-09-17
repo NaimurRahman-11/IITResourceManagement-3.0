@@ -41,6 +41,7 @@
                     <div id="stationaryItems" class="tab-pane active">
                       <!-- Stationary Table will be added here -->
                       
+                    
                       <table>
 
                         <tr>
@@ -72,7 +73,7 @@
                                           <td><?php echo $id; ?></td>
                                           <td><?php echo $StationaryType; ?> </td>
                                           <td><?php echo $amount; ?></td>
-                                          
+
                                          
                                       </tr>
 
@@ -86,6 +87,7 @@
 
 
                     </table>
+                    
 
                     </div>
 
@@ -149,6 +151,7 @@
               <!-- Bootstrap dynamic toggolable pills ends here -->
     
            
+
 
 
    
