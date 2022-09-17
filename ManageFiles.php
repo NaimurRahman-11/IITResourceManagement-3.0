@@ -139,7 +139,7 @@
     
     
   <?php
-    include('DatabaseConnection.php');
+     include('DatabaseConnection.php');
     
   
     
@@ -188,9 +188,7 @@
                     </td>
                 </tr>
       
-  <?php 
-         
-          
+  <?php   
       }
     }
     else
