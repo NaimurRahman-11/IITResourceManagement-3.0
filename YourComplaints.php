@@ -51,16 +51,29 @@
     <a href="StudentPage.html"><p class="home"><i class="fa-solid fa-house-user"></i> Home</p> </a> 
     <a href="logInPage.html"><p class="log-out"><i class="fa-solid fa-right-from-bracket"></i> log out</p> </a>
   </div> -->
-    
+  <table>
+ <?php
 
-  <?php
+session_start();
+function returnId()
+{
+  if(isset($_POST['YourID']))
+  {
+    $_SESSION['YourID']=$_POST['YourID'];
+
+  }
+  return $_SESSION['YourID'];
+}
+ ?>
+
+<?php
 include('DatabaseConnection.php');
 
-if (isset($_POST["submit2"])){
+
    
-    $Your_ID = $_POST["YourID"];
+    $Your_ID = returnId();
     
-    $fetchRollSql="select `Academic_roll` from student where Academic_roll= '$Your_ID'";
+    $fetchRollSql="SELECT `Academic_roll` from student where Academic_roll= '$Your_ID'";
     $fetchComplaintsSql = "SELECT * FROM placecomplaint WHERE Student_ID = '$Your_ID'";
 
     $fetchComplaintsSqlresult = mysqli_query($conn,$fetchComplaintsSql);
@@ -72,51 +85,62 @@ if (isset($_POST["submit2"])){
     {
       if(mysqli_num_rows($fetchComplaintsSqlresult) > 0)
       {
-        echo "<table border=1>";
-        echo "<tr>
+?>        
+           
+        
+        <tr>
         <td> Complaint_No </td>
         <td> Student_ID </td>
         <td> PC_ID </td>
         <td> Description </td>
         <td> Date </td>
         <td> Action </td>
-        </tr>";
+        </tr>
+<?php    
+
         while ($row = $fetchComplaintsSqlresult->fetch_assoc()) 
         {
-          echo "<tr>
-          <td> {$row['Complaint_No']} </td>
-          <td> {$row['Student_ID']} </td>
-          <td> {$row['PC_ID']} </td>
-          <td> {$row['Description']} </td>
-          <td> {$row['Date']} </td>
 
-          <td>
-          <a href='#' class='trash-button'>Cancel</a>
-          </td>
-          </tr>";    
+          $Complaint_No=$row['Complaint_No'];
+          $Student_ID= $row['Student_ID'];
+          $PC_ID=$row['PC_ID'];
+          $Description=$row['Description'];
+          $Date =$row['Date'];
+?>   
+          <tr>
+              <td><?php echo $Complaint_No?> </td>
+              <td> <?php echo $Student_ID?> </td>
+              <td> <?php echo $PC_ID?> </td>
+              <td> <?php echo $Description?></td>
+              <td> <?php echo $Date?> </td>
+
+              <td>
+              <a href="cancelComplaints.php?id=<?php echo $Complaint_No; ?>" class='trash-button'>Cancel</a>
+              </td>
+              </tr>    
+<?php           
         }
-
-      echo "</table>";  
-      }
-      else
-      {
-        echo '<script>alert("You have no complaints to see!");
-        location="StudentPage.html";
-        </script>';
-      }
-    }
-    else 
-    {
-      echo '<script>alert("Your roll number is wrong.!");
-      location="StudentPage.html";
-      </script>';
-    }
-    
-
-}
+     
 ?> 
 
-     
+<?php  
+
+    }
+    else
+    {
+      echo '<script>alert("You have no complaints to see!");
+      
+      </script>';
+    } 
+  }
+else 
+{
+echo '<script>alert("Your roll number is wrong.!");
+location:StudentPage.html
+</script>';
+}   
+?>
+</table>   
 </body>
 
 <footer class="footer">
