@@ -160,7 +160,7 @@
     <!-- Bootstrap for your requisition Ends Here -->
 
     <!-- Bootstrap Item Request Modal Starts Here -->
-    <form action="" method="post">
+    <form action="ItemRequest.php" method="post">
 
       <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -192,9 +192,7 @@
                         <label for="marker">Marker</label> &nbsp;
                         <span id="markerQuantity"></span> <br> <br>
 
-                        <input type="checkbox" onclick="markerVisible()" id="duster" name="duster" value="duster">
-                        <label for="duster">Duster</label> &nbsp;
-                        <span id="dusterQuantity"></span> <br><br>
+                        
 
                         <input type="checkbox" onclick="markerVisible()" id="pen" name="pen" value="pen">
                         <label for="pen">Pen</label> &nbsp;
@@ -212,10 +210,7 @@
                         <label for="tissue"> Tissue Box</label> &nbsp;
                         <span id="tissueQuantity"></span> <br><br>
 
-                        <input type="checkbox" onclick="markerVisible()" id="waterBottle" name="waterBottle" value="waterBottle">
-                        <label for="waterBottle">Water Bottle</label> &nbsp;
-                        <span id="waterBottleQuantity"></span> <br><br>
-
+                       
                         <input type="checkbox" onclick="markerVisible()" id="airFreshner" name="airFreshner" value="airFreshner">
                         <label for="airFreshner">Air Freshner</label> &nbsp;
                         <span id="airFreshnerQuantity"></span> <br><br>
@@ -240,12 +235,10 @@
 <script>
   function markerVisible(){
     var checkBox1 = document.getElementById("marker");
-    var checkBox2 = document.getElementById("duster");
-    var checkBox3 = document.getElementById("pen");
-    var checkBox4 = document.getElementById("A4Paper");
-    var checkBox5 = document.getElementById("tissue");
-    var checkBox6 = document.getElementById("waterBottle");
-    var checkBox7 = document.getElementById("airFreshner");
+    var checkBox2 = document.getElementById("pen");
+    var checkBox3 = document.getElementById("A4Paper");
+    var checkBox4 = document.getElementById("tissue");
+    var checkBox5 = document.getElementById("airFreshner");
 
     if(checkBox1.checked){
       document.getElementById("markerQuantity").innerHTML = 
@@ -253,31 +246,21 @@
     }
 
     if(checkBox2.checked){
-      document.getElementById("dusterQuantity").innerHTML = 
-      '<label for="quantity">Quantity:</label><input type="number" id="quantity" name="dusterQuantitybox" min="1" max="5">';
-    }
-
-    if(checkBox3.checked){
       document.getElementById("penQuantity").innerHTML = 
       '<label for="quantity">Quantity:</label><input type="number" id="quantity" name="penQuantitybox" min="1" max="5">';
     }
 
-    if(checkBox4.checked){
+    if(checkBox3.checked){
       document.getElementById("A4PaperQuantity").innerHTML = 
       '<label for="quantity">Quantity:</label><input type="number" id="quantity" name="A4PaperQuantitybox" min="1" max="5">';
     }
 
-    if(checkBox5.checked){
+    if(checkBox4.checked){
       document.getElementById("tissueQuantity").innerHTML = 
       '<label for="quantity">Quantity:</label><input type="number" id="quantity" name="tissueQuantitybox" min="1" max="5">';
     }
 
-    if(checkBox6.checked){
-      document.getElementById("waterBottleQuantity").innerHTML = 
-      '<label for="quantity">Quantity:</label><input type="number" id="quantity" name="waterBottleQuantitybox" min="1" max="5">';
-    }
-
-    if(checkBox7.checked){
+    if(checkBox5.checked){
       document.getElementById("airFreshnerQuantity").innerHTML = 
       '<label for="quantity">Quantity:</label><input type="number" id="quantity" name="airFreshnerQuantitybox" min="1" max="5">';
     }
