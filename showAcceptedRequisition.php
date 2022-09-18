@@ -26,40 +26,9 @@
     <a href="logInPage.html"><p class="log-out"><i class="fa-solid fa-right-from-bracket"></i> log out</p> </a>
   </div>
     
-  <form action="showAcceptedRequisition.php" method="post">
-
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">See your submitted requisition here!</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            
-            <div class="mb-3">
-              <label for="student-id" class="col-form-label">Teacher's Name:</label>
-              <input type="text" class="form-control" id="StudentID" name="teacherName">
-            </div>
-            
-            
-        
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <input type="submit" class="btn btn-primary" value="Submit" name="submit" id="submit">
-        </div>
-      </div>
-    </div>
-  </div>
-  </form>
 
 
-<div class="buttons text-center">
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" >Your executed Requisitions</button>
-    
-</div>
-<br>
+
 
 
 <?php
@@ -83,7 +52,7 @@ function returnName()
      
     $name=returnName();
 
-    $sql= "select * from requisition where TeacherName= '$name'";
+    $sql= "select * from acceptedRequisition where TeacherName= '$name'";
     $fetchRequisition= mysqli_query($conn,$sql);
     
     
@@ -97,7 +66,8 @@ function returnName()
       <th>Teacher's Name</th>
       <th>Items</th>
       <th>Description</th>
-      <th>Status of Requisition</th>
+      <th>Date</th>
+      <th>Feedback</th>
       <th>Action</th>
     </tr>
   <?php
@@ -108,7 +78,8 @@ function returnName()
         $TeacherName=$row['TeacherName'];
         $ItemName=$row['ItemName'];
         $Description= $row['Description'];
-        $RequisitionStatus=$row['RequisitionStatus'];    
+        $date= $row['date_of_commencement'];
+        $feedback=$row['feedback'];    
 
   ?>
                 <tr>
@@ -116,9 +87,10 @@ function returnName()
                     <td><?php echo $TeacherName; ?> </td>
                     <td><?php echo $ItemName; ?></td>
                     <td><?php echo $Description; ?></td>
-                    <td><?php echo $RequisitionStatus; ?></td>
+                    <td><?php echo $date; ?></td>
+                    <td><?php echo $feedback; ?></td>
                     <td>
-                    <a href="cancelRequisition.php?cancelRequisition=<?php echo $id; ?>" class="cancel-button">Cancel</a>
+                    <a href="#" class="cancel-button">Give feedback</a>
                     </td>
                 </tr>
       
@@ -129,7 +101,7 @@ function returnName()
     }
     else
     {
-      echo '<script>alert("You have no pending requisition!");
+      echo '<script>alert("You have no accepted requisition!");
       </script>';
     }
    
@@ -137,8 +109,6 @@ function returnName()
     
       
     </table>
-  
-  
 
     
 </body>
