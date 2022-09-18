@@ -20,12 +20,37 @@
 
 </head>
 <body>
+
+ <!-- Navigation Bar Starts -->
+ <nav class="navbar navbar-expand-lg bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="StudentPage.html"><img src="./img/logo.png" width="50px" alt="logo"><span class="navbar-brand mr-2">IIT RESOURCE</span></a>
+      <h1>Student's Dashboard</h1> 
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="StudentPage.html" style="margin-right: 15px;"><i class="fa-solid fa-house-user"></i> Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="logInPage.html"><i class="fa-solid fa-right-from-bracket"></i> Log-Out</a>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <br>
+<!-- Navigation Bar Ends -->
   
-  <div class="header">
+  <!-- <div class="header">
     <h1>Student's Dashboard</h1>
     <a href="StudentPage.html"><p class="home"><i class="fa-solid fa-house-user"></i> Home</p> </a> 
     <a href="logInPage.html"><p class="log-out"><i class="fa-solid fa-right-from-bracket"></i> log out</p> </a>
-  </div>
+  </div> -->
     
 
   <?php
@@ -88,6 +113,11 @@ if (isset($_POST["submit2"])){
 
      
 </body>
+
+<footer class="footer">
+  <p>© 2022 Institute of Information Technology, NSTU | All Rights Reserved.</p>
+</footer>
+
 </html>
 
 
