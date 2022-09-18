@@ -79,6 +79,7 @@ if (isset($_POST["submit2"])){
         <td> PC_ID </td>
         <td> Description </td>
         <td> Date </td>
+        <td> Action </td>
         </tr>";
         while ($row = $fetchComplaintsSqlresult->fetch_assoc()) 
         {
@@ -88,6 +89,10 @@ if (isset($_POST["submit2"])){
           <td> {$row['PC_ID']} </td>
           <td> {$row['Description']} </td>
           <td> {$row['Date']} </td>
+
+          <td>
+          <a href='#' class='trash-button'>Cancel</a>
+          </td>
           </tr>";    
         }
 
@@ -109,7 +114,7 @@ if (isset($_POST["submit2"])){
     
 
 }
-?>
+?> 
 
      
 </body>
