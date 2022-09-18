@@ -26,6 +26,68 @@
     <a href="logInPage.html"><p class="log-out"><i class="fa-solid fa-right-from-bracket"></i> log out</p> </a>
   </div>
 
+  <form action="AddResource.php" method="post">
+    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+
+          <div class="mb-3">
+                <label for="YourID" class="col-form-label">Resource ID:</label>
+                <input type="text" class="form-control" id="FileName" name="ResourceID">
+              </div>
+
+            
+              <div class="mb-3">
+                <label for="YourID" class="col-form-label">Enter the increased Amount:</label>
+                <input type="text" class="form-control" id="FileLocation" name="increasedAmount">
+              </div>
+  
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <input type="submit" class="btn btn-primary" value="Update" name="Search" id="Search">
+          </div>
+        </div>
+      </div>
+    </div>
+   </form>
+
+   <form action="DecreaseResource.php" method="post">
+    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+
+          <div class="mb-3">
+                <label for="YourID" class="col-form-label">Resource ID:</label>
+                <input type="text" class="form-control" id="FileName" name="ResourceID">
+              </div>
+
+            
+              <div class="mb-3">
+                <label for="YourID" class="col-form-label">Enter the decreased Amount:</label>
+                <input type="text" class="form-control" id="FileLocation" name="decreasedAmount">
+              </div>
+  
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <input type="submit" class="btn btn-primary" value="Update" name="Search" id="Search">
+          </div>
+        </div>
+      </div>
+    </div>
+   </form>
+
 
 
               <!-- Bootstrap dynamic toggolable pills starts from here -->
@@ -55,7 +117,7 @@
                         <?php
                         include('DatabaseConnection.php');
 
-                        $sql = "SELECT * From stationaryitems";
+                        $sql = "SELECT * From resource where ItemCategory='stationary'";
 
                         $res = mysqli_query($conn, $sql);
 
@@ -66,7 +128,7 @@
                           if($count>0){
                               while($rows = mysqli_fetch_assoc($res)){
                                   $id = $rows['id'];
-                                  $StationaryType = $rows['StationaryType'];
+                                  $StationaryType = $rows['ItemName'];
                                   $amount = $rows['amount'];      
 
                           ?>
@@ -77,8 +139,8 @@
                                           <td><?php echo $amount; ?></td>
                                           
                                           <td>
-                                              <a href="#?id=<?php echo $Complaint_No; ?>" class="update-button">Update</a>
-                                              
+                                              <a href="#" class="update-button" data-bs-toggle="modal" data-bs-target="#exampleModal1">Add</a>
+                                              <a href="#" class="update-button" data-bs-toggle="modal" data-bs-target="#exampleModal2">Decrease</a>
                                           </td>
                                       </tr>
 
@@ -110,7 +172,7 @@
                       <?php
                       include('DatabaseConnection.php');
 
-                      $sql = "SELECT * From furniture";
+                      $sql = "SELECT * From resource where ItemCategory='furniture'";
 
                       $res = mysqli_query($conn, $sql);
 
@@ -121,7 +183,7 @@
                         if($count>0){
                             while($rows = mysqli_fetch_assoc($res)){
                                 $id = $rows['id'];
-                                $FurnitureType = $rows['FurnitureType'];
+                                $FurnitureType = $rows['ItemName'];
                                 $amount = $rows['amount'];      
 
                         ?>
@@ -132,9 +194,10 @@
                                         <td><?php echo $amount; ?></td>
                                         
                                         <td>
-                                            <a href="#?id=<?php echo $Complaint_No; ?>" class="update-button">Update</a>
+                                            <a href="#" class="update-button" data-bs-toggle="modal" data-bs-target="#exampleModal1">Add</a>
+                                            <a href="#?>" class="update-button" data-bs-toggle="modal" data-bs-target="#exampleModal2">Decrease</a>
                                             
-                                        </td>
+                                        </td> 
                                     </tr>
 
                                 <?php
@@ -166,7 +229,7 @@
                       <?php
                       include('DatabaseConnection.php');
 
-                      $sql = "SELECT * From personalitems";
+                      $sql = "SELECT * From resource where ItemCategory='personal'";
 
                       $res = mysqli_query($conn, $sql);
 
@@ -177,7 +240,7 @@
                         if($count>0){
                             while($rows = mysqli_fetch_assoc($res)){
                                 $id = $rows['id'];
-                                $personalItemsType = $rows['personalItemsType'];
+                                $personalItemsType = $rows['ItemName'];
                                 $amount = $rows['amount'];      
 
                         ?>
@@ -188,7 +251,8 @@
                                         <td><?php echo $amount; ?></td>
                                         
                                         <td>
-                                            <a href="#?id=<?php echo $Complaint_No; ?>" class="update-button">Update</a>
+                                            <a href="#" class="update-button" data-bs-toggle="modal" data-bs-target="#exampleModal1">Add</a>
+                                            <a href="#?>" class="update-button" data-bs-toggle="modal" data-bs-target="#exampleModal2">Decrease</a>
                                             
                                         </td>
                                     </tr>
@@ -221,7 +285,7 @@
                       <?php
                       include('DatabaseConnection.php');
 
-                      $sql = "SELECT * From electricorelectronic";
+                      $sql = "SELECT * From resource where ItemCategory='electricOrElectronic'";
 
                       $res = mysqli_query($conn, $sql);
 
@@ -232,7 +296,7 @@
                         if($count>0){
                             while($rows = mysqli_fetch_assoc($res)){
                                 $id = $rows['id'];
-                                $ELectricOrElectronicType = $rows['ELectricOrElectronicType'];
+                                $ELectricOrElectronicType = $rows['ItemName'];
                                 $amount = $rows['amount'];      
 
                         ?>
@@ -243,7 +307,8 @@
                                         <td><?php echo $amount; ?></td>
                                         
                                         <td>
-                                            <a href="#?id=<?php echo $Complaint_No; ?>" class="update-button">Update</a>
+                                            <a href="#>" class="update-button" data-bs-toggle="modal" data-bs-target="#exampleModal1">Add</a>
+                                            <a href="#>" class="update-button" data-bs-toggle="modal" data-bs-target="#exampleModal2">Decrease</a>
                                             
                                         </td>
                                     </tr>
