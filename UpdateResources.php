@@ -19,12 +19,36 @@
 
 </head>
 <body>
+
+<!-- Navigation Bar Starts -->
+<nav class="navbar navbar-expand-lg bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="OfficeAssistantPage.html"><img src="./img/logo.png" width="50px" alt="logo"><span class="navbar-brand mr-2">IIT RESOURCE</span></a>
+      <h1>Office Assistant's Dashboard</h1> 
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="OfficeAssistantPage.html" style="margin-right: 15px;"><i class="fa-solid fa-house-user"></i> Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="logInPage.html"><i class="fa-solid fa-right-from-bracket"></i> Log-Out</a>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+<!-- Navigation Bar Ends -->
   
-  <div class="header">
+  <!-- <div class="header">
     <h1>Office Assistant's Dashboard</h1> 
     <a href="OfficeAssistantPage.html"><p class="home"><i class="fa-solid fa-house-user"></i> Home</p> </a> 
     <a href="logInPage.html"><p class="log-out"><i class="fa-solid fa-right-from-bracket"></i> log out</p> </a>
-  </div>
+  </div> -->
 
   <form action="AddResource.php" method="post">
     <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -95,10 +119,10 @@
               <div class="mb-3">
                 <div class="toggolable">
                   <ul class="nav nav-pills justify-content-center">
-                    <li class="nav-item"><a data-bs-toggle="pill" class="nav-link active" href="#stationaryItems">Stationary Items</a></li>
-                    <li class="nav-item"><a data-bs-toggle="pill" class="nav-link" href="#personalItems">Personal Items</a></li>
-                    <li class="nav-item"><a data-bs-toggle="pill" class="nav-link" href="#furnitures">Furnitures</a></li>
-                    <li class="nav-item"><a data-bs-toggle="pill" class="nav-link" href="#electronics">Electric & Electronics</a></li>
+                    <li class="nav-item"><a data-bs-toggle="pill" class="nav-link active text-dark" href="#stationaryItems">Stationary Items</a></li>
+                    <li class="nav-item"><a data-bs-toggle="pill" class="nav-link text-dark" href="#personalItems">Personal Items</a></li>
+                    <li class="nav-item"><a data-bs-toggle="pill" class="nav-link text-dark" href="#furnitures">Furnitures</a></li>
+                    <li class="nav-item"><a data-bs-toggle="pill" class="nav-link text-dark" href="#electronics">Electric & Electronics</a></li>
                   </ul><br>
 
                   <div class="tab-content center">
@@ -373,4 +397,9 @@
     }
   </script>    
 </body>
+
+<footer class="footer">
+  <p>© 2022 Institute of Information Technology, NSTU | All Rights Reserved.</p>
+</footer>
+
 </html>  
