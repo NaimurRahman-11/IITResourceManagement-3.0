@@ -76,7 +76,7 @@ body{
 }
 
 
-#quantity{
+.quantity-border-radius{
     border-radius: 5px;
     border-width: thin;
 }

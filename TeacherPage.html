@@ -212,32 +212,35 @@
 
                     <div class="tab-content">
                       <div id="stationaryItems" class="tab-pane active">
-                        <input type="checkbox" onclick="markerVisible()" id="marker" name="marker" value="marker">
+                        <input type="checkbox" onclick="markerQuantity()" id="marker" name="marker" value="marker">
                         <label for="marker">Marker</label> &nbsp;
-                        <span id="markerQuantity"></span> <br> <br>
+                        <input type="number" style="display: none;" id="quantity" class="text-center quantity-border-radius" name="markerQuantitybox" min="1" max="5"> <br> <br>
 
                         
 
-                        <input type="checkbox" onclick="markerVisible()" id="pen" name="pen" value="pen">
+                        <input type="checkbox" onclick="markerQuantity()" id="pen" name="pen" value="pen">
                         <label for="pen">Pen</label> &nbsp;
-                        <span id="penQuantity"></span> <br><br>
+                        <input type="number" style="display: none;" class="text-center quantity-border-radius" id="penQuantity" name="penQuantitybox" min="1" max="5"> <br><br>
 
-                        <input type="checkbox" onclick="markerVisible()" id="A4Paper" name="A4Paper" value="A4Paper">
+                        
+
+                        <input type="checkbox" onclick="markerQuantity()" id="A4Paper" name="A4Paper" value="A4Paper">
                         <label for="A4Paper">A4 Paper</label> &nbsp;
-                        <span id="A4PaperQuantity"></span> <br><br>
+                        <input type="number" style="display: none;" class="text-center quantity-border-radius" id="A4PaperQuantity" name="A4PaperQuantitybox" min="1" max="5">
 
 
                       </div>
 
                       <div id="personalItems" class="tab-pane fade">
-                        <input type="checkbox" onclick="markerVisible()" id="tissue" name="tissue" value="tissue">
+                        <input type="checkbox" onclick="markerQuantity()" id="tissue" name="tissue" value="tissue">
                         <label for="tissue"> Tissue Box</label> &nbsp;
-                        <span id="tissueQuantity"></span> <br><br>
+                        <input type="number" style="display: none;" class="text-center quantity-border-radius" id="tissueQuantity" name="tissueQuantitybox" min="1" max="5"> <br><br>
 
                        
-                        <input type="checkbox" onclick="markerVisible()" id="airFreshner" name="airFreshner" value="airFreshner">
+                        <input type="checkbox" onclick="markerQuantity()" id="airFreshner" name="airFreshner" value="airFreshner">
                         <label for="airFreshner">Air Freshner</label> &nbsp;
-                        <span id="airFreshnerQuantity"></span> <br><br>
+                        <input type="number" style="display: none;" class="text-center quantity-border-radius" id="airFreshnerQuantity" name="airFreshnerQuantitybox" min="1" max="5">
+                        
                       </div>
                     </div>
                   </div>
@@ -255,41 +258,74 @@
       </div>
       </form>
     <!-- Bootstrap Item Request Modal Ends Here -->
+    
+    
+    <script>
+      function markerQuantity(){
+        var checkBox1 = document.getElementById("marker");
+        var text1 = document.getElementById("quantity");
 
-<script>
-  function markerVisible(){
-    var checkBox1 = document.getElementById("marker");
-    var checkBox2 = document.getElementById("pen");
-    var checkBox3 = document.getElementById("A4Paper");
-    var checkBox4 = document.getElementById("tissue");
-    var checkBox5 = document.getElementById("airFreshner");
+        if(checkBox1.checked == true){
+          text1.style.display= "inline-block";
+        }
 
-    if(checkBox1.checked){
-      document.getElementById("markerQuantity").innerHTML = 
-      '<label for="quantity">Quantity:</label><input type="number" id="quantity" name="markerQuantitybox" min="1" max="5">';
-    }
+        else{
+          text1.style.display= "none";
+        }
+        
+        var checkBox2 = document.getElementById("pen");
+        var text2 = document.getElementById("penQuantity");
 
-    if(checkBox2.checked){
-      document.getElementById("penQuantity").innerHTML = 
-      '<label for="quantity">Quantity:</label><input type="number" id="quantity" name="penQuantitybox" min="1" max="5">';
-    }
+        if(checkBox2.checked == true){
+          text2.style.display= "inline-block";
+        }
 
-    if(checkBox3.checked){
-      document.getElementById("A4PaperQuantity").innerHTML = 
-      '<label for="quantity">Quantity:</label><input type="number" id="quantity" name="A4PaperQuantitybox" min="1" max="5">';
-    }
+        else{
+          text2.style.display= "none";
+        }
 
-    if(checkBox4.checked){
-      document.getElementById("tissueQuantity").innerHTML = 
-      '<label for="quantity">Quantity:</label><input type="number" id="quantity" name="tissueQuantitybox" min="1" max="5">';
-    }
 
-    if(checkBox5.checked){
-      document.getElementById("airFreshnerQuantity").innerHTML = 
-      '<label for="quantity">Quantity:</label><input type="number" id="quantity" name="airFreshnerQuantitybox" min="1" max="5">';
-    }
-  }
-</script>
+        var checkBox3 = document.getElementById("A4Paper");
+        var text3 = document.getElementById("A4PaperQuantity");
+
+        if(checkBox3.checked == true){
+          text3.style.display= "inline-block";
+        }
+
+        else{
+          text3.style.display= "none";
+        }
+
+        var checkBox4 = document.getElementById("tissue");
+        var text4 = document.getElementById("tissueQuantity");
+
+        if(checkBox4.checked == true){
+          text4.style.display= "inline-block";
+        }
+
+        else{
+          text4.style.display= "none";
+        }
+
+        var checkBox5 = document.getElementById("airFreshner");
+        var text5 = document.getElementById("airFreshnerQuantity");
+
+        if(checkBox5.checked == true){
+          text5.style.display= "inline-block";
+        }
+
+        else{
+          text5.style.display= "none";
+        }
+
+
+
+      }
+
+
+
+    </script>
+
    
 </body>
 
