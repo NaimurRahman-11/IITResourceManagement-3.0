@@ -19,7 +19,7 @@ if(mysqli_num_rows($res) >0)
     if($res==true){
 
         echo '<script>alert("Resource added successfully!");
-            location= "UpdateResources.php";
+            location= "updateLabEquipment.php";
             </script>';
     }
 
@@ -27,8 +27,9 @@ if(mysqli_num_rows($res) >0)
 else
 {
     echo '<script>alert("Resource Id is wrong!");
-        location= "UpdateResources.php";
+        location= "updateLabEquipment.php";
         </script>';
+
 }
 
 

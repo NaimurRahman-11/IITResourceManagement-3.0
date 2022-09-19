@@ -68,49 +68,50 @@
                     
                       <table>
 
-                        <tr>
-                          <th>ID</th>
-                          <th>Stationary Type</th>
-                          <th>Amount</th>
-                        </tr>
+                      <tr>
+                        <th>ID</th>
+                        <th>Stationary Type</th>
+                        <th>Amount</th>
+                      
+                      </tr>
 
-                        <?php
-                        include('DatabaseConnection.php');
+                      <?php
+                      include('DatabaseConnection.php');
 
-                        $sql = "SELECT * From stationaryitems";
+                      $sql = "SELECT * From resource where ItemCategory='stationary'";
 
-                        $res = mysqli_query($conn, $sql);
+                      $res = mysqli_query($conn, $sql);
 
-                        if($res==true){
+                      if($res==true){
 
-                          $count = mysqli_num_rows($res);
+                        $count = mysqli_num_rows($res);
 
-                          if($count>0){
-                              while($rows = mysqli_fetch_assoc($res)){
-                                  $id = $rows['id'];
-                                  $StationaryType = $rows['StationaryType'];
-                                  $amount = $rows['amount'];      
+                        if($count>0){
+                            while($rows = mysqli_fetch_assoc($res)){
+                                $id = $rows['id'];
+                                $StationaryType = $rows['ItemName'];
+                                $amount = $rows['amount'];      
 
-                          ?>
+                        ?>
 
-                                      <tr>
-                                          <td><?php echo $id; ?></td>
-                                          <td><?php echo $StationaryType; ?> </td>
-                                          <td><?php echo $amount; ?></td>
+                                    <tr>
+                                        <td><?php echo $id; ?></td>
+                                        <td><?php echo $StationaryType; ?> </td>
+                                        <td><?php echo $amount; ?></td>
+                                        
+                                        
+                                    </tr>
 
-                                         
-                                      </tr>
-
-                                  <?php
-                              }
-                          }
-
+                                <?php
+                            }
                         }
 
-                        ?>         
+                      }
+
+                      ?>         
 
 
-                    </table>
+                      </table>
                     
 
                     </div>
@@ -124,14 +125,15 @@
 
                       <tr>
                         <th>ID</th>
-                        <th>Personal Items Type</th>
+                        <th>Stationary Type</th>
                         <th>Amount</th>
-                      </tr>
                       
+                      </tr>
+
                       <?php
                       include('DatabaseConnection.php');
 
-                      $sql = "SELECT * From personalitems";
+                      $sql = "SELECT * From resource where ItemCategory='personal'";
 
                       $res = mysqli_query($conn, $sql);
 
@@ -142,15 +144,16 @@
                         if($count>0){
                             while($rows = mysqli_fetch_assoc($res)){
                                 $id = $rows['id'];
-                                $personalItemsType = $rows['personalItemsType'];
+                                $PersonalType = $rows['ItemName'];
                                 $amount = $rows['amount'];      
 
                         ?>
 
                                     <tr>
                                         <td><?php echo $id; ?></td>
-                                        <td><?php echo $personalItemsType; ?> </td>
+                                        <td><?php echo $PersonalType; ?> </td>
                                         <td><?php echo $amount; ?></td>
+                                        
                                         
                                     </tr>
 
