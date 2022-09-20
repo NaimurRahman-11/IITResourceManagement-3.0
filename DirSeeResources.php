@@ -168,9 +168,9 @@
                       
                       
                       </div>
-                      </table>
+                      
 
-                  </div>
+                  
 
 
                   <div id="lab" class="tab-pane">

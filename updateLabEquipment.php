@@ -13,7 +13,7 @@
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 
-<link rel="stylesheet" href="ManageComplaints.css">
+<link rel="stylesheet" href="updateLabEquipment.css">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
@@ -43,6 +43,11 @@
       </div>
     </div>
   </nav>
+  <br>
+
+  <div class="text-center">
+<a href=""><input class="btn btn-primary" style="width: 150px;" type="button" value="Add Item Type"></a>
+</div><br>
   
   <!-- <div class="header">
     <h1>Manage Lab Resources</h1>
@@ -141,8 +146,9 @@
                    
                     <td>
                         
-                    <button type="button" class="btn btn-success addbtn"> Add</button>
-                   <button type="button" class="btn btn-danger decreasebtn">Decrease</button>
+                    <button type="button" class="btn btn-success addbtn"> +</button>
+                   <button type="button" class="btn btn-danger decreasebtn">-</button>
+                   <button type="button" class="btn btn-danger decreasebtn">Delete Item</button>
                     </td>
                 </tr>
 
@@ -208,9 +214,7 @@
       </script>   
 </body>
 
-<footer class="footer">
-  <p>© 2022 Institute of Information Technology, NSTU | All Rights Reserved.</p>
-</footer>
+
 </html>
 
 
