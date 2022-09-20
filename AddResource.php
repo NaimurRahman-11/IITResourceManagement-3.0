@@ -2,7 +2,7 @@
 include('DatabaseConnection.php');
 
 
-$ResourceID = $_POST['ResourceID'];
+$ResourceID = $_POST['addId'];
 $increasedAmount = $_POST['increasedAmount'];
 
  $selectsql= "SELECT * from resource where `id`=$ResourceID";

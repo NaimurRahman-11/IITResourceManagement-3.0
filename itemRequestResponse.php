@@ -13,15 +13,15 @@
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 
-<link rel="stylesheet" href="OfficeAssistantPage.css">
+<link rel="stylesheet" href="ManageFiles.css">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
 </head>
 <body>
 
-  <!-- Navigation Bar Starts -->
-  <nav class="navbar navbar-expand-lg bg-dark">
+ <!-- Navigation Bar Starts -->
+ <nav class="navbar navbar-expand-lg bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="OfficeAssistantPage.html"><img src="./img/logo.png" width="50px" alt="logo"><span class="navbar-brand mr-2">IIT RESOURCE</span></a>
       <h1>Office Assistant's Dashboard</h1> 
@@ -42,6 +42,7 @@
       </div>
     </div>
   </nav>
+
 <!-- Navigation Bar Ends -->
   
   <!-- <div class="header">
@@ -51,55 +52,61 @@
   </div> -->
     
 
-    <!-- Bootstrap Cards Starts From Here -->
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-4 py-3 py-sm-0" id="ManageFiles">
-          <div class="card box-shadow" style="width: 18rem;">
-            <div class="card-body">
-                <i class="fa-solid fa-file fa-5x center"></i>
-              <a href="ManageFiles.php" class="btn btn-primary" id="ManageFilesButton">Manage Files</a>
-            </div>
-          </div>
-        </div>
+    
+    
+    
+  <?php
+    include('DatabaseConnection.php');
 
-
-        <div class="col-sm-4 py-3 py-sm-0" id="SeeRequests">
-          <div class="card box-shadow" style="width: 18rem;">
-            <div class="card-body">
-                <i class="fa-solid fa-file-circle-plus fa-5x center"></i>
-              <a href="itemRequestResponse.php" class="btn btn-primary" id="SeeRequestsButton">See Requests</a>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="col-sm-4 py-3 py-sm-0" id="Resources">
-            <div class="card box-shadow" style="width: 18rem;">
-              <div class="card-body">
-                <i class="fa-solid fa-boxes-packing fa-5x center"></i>
-                <a href="UpdateResources.php" class="btn btn-primary" id="ResourcesButton">Resources</a>
-              </div>
-            </div>
-          </div>
-
-
-
-
-          <div class="col-sm-4 py-3 py-sm-0" id="Requisitions">
-            <div class="card box-shadow" style="width: 18rem;">
-              <div class="card-body">
-                <i class="fa-solid fa-envelope-open-text fa-5x center"></i>
-                <a href="requisitionResponse.php" class="btn btn-primary" id="RequisitionsButton">Requisitions</a>
-              </div>
-            </div>
-          </div>
-
-
-      </div>
-    </div>
-    <!-- Bootstrap Cards Ends Here -->
-  
+    $fetchItemRequestSql= "SELECT * from itemrequest where itemRequeststatus = 'pending'";
+    $fetchItemRequestResult= mysqli_query($conn,$fetchItemRequestSql);
+    
+    
+    
+    if(mysqli_num_rows($fetchItemRequestResult) > 0)
+    {
+        ?>
+        <table>
+            <tr>
+            <th>Id</th>
+            <th>Teacher</th>
+            <th>Requested items</th>
+            <th>Amount</th>
+            <th>Actions</th>
+            </tr>
+        <?php
+            while($row= mysqli_fetch_assoc($fetchItemRequestResult))
+            {      
+                $id=$row['id'];
+                $TeacherName=$row['teacherName'];
+                $Description=$row['description'];
+                $amount= $row['amount'];
+                    
+        ?>
+                        <tr>
+                            <td><?php echo $id; ?></td>
+                            <td><?php echo $TeacherName; ?> </td>
+                            <td><?php echo $Description; ?></td>
+                            <td><?php echo $amount; ?></td>
+                            <td>
+                            <a href="acceptItemRequestResponse.php?AcceptRequestId=<?php echo $id; ?>" class="update-button">Accept</a> 
+                            <a href="stockOutItemRequest.php?rejectRequestId=<?php echo $id; ?>" class="delete-button">Stock out</a>
+                            </td>
+                        </tr>
+            
+        <?php   
+            }
+            }
+            else
+            {
+            echo '<script>alert("No request to show.!");
+            </script>';
+            }
+        
+        ?>
+            
+            
+            </table>
 
     
 </body>

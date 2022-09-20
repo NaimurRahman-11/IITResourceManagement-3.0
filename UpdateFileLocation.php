@@ -3,7 +3,7 @@ include('DatabaseConnection.php');
 
 
 $FileLocation = $_POST['FileLocation'];
-$FileID = $_POST['fileID'];
+$FileID = $_POST['updateId'];
 
 
 $sql = "UPDATE file

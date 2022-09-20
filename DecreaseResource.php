@@ -2,8 +2,8 @@
 include('DatabaseConnection.php');
 
 
-$ResourceID = $_POST['ResourceID'];
-$decreasedAmount = $_POST['decreasedAmount'];
+echo $ResourceID = $_POST['decreaseId'];
+echo $decreasedAmount = $_POST['decreasedAmount'];
 
 $selectsql= "SELECT * from resource where `id`= $ResourceID and `amount` >= $decreasedAmount";
 $res = mysqli_query($conn, $selectsql);
@@ -26,7 +26,7 @@ if(mysqli_num_rows($res) >0)
 }
 else
 {
-    echo '<script>alert("Resource Id is wrong or invalid decreased amount!");
+    echo '<script>alert("Invalid decreased amount!");
         location= "UpdateResources.php";
         </script>';
 }

@@ -1,100 +1,92 @@
 <?php
-
 $itemRequestArray=array();
 $itemQuantityArray=array();
 
-if(isset($_POST['penQuantitybox']))
+if($_POST['penQuantitybox'] != null)
 {
     array_push($itemRequestArray,'pen');
     array_push($itemQuantityArray,$_POST['penQuantitybox']);
 }
-if(isset($_POST['markerQuantitybox']))
+if($_POST['markerQuantitybox'] != null)
 {
     array_push($itemRequestArray,'marker');
     array_push($itemQuantityArray,$_POST['markerQuantitybox']);
 }
-if(isset($_POST['A4PaperQuantitybox']))
+if($_POST['A4PaperQuantitybox'] != null)
 {
     array_push($itemRequestArray,'A4 Paper');
     array_push($itemQuantityArray,$_POST['A4PaperQuantitybox']);
 }
-if(isset($_POST['tissueQuantitybox']))
+if($_POST['tissueQuantitybox'] != null)
 {
     array_push($itemRequestArray,'tissue box');
     array_push($itemQuantityArray,$_POST['tissueQuantitybox']);
 }
-if(isset($_POST['airFreshnerQuantitybox']))
+if($_POST['airFreshnerQuantitybox'] != null)
 {
     array_push($itemRequestArray,'Air Freshner');
     array_push($itemQuantityArray,$_POST['airFreshnerQuantitybox']);
 }
 
-print_r($itemRequestArray);
-echo "<br>";
-print_r($itemQuantityArray);
-$_SESSION['itemRequestArray']=$itemRequestArray;
-$_SESSION['itemQuantityArray']=$itemQuantityArray;
+validateItemRequest($itemRequestArray,$itemQuantityArray);
 
-// validateItemRequest($itemRequestArray,$itemQuantityArray);
-
-// function validateItemRequest($itemRequestArray,$itemQuantityArray)
-// {
-//     include('DatabaseConnection.php');;
+function validateItemRequest($itemRequestArray,$itemQuantityArray)
+{
+    include('DatabaseConnection.php');;
     
-//     $validRequest=true;
-//     $itemRequestString="";
-//     $itemQuantityString="";
-
+    $validRequest=true;
+    $itemRequestString="";
+    $itemQuantityString="";
 
     
-//     for($i=0;$i<count($itemRequestArray);$i++)
-//     {
-//         $selectSql= "SELECT itemName from resource 
-//         where itemName = '$itemRequestArray[$i]' and amount >= $itemQuantityArray[$i]";
-//         $selectRes= mysqli_query($conn,$selectSql);
-//         if($selectRes)
-//         {
-//             $itemRequestString .= $itemRequestArray[$i];
-//             $itemQuantityString .= $itemQuantityArray[$i];
+    for($i=0;$i<count($itemRequestArray);$i++)
+    {
+        $selectSql= "SELECT itemName from resource 
+        where itemName = '$itemRequestArray[$i]' and amount >= $itemQuantityArray[$i]";
+        $selectRes= mysqli_query($conn,$selectSql);
+        
+        if(mysqli_num_rows($selectRes) > 0)
+        {
+            $itemRequestString .= $itemRequestArray[$i];
+            $itemQuantityString .= $itemQuantityArray[$i];
             
-//             if(($i+1) < count($itemRequestArray))
-//             {
-//                 $itemRequestString .= ", ";
-//                 $itemQuantityString .= ", ";
-//             } 
+            if(($i+1) < count($itemRequestArray))
+            {
+                $itemRequestString .= ", ";
+                $itemQuantityString .= ", ";
+            } 
             
-//         }
-//         else
-//         {      
-//             $count=0;  
-//             $validRequest=false;
-//             break;   
-//         }
+        }
+        else
+        {     
+            $validRequest=false;
+            break;   
+        }
         
         
-//     } 
-//     echo $count;
+    } 
+    
 
-//     // if($validRequest == true)
-//     // {
+    if($validRequest == true)
+    {
         
-//     //     $insertSql= "INSERT into itemrequest(`description`,`amount`)
-//     //     values('$itemRequestString','$itemQuantityString')";
-//     //     $insertSqlRes= mysqli_query($conn,$insertSql);
+        $insertSql= "INSERT into itemrequest(`description`,`amount`)
+        values('$itemRequestString','$itemQuantityString')";
+        $insertSqlRes= mysqli_query($conn,$insertSql);
 
-//     //     echo '<script>alert("Your request is accepted.!");
-//     //     location= "TeacherPage.html";
-//     //         </script>';
-//     // }
-//     // else
-//     // {
-//     //     echo '<script>alert("Your request can not be accpeted due to shortage.!");
-//     //     location= "TeacherPage.html";
-//     //         </script>';
+        echo '<script>alert("Your request is accepted.!");
+        location="TeacherPage.html"
+            </script>';
+    }
+    else
+    {
+        echo '<script>alert("Your request can not be accpeted due to shortage.!");
+        location="TeacherPage.html"
+            </script>';
 
 
-//     // }
+    }
  
 
-// }
+}
 ?>

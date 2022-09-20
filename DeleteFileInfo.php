@@ -1,7 +1,7 @@
 <?php
 include('DatabaseConnection.php');
 
-$File_no = $_GET['fileId'];
+$File_no = $_POST['deleteId'];
 
 
 $sql = "DELETE FROM file WHERE `id`=$File_no";
