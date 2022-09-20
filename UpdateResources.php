@@ -99,7 +99,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <input type="submit" class="btn btn-primary" value="Delete" name="Search" id="Search">
+            <input type="submit" class="btn btn-primary" value="Decrease" name="Search" id="Search">
           </div>
         </div>
       </div>
@@ -214,6 +214,7 @@
                                         <td>
                                         <button type="button" class="btn btn-success addbtn"> Add</button>
                                             <button type="button" class="btn btn-danger decreasebtn">Decrease</button>
+                                        
                                             
                                         </td> 
                                     </tr>

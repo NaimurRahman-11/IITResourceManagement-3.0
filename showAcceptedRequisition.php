@@ -51,7 +51,33 @@
   </div> -->
     
 
+  <form action="giveFeedback.php" method="post">
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
 
+          <input type="hidden" name="feedbackId" id="feedbackId">
+
+            
+              <div class="mb-3">
+                <label for="YourID" class="col-form-label">Enter Your feedback:</label>
+                <input type="text" class="form-control" id="feedback" name="feedback">
+              </div>
+  
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <input type="submit" class="btn btn-primary" value="Submit" name="Search" id="Search">
+          </div>
+        </div>
+      </div>
+    </div>
+   </form>
 
 
 
@@ -114,7 +140,7 @@ function returnName()
                     <td><?php echo $date; ?></td>
                     <td><?php echo $feedback; ?></td>
                     <td>
-                    <a href="#" class="cancel-button">Give feedback</a>
+                    <button type="button" class="btn btn-success feedbackbtn"> Give feedback</button>
                     </td>
                 </tr>
       
@@ -134,7 +160,33 @@ function returnName()
       
     </table>
 
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+
+    <script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script> 
+    <script>
+        $(document).ready(function () {
+
+            $('.feedbackbtn').on('click', function () {
+
+                $('#exampleModal').modal('show');
+
+                $tr = $(this).closest('tr');
+
+                var data = $tr.children("td").map(function () {
+                    return $(this).text();
+                }).get();
+
+                console.log(data);
+
+                $('#feedbackId').val(data[0]);
+
+            });
+        });
+    </script>
+ <script>   
 </body>
 
 <footer class="footer">
