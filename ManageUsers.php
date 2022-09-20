@@ -50,7 +50,65 @@
     <a href="logInPage.html"><p class="log-out"><i class="fa-solid fa-right-from-bracket"></i> log out</p> </a>
   </div> -->
     
-
+  <?php
+    include('DatabaseConnection.php');
+    
+  
+    
+    $sql= "select * from usertable where userStatus = 'Processing'";
+    $fetch= mysqli_query($conn,$sql);
+    
+    
+    
+    if(mysqli_num_rows($fetch) > 0)
+    {
+  ?>
+  <table>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Designation</th>
+      <th>Roll</th>
+      <th>Email</th>
+      <th>Action</th>
+    </tr>
+  <?php
+      
+      while($row= mysqli_fetch_assoc($fetch))
+      {      
+        $id=$row['id'];
+        $Name=$row['Name'];
+        $Designation=$row['Designation'];
+        $Academic_roll= $row['Academic_Roll'];  
+        $Email=$row['Email'];
+                        
+  ?>
+                <tr>
+                    <td><?php echo $id; ?></td>
+                    <td><?php echo $Name; ?> </td>
+                    <td><?php echo $Designation; ?></td>
+                    <td><?php echo $Academic_roll; ?></td>
+                    <td><?php echo $Email; ?></td>
+                    <td>
+                    <a href="approveUser.php?Id=<?php echo $id; ?>" class="approve-button">approve</a>
+                    </td>
+                </tr>
+      
+  <?php 
+         
+          
+      }
+    }
+    else
+    {
+      echo '<script>alert("No approve request to show!");
+      </script>';
+    }
+   
+  ?>
+    
+      
+    </table>
    
   
 
