@@ -1,6 +1,6 @@
 <?php
 
-include('DatabaseConnection.php');
+
 
 $teacherName=$_POST['teacherName'];
 $itemName= $_POST['itemName'];
@@ -8,10 +8,17 @@ $description= $_POST['description'];
 
 $requisitionStatus= "waiting for Director's approval";
 
-$sql= "insert into requisition (`TeacherName`,`ItemName`,`Description`,`RequisitionStatus`)
-values('$teacherName','$itemName','$description','$requisitionStatus')";
+function addRequisition($teacherName,$itemName,$description,$requisitionStatus)
+{
+  include('DatabaseConnection.php');
+  $sql= "insert into requisition (`TeacherName`,`ItemName`,`Description`,`RequisitionStatus`)
+  values('$teacherName','$itemName','$description','$requisitionStatus')";
+  $res=mysqli_query($conn, $sql);
+  return $res;
+}
 
-if(mysqli_query($conn, $sql)){
+
+if(addRequisition($teacherName,$itemName,$description,$requisitionStatus)){
        
     echo '<script>alert("Your requisition is placed successfully!");
       location="TeacherPage.html";

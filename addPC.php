@@ -1,15 +1,22 @@
 <?php
 
-include('DatabaseConnection.php');
+
 
 $PC_Id=$_POST['PC_Id'];
 $PC_status= "Active";
 $NoOfComplaint=0; 
 
-$sql= "insert into pc (`PC_Id`,`PC_status`,`NoOfComplaints`)
-values('$PC_Id','$PC_status','$NoOfComplaint')";
+addPc($PC_Id,$PC_status,$NoOfComplaint);
 
-if(mysqli_query($conn, $sql)){
+function addPc($PC_Id,$PC_status,$NoOfComplaint)
+{
+  include('DatabaseConnection.php');
+  $sql= "INSERT into pc (`PC_Id`,`PC_status`,`NoOfComplaints`)
+  values('$PC_Id','$PC_status','$NoOfComplaint')"; 
+  $res=mysqli_query($conn, $sql);
+  return $res;
+}
+if(addPc($PC_Id,$PC_status,$NoOfComplaint)){
        
     echo '<script>alert(" PC is added successfully!");
       location="CheckPCStatus.php";

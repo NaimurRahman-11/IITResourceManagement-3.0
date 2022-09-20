@@ -1,6 +1,6 @@
 <?php
 
-include('DatabaseConnection.php');
+
 
 $fileName=$_POST['FileName'];
 
@@ -8,10 +8,7 @@ $fileLocation=$_POST['FileLocation'];
 
 $fileCategory=$_POST['FileCategory'];
 
-$sql= "insert into file (`FileName`,`FileLocation`,`FileCategory`)
-values('$fileName','$fileLocation','$fileCategory')";
-
-if(mysqli_query($conn, $sql)){
+if(addFileIntoTable($fileName,$fileLocation,$fileCategory)){
        
     echo '<script>alert("Information about a File is added successfully!");
       location="ManageFiles.php";
@@ -22,6 +19,15 @@ if(mysqli_query($conn, $sql)){
     echo '<script>alert("failed to add Information about a File!");
     location="ManageFiles.php";
     </script>';
+  }
+
+  function addFileIntoTable($fileName,$fileLocation,$fileCategory)
+  {
+    include('DatabaseConnection.php');
+    $sql= "INSERT into file (`FileName`,`FileLocation`,`FileCategory`)
+    values('$fileName','$fileLocation','$fileCategory')";
+    $res= mysqli_query($conn, $sql);
+    return $res;
   }
 
 ?>

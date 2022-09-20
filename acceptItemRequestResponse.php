@@ -2,10 +2,7 @@
 include('DatabaseConnection.php');
 $id=$_GET['AcceptRequestId']."<br>";
 
-$updateSql="UPDATE itemRequest 
-set itemRequeststatus='Accepted'
-where id='$id'";
-$updateSqlResult=mysqli_query($conn,$updateSql);
+
 
 $fetchSql= "SELECT * from itemRequest where id= '$id'";
 $fetchSqlResult= mysqli_query($conn,$fetchSql);
@@ -15,9 +12,9 @@ $itemRequestArray[]=explode(", ",$row['description']);
 $itemQuantityArray[]=explode(", ",$row['amount']);
 
 
-validateItemRequest($itemRequestArray,$itemQuantityArray);
+validateItemRequest($itemRequestArray,$itemQuantityArray,$id);
 
-function validateItemRequest($itemRequestArray,$itemQuantityArray)
+function validateItemRequest($itemRequestArray,$itemQuantityArray,$id)
 {
     include('DatabaseConnection.php');
     
@@ -49,7 +46,33 @@ function validateItemRequest($itemRequestArray,$itemQuantityArray)
     if($validRequest == true)
     {
         
-        for($i=0;$i<count($itemRequestArray[0]);$i++)
+        updateItemRequeststatus($id);
+        updateResourcesOfRequest($itemRequestArray,$itemQuantityArray);
+
+        echo '<script>alert("You have successfully accepted the request.");
+              location="itemRequestResponse.php";
+            </script>';
+    }
+    else
+    {
+        echo '<script>alert("You can not accept the request due to shortage.!");
+        location="itemRequestResponse.php";
+            </script>';
+    }
+}   
+function updateItemRequeststatus($id)
+{
+    include('DatabaseConnection.php');
+    $updateSql="UPDATE itemRequest 
+    set itemRequeststatus='Accepted'
+    where id='$id'";
+    $updateSqlResult=mysqli_query($conn,$updateSql);
+
+}
+function updateResourcesOfRequest($itemRequestArray,$itemQuantityArray)
+{
+    include('DatabaseConnection.php');
+    for($i=0;$i<count($itemRequestArray[0]);$i++)
         {
             $item=$itemRequestArray[0][$i];
             $quantity=$itemQuantityArray[0][$i];
@@ -67,15 +90,5 @@ function validateItemRequest($itemRequestArray,$itemQuantityArray)
             echo "failed";
         }
 
-        echo '<script>alert("You have successfully accepted the request.");
-        
-            </script>';
-    }
-    else
-    {
-        echo '<script>alert("You can not accept the request due to shortage.!");
-        
-            </script>';
-    }
-}    
+}
 ?>

@@ -2,6 +2,7 @@
 
 include('DatabaseConnection.php');
 
+createGroupArray();
 function keyOfCategory($str)
 {
     return substr($str,3,2);
@@ -33,7 +34,7 @@ function suffleElementsOfEachCategory($group)
 function createGroupArray()
 {
     include('DatabaseConnection.php');
-    $SelectSql= "select `Academic_Roll` from student";
+    $SelectSql= "SELECT `Academic_Roll` from student";
     $Selectresult= mysqli_query($conn,$SelectSql); 
     
     while($row= mysqli_fetch_assoc($Selectresult))
@@ -99,7 +100,7 @@ function insertAssignedRoll($assignedRollArray)
     }
 }
 
-createGroupArray();
+
 echo '<script>alert("Student rolls are successfully assigned to lab Pcs");
     location="AssignPcForLabAssistant.php";
     </script>';

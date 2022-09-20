@@ -1,13 +1,19 @@
 <?php
-include('DatabaseConnection.php');
+
 
 $requisitionId = $_GET['cancelRequisition'];
 
-$sql = "DELETE FROM requisition WHERE `id`=$requisitionId";
+function cancelRequisition($requisitionId)
+{
+  include('DatabaseConnection.php');
+  $sql = "DELETE FROM requisition WHERE `id`=$requisitionId";
+  $res = mysqli_query($conn, $sql);
+  return $res;
 
-$res = mysqli_query($conn, $sql);
+}
 
-if($res==true){
+
+if(cancelRequisition($requisitionId)){
   header('location:YourRequisition.php ');
 }
 

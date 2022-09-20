@@ -1,18 +1,25 @@
 <?php
-include('DatabaseConnection.php');
+
 
 
 $FileLocation = $_POST['FileLocation'];
 $FileID = $_POST['updateId'];
 
+function updateFileLocation($FileLocation,$FileID)
+{
+    include('DatabaseConnection.php');
+    $sql = "UPDATE file
+    SET FileLocation='$FileLocation'
+    WHERE `id`=$FileID";
 
-$sql = "UPDATE file
-SET FileLocation='$FileLocation'
-WHERE `id`=$FileID";
+    $res = mysqli_query($conn, $sql);
+    return  $res;
 
-$res = mysqli_query($conn, $sql);
+}
 
-if($res==true){
+
+
+if(updateFileLocation($FileLocation,$FileID)){
 
     echo '<script>alert("File Location Updated Successfully!");
         location= "ManageFiles.php";

@@ -5,7 +5,10 @@ include('DatabaseConnection.php');
 $RequisitionID = $_POST['RequisitionID'];
 $Status = $_POST['Status'];
 
-$selectsql= "SELECT * from requisition where `id`=$RequisitionID";
+updateItemRequeststatus($RequisitionID,$Status);
+function updateItemRequeststatus($RequisitionID,$Status)
+{
+    $selectsql= "SELECT * from requisition where `id`=$RequisitionID";
 $res = mysqli_query($conn, $selectsql);
 
 if(mysqli_num_rows($res) >0)
@@ -30,6 +33,9 @@ else
         location= "requisitionResponse.php";
         </script>';
 }
+
+}
+
 
 
 

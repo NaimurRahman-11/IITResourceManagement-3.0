@@ -1,14 +1,22 @@
 <?php
-include('DatabaseConnection.php');
+
 $id=$_POST['feedbackId'];
 $feedback=$_POST['feedback'];
 
-$insertSql= "UPDATE acceptedrequisition 
-set feedback= '$feedback'
-where id=$id";
-$insertSqlRes= mysqli_query($conn,$insertSql);
+function insertFeedback($id,$feedback)
+{
+    include('DatabaseConnection.php');
+    $insertSql= "UPDATE acceptedrequisition 
+    set feedback= '$feedback'
+    where id=$id";
+    $insertSqlRes= mysqli_query($conn,$insertSql);
+    return     $insertSqlRes;
 
-if($insertSqlRes)
+}
+
+
+
+if(insertFeedback($id,$feedback))
 {
     header('location:showAcceptedRequisition.php');
 }
