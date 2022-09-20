@@ -52,6 +52,15 @@
     <a href="logInPage.html"><p class="log-out"><i class="fa-solid fa-right-from-bracket"></i> log out</p> </a>
   </div> -->
   <table>
+
+  <tr>
+        <th> Complaint_No </th>
+        <th> Student_ID </th>
+        <th> PC_ID </th>
+        <th> Description </th>
+        <th> Date </th>
+        <th> Action </th>
+        </tr>
  <?php
 
 session_start();
@@ -87,15 +96,7 @@ include('DatabaseConnection.php');
       {
 ?>        
            
-        
-        <tr>
-        <td> Complaint_No </td>
-        <td> Student_ID </td>
-        <td> PC_ID </td>
-        <td> Description </td>
-        <td> Date </td>
-        <td> Action </td>
-        </tr>
+      
 <?php    
 
         while ($row = $fetchComplaintsSqlresult->fetch_assoc()) 
