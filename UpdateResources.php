@@ -105,6 +105,11 @@
       </div>
     </div>
    </form>
+<br>
+
+<div class="text-center">
+<a href=""><input class="btn btn-primary" style="width: 150px;" type="button" value="Add Item Type"></a>
+</div>
 
 
 
@@ -157,8 +162,9 @@
                                           <td><?php echo $amount; ?></td>
                                           
                                           <td>
-                                          <button type="button" class="btn btn-success addbtn"> Add</button>
-                                          <button type="button" class="btn btn-danger decreasebtn">Decrease</button>
+                                          <button type="button" class="btn btn-success addbtn"> +</button>
+                                          <button type="button" class="btn btn-danger decreasebtn">-</button>
+                                          <button type="button" class="btn btn-danger decreasebtn">Delete Item</button>
                                           </td>
                                       </tr>
 
@@ -350,6 +356,8 @@
                 </div>
               </div>
               <!-- Bootstrap dynamic toggolable pills ends here -->
+
+              
     
            
 
@@ -442,8 +450,5 @@
       </script> 
 </body>
 
-<footer class="footer">
-  <p>© 2022 Institute of Information Technology, NSTU | All Rights Reserved.</p>
-</footer>
 
 </html>  
