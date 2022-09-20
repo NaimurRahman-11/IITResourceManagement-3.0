@@ -89,6 +89,15 @@ legend{
     width: 80%;
 }
 
+#studentID{
+    margin-bottom: 5%;
+    margin-top: 2px;
+    border-radius: 5px;
+    border: none;
+    height: 25px;
+    width: 80%;
+}
+
 
 .Fname{
     font-size: 14px;
@@ -106,6 +115,11 @@ legend{
 }
 
 .Mail{
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.studentID{
     font-size: 14px;
     font-weight: bold;
 }
@@ -146,3 +160,10 @@ legend{
     
     font-size: 14px;
   }
+
+
+  input,
+input::-webkit-input-placeholder {
+    font-size: 12px;
+    line-height: 3;
+}
