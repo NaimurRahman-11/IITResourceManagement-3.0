@@ -13,7 +13,7 @@
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 
-<link rel="stylesheet" href="OfficeAssistantPage.css">
+<link rel="stylesheet" href="approvedUsers.css">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
@@ -51,70 +51,10 @@
   </div> -->
     
 
-    <!-- Bootstrap Cards Starts From Here -->
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-4 py-3 py-sm-0" id="ManageFiles">
-          <div class="card box-shadow" style="width: 18rem;">
-            <div class="card-body">
-                <i class="fa-solid fa-file fa-5x center"></i>
-              <a href="ManageFiles.php" class="btn btn-primary" id="ManageFilesButton">Manage Files</a>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="col-sm-4 py-3 py-sm-0" id="SeeRequests">
-          <div class="card box-shadow" style="width: 18rem;">
-            <div class="card-body">
-                <i class="fa-solid fa-file-circle-plus fa-5x center"></i>
-              <a href="itemRequestResponse.php" class="btn btn-primary" id="SeeRequestsButton">See Requests</a>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="col-sm-4 py-3 py-sm-0" id="Resources">
-            <div class="card box-shadow" style="width: 18rem;">
-              <div class="card-body">
-                <i class="fa-solid fa-boxes-packing fa-5x center"></i>
-                <a href="UpdateResources.php" class="btn btn-primary" id="ResourcesButton">Resources</a>
-              </div>
-            </div>
-          </div>
-
-
-
-
-          <div class="col-sm-4 py-3 py-sm-0" id="Requisitions">
-            <div class="card box-shadow" style="width: 18rem;">
-              <div class="card-body">
-                <i class="fa-solid fa-envelope-open-text fa-5x center"></i>
-                <a href="requisitionResponse.php" class="btn btn-primary" id="RequisitionsButton">Requisitions</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-sm-4 py-3 py-sm-0" id="Requisitions">
-            <div class="card box-shadow" style="width: 18rem;">
-              <div class="card-body">
-                <i class="fa-solid fa-user-tie fa-5x center"></i>
-                <a href="approvedUsers.php" class="btn btn-primary" id="ApprovedUsersButton">Approved Users</a>
-              </div>
-            </div>
-          </div>
-
-
-      </div>
-    </div>
-    <!-- Bootstrap Cards Ends Here -->
+   
   
 
     
 </body>
-
-<footer class="footer">
-  <p>© 2022 Institute of Information Technology, NSTU | All Rights Reserved.</p>
-</footer>
 
 </html>
