@@ -158,7 +158,7 @@
                                           
                                           <td>
                                           <button type="button" class="btn btn-success addbtn"> Add</button>
-                                            <button type="button" class="btn btn-danger decreasebtn">Decrease</button>
+                                          <button type="button" class="btn btn-danger decreasebtn">Decrease</button>
                                           </td>
                                       </tr>
 
