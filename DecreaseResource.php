@@ -2,8 +2,8 @@
 include('DatabaseConnection.php');
 
 
-echo $ResourceID = $_POST['decreaseId'];
-echo $decreasedAmount = $_POST['decreasedAmount'];
+$ResourceID = $_POST['decreaseId'];
+$decreasedAmount = $_POST['decreasedAmount'];
 
 $selectsql= "SELECT * from resource where `id`= $ResourceID and `amount` >= $decreasedAmount";
 $res = mysqli_query($conn, $selectsql);

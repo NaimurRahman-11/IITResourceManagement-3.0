@@ -158,6 +158,7 @@
         </div>
       </div>
     </div>
+    
    </form>
    <form action="DeleteFileInfo.php" method="post">
     <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

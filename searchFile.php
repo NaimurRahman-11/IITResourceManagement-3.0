@@ -51,6 +51,7 @@
     <a href="logInPage.html"><p class="log-out"><i class="fa-solid fa-right-from-bracket"></i> log out</p> </a>
   </div> -->
 
+
   <form action="UpdateFileLocation.php" method="post">
     <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
@@ -60,23 +61,52 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-
-          <div class="mb-3">
+              <!-- <div class="mb-3">
                 <label for="YourID" class="col-form-label">File ID:</label>
                 <input type="text" class="form-control" id="FileName" name="fileID">
-              </div>
-
+              </div> -->
+              <input type="hidden" name="updateId" id="updateId">
+            
             
               <div class="mb-3">
                 <label for="YourID" class="col-form-label">Enter Updated File Location:</label>
                 <input type="text" class="form-control" id="FileLocation" name="FileLocation">
               </div>
-
-            
+  
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             <input type="submit" class="btn btn-primary" value="Update" name="Search" id="Search">
+          </div>
+        </div>
+      </div>
+    </div>
+   </form>
+   <form action="DeleteFileInfo.php" method="post">
+    <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <!-- <div class="mb-3">
+                <label for="YourID" class="col-form-label">File ID:</label>
+                <input type="text" class="form-control" id="FileName" name="fileID">
+              </div> -->
+              <input type="hidden" name="deleteId" id="deleteId">
+            
+            
+              <div class="mb-3">
+                <label for="YourID" class="col-form-label">Are you really want to delete this:</label>
+                
+              </div>
+  
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <input type="submit" class="btn btn-primary" value="Delete" name="Search" id="Search">
           </div>
         </div>
       </div>
@@ -128,9 +158,9 @@
               <td><?php echo $FileCategory; ?></td>
               <td><?php echo $Date; ?></td>
               <td>
-                      <a href="DeleteFileInfo.php?fileId=<?php echo $id; ?>" class="delete-button">Delete</a>
-                      <a href="UpdateFileLocation.php?fileId=<?php echo $id; ?>" class="update-button" data-bs-toggle="modal" data-bs-target="#exampleModal3">UpdateLocation</a>
-                    </td>                    
+              <button type="button" class="btn btn-danger deletebtn">Delete</button>
+                      <button type="button" class="btn btn-success updatebtn"> Update Location</button>
+              </td>                    
           </tr>
       
   <?php 
@@ -154,7 +184,53 @@
     
   
 </table>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+
+    <script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script> 
+    <script>
+        $(document).ready(function () {
+
+            $('.updatebtn').on('click', function () {
+
+                $('#exampleModal3').modal('show');
+
+                $tr = $(this).closest('tr');
+
+                var data = $tr.children("td").map(function () {
+                    return $(this).text();
+                }).get();
+
+                console.log(data);
+
+                $('#updateId').val(data[0]);
+
+            });
+        });
+    </script>
+ <script>
+        $(document).ready(function () {
+
+            $('.deletebtn').on('click', function () {
+
+                $('#exampleModal4').modal('show');
+
+                $tr = $(this).closest('tr');
+
+                var data = $tr.children("td").map(function () {
+                    return $(this).text();
+                }).get();
+
+                console.log(data);
+
+                $('#deleteId').val(data[0]);
+
+            });
+        });
     
+      </script>    
 </body>
 
 <footer class="footer">
