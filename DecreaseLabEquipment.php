@@ -2,7 +2,7 @@
 include('DatabaseConnection.php');
 
 
-$ResourceID = $_POST['ResourceID'];
+$ResourceID = $_POST['decreaseId'];
 $decreasedAmount = $_POST['decreasedAmount'];
 
 $selectsql= "SELECT * from resource where `id`= $ResourceID and `amount` >= $decreasedAmount";
