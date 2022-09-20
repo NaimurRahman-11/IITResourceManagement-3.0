@@ -19,7 +19,7 @@ if(mysqli_num_rows($res) >0)
     if($res==true){
 
         echo '<script>alert("Resource decreased successfully!");
-            location= "updateLabEquipment.php";
+        location= "updateLabEquipment.php";
             </script>';
     }
 
