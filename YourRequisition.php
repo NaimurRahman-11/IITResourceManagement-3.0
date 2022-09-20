@@ -142,7 +142,7 @@ function returnName()
                     <td><?php echo $Description; ?></td>
                     <td><?php echo $RequisitionStatus; ?></td>
                     <td>
-                    <a href="cancelRequisition.php?cancelRequisition=<?php echo $id; ?>" class="cancel-button">Cancel</a>
+                    <a href="cancelRequisition.php?cancelRequisition=<?php echo $id; ?>" class="delete-button">Cancel</a>
                     </td>
                 </tr>
       
