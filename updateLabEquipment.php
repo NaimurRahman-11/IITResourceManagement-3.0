@@ -77,7 +77,7 @@
     </div>
    </form>
 
-   <form action="DecreaseResource.php" method="post">
+   <form action="DecreaseLabEquipment.php" method="post">
     <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
