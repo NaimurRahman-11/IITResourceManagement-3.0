@@ -1,0 +1,148 @@
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background: url("./img/doodle.png");
+}
+
+.container{
+    width: 30%;
+    margin: auto;
+    margin-top: 7%;
+    font-family: sans-serif;
+    background-color: #ced6e0;
+    border-radius: 5px;
+}
+
+.content{
+    margin-left: 17%;
+    padding: 5%;
+    
+}
+
+legend{
+    margin-left: 10%;
+    padding: 2px;
+        
+    
+}
+
+#firstname{
+    margin-bottom: 5%;
+    margin-top: 2px;
+    border-radius: 5px;
+    border: none;
+    height: 25px;
+    width: 80%;
+}
+
+#lastname{
+    margin-bottom: 5%;
+    margin-top: 2px;
+    border-radius: 5px;
+    border: none;
+    height: 25px;
+    width: 80%;
+}
+
+#password{
+    margin-bottom: 5%;
+    margin-top: 2px;
+    border-radius: 5px;
+    border: none;
+    height: 25px;
+    width: 80%;
+}
+
+
+#Cpassword{
+    margin-bottom: 5%;
+    margin-top: 2px;
+    border-radius: 5px;
+    border: none;
+    height: 25px;
+    width: 80%;
+}
+
+#email{
+    margin-top: 2px;
+    border-radius: 5px;
+    border: none;
+    height: 25px;
+    width: 80%;
+}
+
+#designation{
+    margin-bottom: 5%;
+    margin-top: 2px;
+    border-radius: 5px;
+    border: none;
+    height: 25px;
+    width: 80%;
+}
+
+
+.Fname{
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.Lname{
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.designation{
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.Mail{
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.Pass{
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.CPass{
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* .submit{
+    border-radius: 5px;
+    height: 30px;
+    cursor: pointer;
+    background-color: #74b9ff;
+    margin-left: 28%;
+    border: none;
+    color: white;
+}
+
+.submit:hover{
+ color: white;
+ background-color: #6c5ce7;
+ transition-duration: 0.4s;
+ box-shadow: 2px 2px 2px #888888;
+    
+} */
+
+.submit{
+    margin-left: 24%;
+}
+
+.radio-button label {
+    
+    font-size: 14px;
+  }
