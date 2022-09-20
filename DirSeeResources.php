@@ -61,6 +61,7 @@
                     <li class="nav-item"><a data-bs-toggle="pill" class="nav-link text-dark" href="#personalItems">Personal Items</a></li>
                     <li class="nav-item"><a data-bs-toggle="pill" class="nav-link text-dark" href="#furnitures">Furnitures</a></li>
                     <li class="nav-item"><a data-bs-toggle="pill" class="nav-link text-dark" href="#electronics">Electric & Electronics</a></li>
+                    <li class="nav-item"><a data-bs-toggle="pill" class="nav-link text-dark" href="#lab">Lab equipment</a></li>
                     <li class="nav-item"><a data-bs-toggle="pill" class="nav-link text-dark" href="#pcStatus">PC Status</a></li>
                   </ul><br>
 
@@ -167,6 +168,62 @@
                       
                       
                       </div>
+                      </table>
+
+                  </div>
+
+
+                  <div id="lab" class="tab-pane">
+                      <!-- Lab equipment Table will be added here -->
+                      <table>
+
+                    <tr>
+                      <th>ID</th>
+                      <th>Lab Equipment Type</th>
+                      <th>Amount</th>
+                      
+                    </tr>
+                    
+                    <?php
+                    include('DatabaseConnection.php');
+
+                    $sql = "SELECT * From resource where ItemCategory='lab'";
+
+                    $res = mysqli_query($conn, $sql);
+
+                    if($res==true){
+
+                      $count = mysqli_num_rows($res);
+
+                      if($count>0){
+                          while($rows = mysqli_fetch_assoc($res)){
+                              $id = $rows['id'];
+                              $labType = $rows['ItemName'];
+                              $amount = $rows['amount'];      
+
+                      ?>
+
+                                  <tr>
+                                      <td><?php echo $id; ?></td>
+                                      <td><?php echo $labType; ?> </td>
+                                      <td><?php echo $amount; ?></td>
+                                      
+                                    
+                                  </tr>
+
+                              <?php
+                          }
+                      }
+
+                    }
+
+                    ?>         
+
+
+                    </table>
+                    
+                    
+                    </div>                      
 
 
                     <div id="personalItems" class="tab-pane fade">
