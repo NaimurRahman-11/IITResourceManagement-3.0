@@ -42,7 +42,7 @@
         </ul>
       </div>
     </div>
-  </nav>
+  </nav><br>
 <!-- Navigation Bar Ends -->
   
   <!-- <div class="header">
@@ -109,9 +109,7 @@
   
      
 </body>
-<footer class="footer">
-  <p>© 2022 Institute of Information Technology, NSTU | All Rights Reserved.</p>
-</footer>
+
 </html>
 
 

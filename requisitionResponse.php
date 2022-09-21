@@ -124,7 +124,7 @@
                     <td>
                       
                       <a href="acceptRequisition.php?acceptedId=<?php echo $id; ?>" class="update-button">Accept</a><br><br>
-                      <button type="button" class="btn btn-success updatebtn">UpdateStatus</button><br><br>
+                      <button type="button" class="btn update-button updatebtn">UpdateStatus</button><br><br>
                       
                       <a href="rejectRequisition.php?rejectId=<?php echo $id; ?>" class="delete-button">Reject</a>
                     </td>
@@ -172,8 +172,6 @@
     </script>
  <script>   
 </body>
-<footer class="footer">
-  <p>© 2022 Institute of Information Technology, NSTU | All Rights Reserved.</p>
-</footer>
+
 
 </html>

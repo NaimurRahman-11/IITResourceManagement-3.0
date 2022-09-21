@@ -146,8 +146,5 @@
     
 </body>
 
-<footer class="footer">
-  <p>© 2022 Institute of Information Technology, NSTU | All Rights Reserved.</p>
-</footer>
 
 </html>

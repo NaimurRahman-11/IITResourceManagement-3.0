@@ -41,15 +41,11 @@
         </ul>
       </div>
     </div>
-  </nav>
+  </nav> <br>
 
 <!-- Navigation Bar Ends -->
   
-  <!-- <div class="header">
-    <h1>Office Assistant's Dashboard</h1> 
-    <a href="OfficeAssistantPage.html"><p class="home"><i class="fa-solid fa-house-user"></i> Home</p> </a> 
-    <a href="logInPage.html"><p class="log-out"><i class="fa-solid fa-right-from-bracket"></i> log out</p> </a>
-  </div> -->
+  
     
 
     
@@ -111,8 +107,5 @@
     
 </body>
 
-<footer class="footer">
-  <p>© 2022 Institute of Information Technology, NSTU | All Rights Reserved.</p>
-</footer>
 
 </html>
