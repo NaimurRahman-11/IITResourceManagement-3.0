@@ -1,15 +1,17 @@
 <?php
-include('DatabaseConnection.php');
+
 
 
 $RequisitionID = $_POST['RequisitionID'];
 $Status = $_POST['Status'];
 
 updateItemRequeststatus($RequisitionID,$Status);
+
 function updateItemRequeststatus($RequisitionID,$Status)
 {
+    include('DatabaseConnection.php');
     $selectsql= "SELECT * from requisition where `id`=$RequisitionID";
-$res = mysqli_query($conn, $selectsql);
+    $res = mysqli_query($conn, $selectsql);
 
 if(mysqli_num_rows($res) >0)
 {
