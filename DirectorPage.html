@@ -68,7 +68,7 @@
           <div class="card box-shadow" style="width: 18rem;">
             <div class="card-body">
               <i class="fa-solid fa-user-tie fa-5x center"></i>
-              <a href="#" class="btn btn-primary" id="RequestItemButton">Manage Assistant</a>
+              <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-primary" id="RequestItemButton">Add Assistant</a>
             </div>
           </div>
         </div>
@@ -88,6 +88,50 @@
       </div>
     </div>
     <!-- Bootstrap Cards Ends Here -->
+
+     <!-- Add Assistant Page Modal Starts here -->
+    
+     <form action="" method="post">
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+ 
+            <div class="mb-3">
+            <label for="type">Assistant Type:</label>
+ 
+               <select name="type" id="type">
+               <option disabled selected value> -Select a type- </option>
+               <option> Office Assistant </option>
+               <option> Lab Assistant </option>
+               </select>
+            </div>
+              
+                <div class="mb-3">
+                  <label for="email" class="col-form-label">Email:</label>
+                  <input type="email" class="form-control" id="email" name="email" placeholder="Enter email address">
+                </div>
+
+                <div class="mb-3">
+                  <label for="email" class="col-form-label">Password:</label>
+                  <input type="password" class="form-control" id="password" name="password">
+                </div>
+              
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <input type="submit" class="btn btn-primary" value="Add" name="submit2" id="submit2">
+            </div>
+          </div>
+        </div>
+      </div>
+     </form>
+ 
+      <!-- Add Assistant Page Modal Ends here -->
   
 
     
