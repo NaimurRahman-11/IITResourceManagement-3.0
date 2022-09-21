@@ -42,7 +42,7 @@
       </div>
     </div>
   </nav>
-
+<br>
 <!-- Navigation Bar Ends -->
   
   <!-- <div class="header">
@@ -62,14 +62,11 @@
           </div>
           <div class="modal-body">
 
-          <div class="mb-3">
-                <label for="YourID" class="col-form-label">Requisition ID:</label>
-                <input type="text" class="form-control" id="FileName" name="RequisitionID">
-              </div>
+          <input type="hidden" name="updateId" id="updateId">
 
             
               <div class="mb-3">
-                <label for="YourID" class="col-form-label">Enter Updated Requisition :</label>
+                <label for="YourID" class="col-form-label">Enter Updated Requisition status :</label>
                 <input type="text" class="form-control" id="FileLocation" name="Status">
               </div>
 
@@ -126,9 +123,10 @@
                     <td><?php echo $requisitionStatus; ?></td>
                     <td>
                       
-                      <a href="acceptRequisition.php?acceptedId=<?php echo $id; ?>" class="delete-button">Accept</a><br><br>
-                      <a href="#" class="update-button" data-bs-toggle="modal" data-bs-target="#exampleModal">UpdateStatus</a><br><br>
-                      <a href="rejectRequisition.php?rejectId=<?php echo $id; ?>" class="update-button">Reject</a>
+                      <a href="acceptRequisition.php?acceptedId=<?php echo $id; ?>" class="update-button">Accept</a><br><br>
+                      <button type="button" class="btn btn-success updatebtn">UpdateStatus</button><br><br>
+                      
+                      <a href="rejectRequisition.php?rejectId=<?php echo $id; ?>" class="delete-button">Reject</a>
                     </td>
                 </tr>
       
@@ -146,9 +144,34 @@
       
     </table>
 
-    
-</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 
+    <script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script> 
+    <script>
+        $(document).ready(function () {
+
+            $('.updatebtn').on('click', function () {
+
+                $('#exampleModal').modal('show');
+
+                $tr = $(this).closest('tr');
+
+                var data = $tr.children("td").map(function () {
+                    return $(this).text();
+                }).get();
+
+                console.log(data);
+
+                $('#updateId').val(data[0]);
+
+            });
+        });
+    </script>
+ <script>   
+</body>
 <footer class="footer">
   <p>© 2022 Institute of Information Technology, NSTU | All Rights Reserved.</p>
 </footer>

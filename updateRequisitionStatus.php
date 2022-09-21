@@ -2,7 +2,7 @@
 
 
 
-$RequisitionID = $_POST['RequisitionID'];
+$RequisitionID = $_POST['updateId'];
 $Status = $_POST['Status'];
 
 updateItemRequeststatus($RequisitionID,$Status);
@@ -10,11 +10,6 @@ updateItemRequeststatus($RequisitionID,$Status);
 function updateItemRequeststatus($RequisitionID,$Status)
 {
     include('DatabaseConnection.php');
-    $selectsql= "SELECT * from requisition where `id`=$RequisitionID";
-    $res = mysqli_query($conn, $selectsql);
-
-if(mysqli_num_rows($res) >0)
-{
     $sql = "UPDATE requisition
     SET RequisitionStatus='$Status'
     WHERE `id`=$RequisitionID";
@@ -29,14 +24,7 @@ if(mysqli_num_rows($res) >0)
     }
 
 }
-else
-{
-    echo '<script>alert("Requisition Id is wrong!");
-        location= "requisitionResponse.php";
-        </script>';
-}
 
-}
 
 
 
