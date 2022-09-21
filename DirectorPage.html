@@ -58,7 +58,7 @@
           <div class="card box-shadow" style="width: 18rem;">
             <div class="card-body">
               <i class="fa-solid fa-scroll fa-5x center"></i>
-              <a href="#" class="btn btn-primary" id="announcementButton">Announcement</a>
+              <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal2" class="btn btn-primary" id="announcementButton">Announcement</a>
             </div>
           </div>
         </div> -->
@@ -132,6 +132,37 @@
      </form>
  
       <!-- Add Assistant Page Modal Ends here -->
+
+
+       <!-- Announcement Page Modal Starts here -->
+    
+     <form action="" method="post">
+      <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              
+                <div class="mb-3">
+                  <label for="announcement" class="col-form-label">Enter Announcement:</label><br>
+                  <textarea name="announcement" rows="4" cols="50" placeholder="Write your announcement here...."></textarea>
+                </div>
+
+              
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <input type="submit" class="btn btn-primary" value="Notify" name="submit2" id="submit2">
+            </div>
+          </div>
+        </div>
+      </div>
+     </form>
+ 
+      <!-- Announcement Page Modal Ends here -->
   
 
     
