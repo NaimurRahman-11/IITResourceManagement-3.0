@@ -32,6 +32,7 @@ validateItemRequest($itemRequestArray,$itemQuantityArray);
 
 function validateItemRequest($itemRequestArray,$itemQuantityArray)
 {
+    session_start();
     include('DatabaseConnection.php');;
     
     $validRequest=true;
@@ -69,12 +70,14 @@ function validateItemRequest($itemRequestArray,$itemQuantityArray)
 
     if($validRequest == true)
     {
+
+        $name= $_SESSION['name'];
         
-        $insertSql= "INSERT into itemrequest(`description`,`amount`)
-        values('$itemRequestString','$itemQuantityString')";
+        $insertSql= "INSERT into itemrequest(`teacherName`,`description`,`amount`)
+        values('$name','$itemRequestString','$itemQuantityString')";
         $insertSqlRes= mysqli_query($conn,$insertSql);
 
-        echo '<script>alert("Your request is accepted.!");
+        echo '<script>alert("Your request is successfully placed.!");
         location="TeacherPage.html"
             </script>';
     }

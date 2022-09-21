@@ -84,7 +84,13 @@
     
   <?php
      include('DatabaseConnection.php');
-    
+    //  session_start();
+
+    //  if(!isset($_SESSION['name']))
+    //  {
+    //    header('location:logInPage.html');
+     
+    //  }
   
     
     $sql= "select * from requisition where RequisitionStatus != 'Rejected'";

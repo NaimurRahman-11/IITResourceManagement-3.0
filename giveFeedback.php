@@ -18,6 +18,6 @@ function insertFeedback($id,$feedback)
 
 if(insertFeedback($id,$feedback))
 {
-    header('location:showAcceptedRequisition.php');
+    header('location:YourRequisition.php');
 }
 ?>

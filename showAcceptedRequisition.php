@@ -98,22 +98,19 @@ function returnName()
 ?>
     
   <?php
-    include('DatabaseConnection.php');
+    
      
-    $name=returnName();
-
-    $sql= "select * from acceptedRequisition where TeacherName= '$name'";
-    $fetchRequisition= mysqli_query($conn,$sql);
     
     
     
-    if(mysqli_num_rows($fetchRequisition) > 0)
-    {
+    
+    // if(mysqli_num_rows($fetchRequisition) > 0)
+    // {
   ?>
   <table>
     <tr>
       <th>Id</th>
-      <th>Teacher's Name</th>
+      
       <th>Items</th>
       <th>Description</th>
       <th>Date</th>
@@ -121,11 +118,15 @@ function returnName()
       <th>Action</th>
     </tr>
   <?php
-      
+    include('DatabaseConnection.php');
+      $name=returnName();
+
+      $sql= "select * from acceptedRequisition where TeacherName= '$name'";
+      $fetchRequisition= mysqli_query($conn,$sql);
       while($row= mysqli_fetch_assoc($fetchRequisition))
       {      
         $id=$row['id'];
-        $TeacherName=$row['TeacherName'];
+        
         $ItemName=$row['ItemName'];
         $Description= $row['Description'];
         $date= $row['date_of_commencement'];
@@ -134,7 +135,7 @@ function returnName()
   ?>
                 <tr>
                     <td><?php echo $id; ?></td>
-                    <td><?php echo $TeacherName; ?> </td>
+                    
                     <td><?php echo $ItemName; ?></td>
                     <td><?php echo $Description; ?></td>
                     <td><?php echo $date; ?></td>
@@ -148,12 +149,12 @@ function returnName()
          
           
       }
-    }
-    else
-    {
-      echo '<script>alert("You have no accepted requisition!");
-      </script>';
-    }
+    // }
+    // else
+    // {
+    //   echo '<script>alert("You have no accepted requisition!");
+    //   </script>';
+    // }
    
   ?>
     

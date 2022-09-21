@@ -45,99 +45,230 @@
   </nav>
   <br>
 <!-- Navigation Bar Ends -->
+ <!-- Bootstrap dynamic toggolable pills starts from here -->
+ <br>
+              <div class="mb-3">
+                <div class="toggolable">
+                  <ul class="nav nav-pills justify-content-center">
+                    <li class="nav-item"><a data-bs-toggle="pill" class="nav-link active text-dark" href="#pending">Pending</a></li>
+                    <li class="nav-item"><a data-bs-toggle="pill" class="nav-link text-dark" href="#accepted">Accepted</a></li>
+                    <li class="nav-item"><a data-bs-toggle="pill" class="nav-link text-dark" href="#rejected">Rejected</a></li>
+                  </ul><br>
+                  <div class="tab-content center">
+                    <div id="pending" class="tab-pane active">
+                      <!-- Accepted Table will be added here -->
+                      <table>
+
+                      <tr>
+                            <th> Complaint_No </th>
+                            
+                            <th> PC_ID </th>
+                            <th> Description </th>
+                            <th> Date </th>
+                            <th> Action </th>
+                            </tr>
+                    <?php
+
+
+
+                    ?>
+
+                    <?php
+                    include('DatabaseConnection.php');
+
+                    session_start();
+                      
+                        $Your_ID = $_SESSION['roll'];
+                        
+                        
+                        $fetchComplaintsSql = "SELECT * FROM placecomplaint WHERE Student_ID = '$Your_ID' and complaintStatus= 'pending'";
+
+                        $fetchComplaintsSqlresult = mysqli_query($conn,$fetchComplaintsSql);
+
+                      
+                    ?>        
+                              
+                          
+                    <?php    
+
+                            while ($row = $fetchComplaintsSqlresult->fetch_assoc()) 
+                            {
+
+                              $Complaint_No=$row['Complaint_No'];
+                             
+                              $PC_ID=$row['PC_ID'];
+                              $Description=$row['Description'];
+                              $Date =$row['Date'];
+                    ?>   
+                              <tr>
+                                  <td><?php echo $Complaint_No?> </td>
+                                  
+                                  <td> <?php echo $PC_ID?> </td>
+                                  <td> <?php echo $Description?></td>
+                                  <td> <?php echo $Date?> </td>
+
+                                  <td>
+                                  <a href="cancelComplaints.php?id=<?php echo $Complaint_No; ?>" class='trash-button'>Cancel</a>
+                                  </td>
+                                  </tr>    
+                    <?php           
+                            }
+                        
+                    ?> 
+
+                    <?php  
+
+                       
+                    ?>
+                    </table> 
+                      
+                    </div>
+                    <div id="accepted" class="tab-pane">
+                        <!-- Pending Table will be added here -->
+                       
+                        <table>
+
+                      <tr>
+                            <th> Complaint_No </th>
+                            
+                            <th> PC_ID </th>
+                            <th> Description </th>
+                            <th> Date </th>
+                            
+                            </tr>
+                    <?php
+
+
+
+                    ?>
+
+                    <?php
+                    include('DatabaseConnection.php');
+
+                      
+                        
+                        
+                        
+                        $fetchSolvedComplaintsSql = "SELECT * FROM solvedcomplaints WHERE Student_ID = '$Your_ID' ";
+
+                        $fetchSolvedComplaintsSqlresult = mysqli_query($conn,$fetchSolvedComplaintsSql);
+
+                      
+                    ?>        
+                              
+                          
+                    <?php    
+
+                            while ($row = $fetchSolvedComplaintsSqlresult->fetch_assoc()) 
+                            {
+
+                              $Complaint_No=$row['Complaint_No'];
+                              
+                              $PC_ID=$row['PC_ID'];
+                              $Description=$row['Description'];
+                              $Date =$row['Date'];
+                    ?>   
+                              <tr>
+                                  <td><?php echo $Complaint_No?> </td>
+                                  
+                                  <td> <?php echo $PC_ID?> </td>
+                                  <td> <?php echo $Description?></td>
+                                  <td> <?php echo $Date?> </td>
+
+                                 
+                                  </tr>    
+                    <?php           
+                            }
+                        
+                    ?> 
+
+                    <?php  
+
+                       
+                    ?>
+                    </table>
+                      
+                      </div>
+                    <div id="rejected" class="tab-pane fade">
+                      <!-- Rejected Table will be added here -->
+                      <table>
+
+                      <tr>
+                            <th> Complaint_No </th>
+                           
+                            <th> PC_ID </th>
+                            <th> Description </th>
+                            <th> Date </th>
+                            
+                            </tr>
+                    <?php
+
+
+
+                    ?>
+
+                    <?php
+                    include('DatabaseConnection.php');
+
+                        $fetchComplaintsSql = "SELECT * FROM placecomplaint WHERE Student_ID = '$Your_ID' and complaintStatus= 'rejected'";
+
+                        $fetchComplaintsSqlresult = mysqli_query($conn,$fetchComplaintsSql);
+
+                      
+                    ?>        
+                              
+                          
+                    <?php    
+
+                            while ($row = $fetchComplaintsSqlresult->fetch_assoc()) 
+                            {
+
+                              $Complaint_No=$row['Complaint_No'];
+                              
+                              $PC_ID=$row['PC_ID'];
+                              $Description=$row['Description'];
+                              $Date =$row['Date'];
+                    ?>   
+                              <tr>
+                                  <td><?php echo $Complaint_No?> </td>
+                                  
+                                  <td> <?php echo $PC_ID?> </td>
+                                  <td> <?php echo $Description?></td>
+                                  <td> <?php echo $Date?> </td>
+
+                                  
+                                  </tr>    
+                    <?php           
+                            }
+                        
+                    ?> 
+
+                    <?php  
+
+                       
+                    ?>
+                    </table>
+                    </div>
+                   
+                  </div>
+                </div>
+              </div>
+              <!-- Bootstrap dynamic toggolable pills ends here -->
+
+
+
+
+
+
+
+
+
+
+
+
   
   
-  <table>
-
-  <tr>
-        <th> Complaint_No </th>
-        <th> Student_ID </th>
-        <th> PC_ID </th>
-        <th> Description </th>
-        <th> Date </th>
-        <th> Action </th>
-        </tr>
- <?php
-
-session_start();
-function returnId()
-{
-  if(isset($_POST['YourID']))
-  {
-    $_SESSION['YourID']=$_POST['YourID'];
-
-  }
-  return $_SESSION['YourID'];
-}
- ?>
-
-<?php
-include('DatabaseConnection.php');
-
-
-   
-    $Your_ID = returnId();
     
-    $fetchRollSql="SELECT `Academic_roll` from student where Academic_roll= '$Your_ID'";
-    $fetchComplaintsSql = "SELECT * FROM placecomplaint WHERE Student_ID = '$Your_ID'";
-
-    $fetchComplaintsSqlresult = mysqli_query($conn,$fetchComplaintsSql);
-
-    $fetchRollSqlResult= mysqli_query($conn,$fetchRollSql);
-
-     
-    if(mysqli_num_rows($fetchRollSqlResult) > 0)
-    {
-      if(mysqli_num_rows($fetchComplaintsSqlresult) > 0)
-      {
-?>        
-           
-      
-<?php    
-
-        while ($row = $fetchComplaintsSqlresult->fetch_assoc()) 
-        {
-
-          $Complaint_No=$row['Complaint_No'];
-          $Student_ID= $row['Student_ID'];
-          $PC_ID=$row['PC_ID'];
-          $Description=$row['Description'];
-          $Date =$row['Date'];
-?>   
-          <tr>
-              <td><?php echo $Complaint_No?> </td>
-              <td> <?php echo $Student_ID?> </td>
-              <td> <?php echo $PC_ID?> </td>
-              <td> <?php echo $Description?></td>
-              <td> <?php echo $Date?> </td>
-
-              <td>
-              <a href="cancelComplaints.php?id=<?php echo $Complaint_No; ?>" class='trash-button'>Cancel</a>
-              </td>
-              </tr>    
-<?php           
-        }
-     
-?> 
-
-<?php  
-
-    }
-    else
-    {
-      echo '<script>alert("You have no complaints to see!");
-      
-      </script>';
-    } 
-  }
-else 
-{
-echo '<script>alert("Your roll number is wrong.!");
-location:StudentPage.html
-</script>';
-}   
-?>
-</table>   
 </body>
 
 

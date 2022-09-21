@@ -1,8 +1,8 @@
 <?php
 
 include('DatabaseConnection.php');
-
-$teacherName=$_POST['teacherName'];
+session_start();
+$teacherName=$_SESSION['name'];
 $itemName= $_POST['itemName'];
 $description= $_POST['description'];
 

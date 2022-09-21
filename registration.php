@@ -1,6 +1,9 @@
 <?php
 $name= $_POST["firstName"]." ".$_POST["lastName"];
 
+
+
+
 if(isset($_POST["studentID"]))
 {
     applyAsStudent($name);

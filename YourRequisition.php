@@ -43,10 +43,171 @@
     </div>
   </nav>
 <!-- Navigation Bar Ends -->
+
   
-  
+   <!-- Bootstrap dynamic toggolable pills starts from here -->
+   <br>
+              <div class="mb-3">
+                <div class="toggolable">
+                  <ul class="nav nav-pills justify-content-center">
+                    <li class="nav-item"><a data-bs-toggle="pill" class="nav-link active text-dark" href="#pending">Pending</a></li>
+                    <li class="nav-item"><a data-bs-toggle="pill" class="nav-link text-dark" href="#giveFeedback">Give Feedback</a></li>
+                    <li class="nav-item"><a data-bs-toggle="pill" class="nav-link text-dark" href="#rejected">Rejected</a></li>
+                  </ul><br>
+                  <div class="tab-content center">
+                    <div id="pending" class="tab-pane active">
+                  <table>
+                  <tr>
+                    <th>Id</th>
+                    
+                    <th>Items</th>
+                    <th>Description</th>
+                    <th>Status of Requisition</th>
+                    <th>Action</th>
+                  </tr>
+                <?php
+                session_start();
+                
+                include('DatabaseConnection.php');
+                
+                $name=$_SESSION['name'];
+                $sql= "select * from requisition where TeacherName= '$name' and RequisitionStatus !='rejected'";
+                $fetchRequisition= mysqli_query($conn,$sql);
+                    
+                    while($row= mysqli_fetch_assoc($fetchRequisition))
+                    {      
+                      $id=$row['id'];
+                      
+                      $ItemName=$row['ItemName'];
+                      $Description= $row['Description'];
+                      $RequisitionStatus=$row['RequisitionStatus'];    
+
+                ?>
+                              <tr>
+                                  <td><?php echo $id; ?></td>
+                                  
+                                  <td><?php echo $ItemName; ?></td>
+                                  <td><?php echo $Description; ?></td>
+                                  <td><?php echo $RequisitionStatus; ?></td>
+                                  <td>
+                                  <a href="cancelRequisition.php?cancelRequisition=<?php echo $id; ?>" class="delete-button">Cancel</a>
+                                  </td>
+                              </tr>
+                    
+                <?php 
+                      
+                        
+                    }
+                    
+                    ?>
+                    </table>
+                      
+                      
+                    </div>
+                    <div id="giveFeedback" class="tab-pane">
+                        <!-- Pending Table will be added here -->
+                       
+                        <table>
+                      <tr>
+                        <th>Id</th>
+                        
+                        <th>Items</th>
+                        <th>Description</th>
+                        <th>Date</th>
+                        <th>Feedback</th>
+                        <th>Action</th>
+                      </tr>
+                    <?php
+                      include('DatabaseConnection.php');
+                        
+
+                        $sql= "select * from acceptedRequisition where TeacherName= '$name'";
+                        $fetchRequisition= mysqli_query($conn,$sql);
+                        while($row= mysqli_fetch_assoc($fetchRequisition))
+                        {      
+                          $id=$row['id'];
+                          
+                          $ItemName=$row['ItemName'];
+                          $Description= $row['Description'];
+                          $date= $row['date_of_commencement'];
+                          $feedback=$row['feedback'];    
+
+                    ?>
+                                  <tr>
+                                      <td><?php echo $id; ?></td>
+                                      
+                                      <td><?php echo $ItemName; ?></td>
+                                      <td><?php echo $Description; ?></td>
+                                      <td><?php echo $date; ?></td>
+                                      <td><?php echo $feedback; ?></td>
+                                      <td>
+                                      <button type="button" class="btn btn-success feedbackbtn"> Give feedback</button>
+                                      </td>
+                                  </tr>
+                        
+                    <?php 
+                          
+                            
+                        }
+                      
+                    
+                    ?>
+                      
+                        
+                    </table>
+                      
+                      </div>
+                    <div id="rejected" class="tab-pane fade">
+                    <table>
+                  <tr>
+                    <th>Id</th>
+                    <th>Items</th>
+                    <th>Description</th>
+                    <th>Date</th>
+                    
+                  </tr>
+                <?php
+                
+                
+                include('DatabaseConnection.php');
+                
+                
+                $sql= "select * from requisition where TeacherName= '$name' and RequisitionStatus='Rejected'";
+                $fetchRequisition= mysqli_query($conn,$sql);
+                    
+                    while($row= mysqli_fetch_assoc($fetchRequisition))
+                    {      
+                      $id=$row['id'];
+                      
+                      $ItemName=$row['ItemName'];
+                      $Description= $row['Description'];
+                      $Date=$row['date_of_commencement'];    
+
+                ?>
+                              <tr>
+                                  <td><?php echo $id; ?></td>
+                                  
+                                  <td><?php echo $ItemName; ?></td>
+                                  <td><?php echo $Description; ?></td>
+                                  <td><?php echo $Date; ?></td>
+                                  
+                              </tr>
+                    
+                <?php 
+                      
+                        
+                    }
+                    
+                    ?>
+                    </table>
+                    </div>
+                   
+                  </div>
+                </div>
+              </div>
+              <!-- Bootstrap dynamic toggolable pills ends here -->
     
-  <form action="showAcceptedRequisition.php" method="post">
+  <!-- <form action="showAcceptedRequisition.php" method="post">
 
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -72,91 +233,92 @@
       </div>
     </div>
   </div>
-  </form>
+  </form> -->
 
 
-<div class="buttons text-center">
+<!-- <div class="buttons text-center">
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" >Your executed Requisitions</button>
     
 </div>
-<br>
+<br> -->
 
 
-<?php
 
-session_start();
-function returnName()
-{
-  if(isset($_POST['teacherName']))
-  {
-    $_SESSION['name']=$_POST['teacherName'];
-
-  }
-  return $_SESSION['name'];
-}
-
- 
-?>
     
   <?php
-    include('DatabaseConnection.php');
-     
-    $name=returnName();
-
-    $sql= "select * from requisition where TeacherName= '$name'";
-    $fetchRequisition= mysqli_query($conn,$sql);
+  
+    // $sql= "select * from requisition where TeacherName= '$name'";
+    // $fetchRequisition= mysqli_query($conn,$sql);
     
     
     
-    if(mysqli_num_rows($fetchRequisition) > 0)
-    {
+    // if(mysqli_num_rows($fetchRequisition) > 0)
+    // {
   ?>
-  <table>
-    <tr>
-      <th>Id</th>
-      <th>Teacher's Name</th>
-      <th>Items</th>
-      <th>Description</th>
-      <th>Status of Requisition</th>
-      <th>Action</th>
-    </tr>
-  <?php
-      
-      while($row= mysqli_fetch_assoc($fetchRequisition))
-      {      
-        $id=$row['id'];
-        $TeacherName=$row['TeacherName'];
-        $ItemName=$row['ItemName'];
-        $Description= $row['Description'];
-        $RequisitionStatus=$row['RequisitionStatus'];    
-
-  ?>
-                <tr>
-                    <td><?php echo $id; ?></td>
-                    <td><?php echo $TeacherName; ?> </td>
-                    <td><?php echo $ItemName; ?></td>
-                    <td><?php echo $Description; ?></td>
-                    <td><?php echo $RequisitionStatus; ?></td>
-                    <td>
-                    <a href="cancelRequisition.php?cancelRequisition=<?php echo $id; ?>" class="delete-button">Cancel</a>
-                    </td>
-                </tr>
-      
-  <?php 
-         
-          
-      }
-    }
+  
+    <!-- }
     else
     {
       echo '<script>alert("You have no pending requisition!");
       </script>';
-    }
-   
-  ?>
+    } -->
+    <form action="giveFeedback.php" method="post">
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+
+          <input type="hidden" name="feedbackId" id="feedbackId">
+
+            
+              <div class="mb-3">
+                <label for="YourID" class="col-form-label">Enter Your feedback:</label>
+                <input type="text" class="form-control" id="feedback" name="feedback">
+              </div>
+  
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <input type="submit" class="btn btn-primary" value="Submit" name="Search" id="Search">
+          </div>
+        </div>
+      </div>
+    </div>
+   </form>
+  
     
-      
-    </table>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+
+    <script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script> 
+    <script>
+        $(document).ready(function () {
+
+            $('.feedbackbtn').on('click', function () {
+
+                $('#exampleModal').modal('show');
+
+                $tr = $(this).closest('tr');
+
+                var data = $tr.children("td").map(function () {
+                    return $(this).text();
+                }).get();
+
+                console.log(data);
+
+                $('#feedbackId').val(data[0]);
+
+            });
+        });
+    </script>
+ <script>       
+    
   
   
 

@@ -19,27 +19,24 @@
     <div class="login">
         <h1 class="text-center"><span class="auto-type"></span></h1>
 
-        <form class="needs-validation" action="">
+        <form class="needs-validation" action="logInRedirect.php" method="post">
             <div class="form-group was-validated">
                 <label class="form-label" for="email">Email Address:</label>
-                <input class="form-control" type="email" id="email" required>
+                <input class="form-control" type="email" id="email" name="email" required>
                 <div class="invalid-feedback">Please enter your email</div>
             </div>
 
             <div class="form-group was-validated">
                 <label class="form-label" for="password">Password:</label>
-                <input class="form-control" type="password" id="password" required>
-                <div class="invalid-feedback">Please enter your password</div>
+                <input class="form-control" type="password" id="password" name="password" maxlength="6" required>
+                <div class="invalid-feedback">Please enter your password within 6 characters</div>
             </div>
 
-            <div class="form-group form-check">
-                <input class="form-check-input" type="checkbox" id="check">
-                <label class="form-check-label" for="check">Remember me</label> 
-            </div>
+            
 
             <p> <small>Don't have an account? Register <a href="Registration.html">here.</a></small> </p>
 
-            <a href="StudentPage.html"><input class="btn btn-success w-100" type="button" value="Log In"></a>
+            <input type="submit" class="btn btn-success w-100"  value="Log In">
 
             
         </form>

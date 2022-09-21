@@ -1,9 +1,9 @@
 <?php
 include('DatabaseConnection.php');
 
-if (isset($_POST["submit"])){
+session_start();
    
-    $Student_ID = $_POST["StudentID"];
+    $Student_ID = $_SESSION['roll'];
     $PC_ID = $_POST["PCID"];
     $Description = $_POST["description"];
     $flag= false;
@@ -41,7 +41,7 @@ if (isset($_POST["submit"])){
     }
     
     
-}
+
 function validateRoll($rollList, $roll)
 {
   $flag= false;
@@ -56,6 +56,7 @@ function validateRoll($rollList, $roll)
 }
   return $flag;
 }
+
 ?>
 
 

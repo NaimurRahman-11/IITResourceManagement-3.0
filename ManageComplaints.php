@@ -65,7 +65,7 @@
   <?php
   include('DatabaseConnection.php');
 
-  $sql = "SELECT * From placecomplaint
+  $sql = "SELECT * From placecomplaint where complaintStatus= 'pending'
   ORDER BY Complaint_No DESC";
 
   $res = mysqli_query($conn, $sql);

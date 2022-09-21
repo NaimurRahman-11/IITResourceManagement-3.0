@@ -13,20 +13,21 @@ while($row=mysqli_fetch_assoc($selectForUpdateSqlResult))
   $PC_ID= $row['PC_ID'];
 }
 
-$updateNoOfComplaints= "update pc set  NoOfComplaints= NoOfComplaints-1
+$updateNoOfComplaints= "UPDATE pc set  NoOfComplaints= NoOfComplaints-1, complaintStatus= 'rejected'
 where PC_Id=$PC_ID";
 mysqli_query($conn, $updateNoOfComplaints);
 
-$updatePcStatus= "update pc set PC_status='Active'
+$updateNoOfStatus= "UPDATE placecomplaint set complaintStatus= 'rejected'
+where PC_Id=$PC_ID";
+mysqli_query($conn, $updateNoOfStatus);
+
+
+$updatePcStatus= "UPDATE pc set PC_status='Active'
 where NoOfComplaints= 0";
 mysqli_query($conn, $updatePcStatus);
 
-$deleteSql = "DELETE FROM placecomplaint WHERE Complaint_No=$Complaint_No";
 
-$deleteSqlRes = mysqli_query($conn, $deleteSql);
+header('location: ManageComplaints.php');
 
-if($deleteSqlRes==true){
-  header('location: ManageComplaints.php');
-}
 
 ?>

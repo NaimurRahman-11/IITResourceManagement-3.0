@@ -59,8 +59,54 @@
 
                   <div class="tab-content center">
                     <div id="accepted" class="tab-pane active">
-                      <!-- Accepted Table will be added here -->
-                      <p>This is a test for accepted</p>
+                    <table>
+
+                      <tr>
+                        <th>ID</th>
+                        <th>Request Description</th>
+                        <th>Amount</th>
+                        
+                      </tr>
+
+                      <?php
+                      session_start();
+                      $name= $_SESSION['name'];
+                      include('DatabaseConnection.php');
+
+                      $sql = "SELECT * From itemrequest where teacherName= '$name' and itemRequestStatus='Accepted'";
+
+                      $res = mysqli_query($conn, $sql);
+
+                      if($res==true){
+
+                        $count = mysqli_num_rows($res);
+
+                        if($count>0){
+                            while($rows = mysqli_fetch_assoc($res)){
+                                $id = $rows['id'];
+                                $description = $rows['description'];
+                                $amount = $rows['amount'];      
+
+                        ?>
+
+                                    <tr>
+                                        <td><?php echo $id; ?></td>
+                                        <td><?php echo $description; ?> </td>
+                                        <td><?php echo $amount; ?></td>
+                                        
+                                        
+                                    </tr>
+
+                                <?php
+                            }
+                        }
+
+                      }
+
+                      ?>         
+
+
+                      </table> 
                       
 
                     </div>
@@ -69,14 +115,108 @@
                     <div id="pending" class="tab-pane">
                         <!-- Pending Table will be added here -->
                        
-                        <p>This is a test for pending</p>
+                        <table>
+
+                      <tr>
+                        <th>ID</th>
+                        <th>Request Description</th>
+                        <th>Amount</th>
+                        
+                      </tr>
+
+                      <?php
+
+
+                      include('DatabaseConnection.php');
+
+                      $sql = "SELECT * From itemrequest where teacherName= '$name' and itemRequestStatus='pending'";
+
+                      $res = mysqli_query($conn, $sql);
+
+                      if($res==true){
+
+                        $count = mysqli_num_rows($res);
+
+                        if($count>0){
+                            while($rows = mysqli_fetch_assoc($res)){
+                                $id = $rows['id'];
+                                $description = $rows['description'];
+                                $amount = $rows['amount'];      
+
+                        ?>
+
+                                    <tr>
+                                        <td><?php echo $id; ?></td>
+                                        <td><?php echo $description; ?> </td>
+                                        <td><?php echo $amount; ?></td>
+                                        
+                                        
+                                    </tr>
+
+                                <?php
+                            }
+                        }
+
+                      }
+
+                      ?>         
+
+
+                      </table>
                       
                       </div>
 
 
                     <div id="rejected" class="tab-pane fade">
                       <!-- Rejected Table will be added here -->
-                      <p>This is a test for rejected</p>
+                      <table>
+
+                      <tr>
+                        <th>ID</th>
+                        <th>Request Description</th>
+                        <th>Amount</th>
+                        
+                      </tr>
+
+                      <?php
+
+
+                      include('DatabaseConnection.php');
+
+                      $sql = "SELECT * From itemrequest where teacherName= '$name' and itemRequestStatus='Stock out'";
+
+                      $res = mysqli_query($conn, $sql);
+
+                      if($res==true){
+
+                        $count = mysqli_num_rows($res);
+
+                        if($count>0){
+                            while($rows = mysqli_fetch_assoc($res)){
+                                $id = $rows['id'];
+                                $description = $rows['description'];
+                                $amount = $rows['amount'];      
+
+                        ?>
+
+                                    <tr>
+                                        <td><?php echo $id; ?></td>
+                                        <td><?php echo $description; ?> </td>
+                                        <td><?php echo $amount; ?></td>
+                                        
+                                        
+                                    </tr>
+
+                                <?php
+                            }
+                        }
+
+                      }
+
+                      ?>         
+
+
+                      </table>
 
                     </div>
 
