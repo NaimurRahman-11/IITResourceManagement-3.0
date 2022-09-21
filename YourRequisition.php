@@ -44,11 +44,7 @@
   </nav>
 <!-- Navigation Bar Ends -->
   
-  <!-- <div class="header">
-    <h1>Teacher's Dashboard</h1> 
-    <a href="LabAssistantPage.html"><p class="home"><i class="fa-solid fa-house-user"></i> Home</p> </a> 
-    <a href="logInPage.html"><p class="log-out"><i class="fa-solid fa-right-from-bracket"></i> log out</p> </a>
-  </div> -->
+  
     
   <form action="showAcceptedRequisition.php" method="post">
 

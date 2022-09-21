@@ -44,11 +44,7 @@
   </nav>
 <!-- Navigation Bar Ends -->
   
-  <!-- <div class="header">
-    <h1>Office Assistant's Dashboard</h1> 
-    <a href="OfficeAssistantPage.html"><p class="home"><i class="fa-solid fa-house-user"></i> Home</p> </a> 
-    <a href="logInPage.html"><p class="log-out"><i class="fa-solid fa-right-from-bracket"></i> log out</p> </a>
-  </div> -->
+ 
 
   <form action="AddResource.php" method="post">
     <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -218,8 +214,9 @@
                                         <td><?php echo $amount; ?></td>
                                         
                                         <td>
-                                        <button type="button" class="btn btn-success addbtn"> Add</button>
-                                            <button type="button" class="btn btn-danger decreasebtn">Decrease</button>
+                                        <button type="button" class="btn btn-success addbtn"> +</button>
+                                          <button type="button" class="btn btn-danger decreasebtn">-</button>
+                                          <button type="button" class="btn btn-danger decreasebtn">Delete Item</button>
                                         
                                             
                                         </td> 
@@ -276,8 +273,9 @@
                                         <td><?php echo $amount; ?></td>
                                         
                                         <td>
-                                        <button type="button" class="btn btn-success addbtn"> Add</button>
-                                            <button type="button" class="btn btn-danger decreasebtn">Decrease</button>
+                                        <button type="button" class="btn btn-success addbtn"> +</button>
+                                          <button type="button" class="btn btn-danger decreasebtn">-</button>
+                                          <button type="button" class="btn btn-danger decreasebtn">Delete Item</button>
                                             
                                         </td>
                                     </tr>
@@ -334,8 +332,9 @@
                                         <td>
                                             <!-- <a href="#>" class="update-button" data-bs-toggle="modal" data-bs-target="#exampleModal1">Add</a>
                                             <a href="#>" class="update-button" data-bs-toggle="modal" data-bs-target="#exampleModal2">Decrease</a> -->
-                                            <button type="button" class="btn btn-success addbtn"> Add</button>
-                                            <button type="button" class="btn btn-danger decreasebtn">Decrease</button>
+                                            <button type="button" class="btn btn-success addbtn"> +</button>
+                                          <button type="button" class="btn btn-danger decreasebtn">-</button>
+                                          <button type="button" class="btn btn-danger decreasebtn">Delete Item</button>
                                             
                                         </td>
                                     </tr>
