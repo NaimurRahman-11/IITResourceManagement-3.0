@@ -76,7 +76,7 @@
 
   
     <!-- Modal for Add Item Category Starts Here -->
-    <form action="" method="post">
+    <form action="addResourceItemType.php" method="post">
      <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
        <div class="modal-dialog">
          <div class="modal-content">
@@ -89,18 +89,18 @@
            <div class="mb-3">
            <label for="cars">Item Category:</label>
 
-              <select name="category" id="category">
+              <select name="category" id="category" name="category">
               <option disabled selected value> -- select category -- </option>
                 <option value="stationary">Stationary</option>
                 <option value="personal">Personal</option>
-                <option value="electric">Electric & Electronics</option>
-                <option value="furnitures">Furnitures</option>
+                <option value="ElectricOrElectronic">ElectricOrElectronic</option>
+                <option value="furniture">Furniture</option>
               </select>
            </div>
              
                <div class="mb-3">
                  <label for="YourID" class="col-form-label">Item Name:</label>
-                 <input type="text" class="form-control" id="YourID" name="YourID">
+                 <input type="text" class="form-control" id="YourID" name="itemName">
                </div>
              
            </div>
@@ -142,6 +142,37 @@
       </div>
     </div>
    </form>
+
+
+   <form action="deleteResourceItemType.php" method="post">
+     <div class="modal fade" id="exampleModalnew" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+       <div class="modal-dialog">
+         <div class="modal-content">
+           <div class="modal-header">
+             
+             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+           </div>
+           <div class="modal-body">
+
+           <div class="mb-3">
+           
+           </div>
+           <input type="hidden" name="deleteId" id="deleteId">
+             
+               <div class="mb-3">
+                 <label for="YourID" class="col-form-label">Do you really want to delete this item type</label>
+                 
+               </div>
+             
+           </div>
+           <div class="modal-footer">
+             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+             <input type="submit" class="btn btn-primary" value="Delete" name="submit2" id="submit2">
+           </div>
+         </div>
+       </div>
+     </div>
+    </form>  
 <br>
 
 <div class="text-center">
@@ -201,7 +232,7 @@
                                           <td>
                                           <button type="button" class="btn btn-success addbtn"> +</button>
                                           <button type="button" class="btn btn-danger decreasebtn">-</button>
-                                          <button type="button" class="btn btn-danger decreasebtn">Delete Item</button>
+                                          <button type="button" class="btn btn-danger deletebtn">Delete Item</button>
                                           </td>
                                       </tr>
 
@@ -257,7 +288,7 @@
                                         <td>
                                         <button type="button" class="btn btn-success addbtn"> +</button>
                                           <button type="button" class="btn btn-danger decreasebtn">-</button>
-                                          <button type="button" class="btn btn-danger decreasebtn">Delete Item</button>
+                                          <button type="button" class="btn btn-danger deletebtn">Delete Item</button>
                                         
                                             
                                         </td> 
@@ -316,7 +347,7 @@
                                         <td>
                                         <button type="button" class="btn btn-success addbtn"> +</button>
                                           <button type="button" class="btn btn-danger decreasebtn">-</button>
-                                          <button type="button" class="btn btn-danger decreasebtn">Delete Item</button>
+                                          <button type="button" class="btn btn-danger deletebtn">Delete Item</button>
                                             
                                         </td>
                                     </tr>
@@ -375,7 +406,7 @@
                                             <a href="#>" class="update-button" data-bs-toggle="modal" data-bs-target="#exampleModal2">Decrease</a> -->
                                             <button type="button" class="btn btn-success addbtn"> +</button>
                                           <button type="button" class="btn btn-danger decreasebtn">-</button>
-                                          <button type="button" class="btn btn-danger decreasebtn">Delete Item</button>
+                                          <button type="button" class="btn btn-danger deletebtn">Delete Item</button>
                                             
                                         </td>
                                     </tr>
@@ -488,6 +519,27 @@
         });
     
       </script> 
+  <script>
+        $(document).ready(function () {
+
+            $('.deletebtn').on('click', function () {
+
+                $('#exampleModalnew').modal('show');
+
+                $tr = $(this).closest('tr');
+
+                var data = $tr.children("td").map(function () {
+                    return $(this).text();
+                }).get();
+
+                console.log(data);
+
+                $('#deleteId').val(data[0]);
+
+            });
+        });
+    
+      </script>      
 
 
 </body>
