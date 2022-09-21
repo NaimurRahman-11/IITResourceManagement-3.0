@@ -46,14 +46,10 @@
   <br>
 
   <div class="text-center">
-<a href=""><input class="btn btn-primary" style="width: 150px;" type="button" value="Add Item Type"></a>
+<a href="" data-bs-toggle="modal" data-bs-target="#exampleModal4"><input class="btn btn-primary" style="width: 150px;" type="button" value="Add Item Type"></a>
 </div><br>
   
-  <!-- <div class="header">
-    <h1>Manage Lab Resources</h1>
-    <a href="LabAssistantPage.html"><p class="home"><i class="fa-solid fa-house-user"></i> Home</p> </a> 
-    <a href="logInPage.html"><p class="log-out"><i class="fa-solid fa-right-from-bracket"></i> log out</p> </a>
-  </div> -->
+ 
   <form action="AddLabEquipment.php" method="post">
     <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
@@ -109,6 +105,43 @@
       </div>
     </div>
    </form>
+
+   <!-- Modal for Add Item Category Starts Here -->
+   <form action="" method="post">
+     <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+       <div class="modal-dialog">
+         <div class="modal-content">
+           <div class="modal-header">
+             
+             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+           </div>
+           <div class="modal-body">
+
+           <div class="mb-3">
+           <label for="cars">Item Category:</label>
+
+              <select name="category" id="category">
+              <option selected value> Lab </option>
+               
+              </select>
+           </div>
+             
+               <div class="mb-3">
+                 <label for="YourID" class="col-form-label">Item Name:</label>
+                 <input type="text" class="form-control" id="YourID" name="YourID">
+               </div>
+             
+           </div>
+           <div class="modal-footer">
+             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+             <input type="submit" class="btn btn-primary" value="Add" name="submit2" id="submit2">
+           </div>
+         </div>
+       </div>
+     </div>
+    </form>
+
+    <!-- Modal for Add Item Category Ends Here -->
     
   <table>
 

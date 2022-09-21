@@ -74,6 +74,47 @@
     </div>
    </form>
 
+  
+    <!-- Modal for Add Item Category Starts Here -->
+    <form action="" method="post">
+     <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+       <div class="modal-dialog">
+         <div class="modal-content">
+           <div class="modal-header">
+             
+             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+           </div>
+           <div class="modal-body">
+
+           <div class="mb-3">
+           <label for="cars">Item Category:</label>
+
+              <select name="category" id="category">
+              <option disabled selected value> -- select category -- </option>
+                <option value="stationary">Stationary</option>
+                <option value="personal">Personal</option>
+                <option value="electric">Electric & Electronics</option>
+                <option value="furnitures">Furnitures</option>
+              </select>
+           </div>
+             
+               <div class="mb-3">
+                 <label for="YourID" class="col-form-label">Item Name:</label>
+                 <input type="text" class="form-control" id="YourID" name="YourID">
+               </div>
+             
+           </div>
+           <div class="modal-footer">
+             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+             <input type="submit" class="btn btn-primary" value="Add" name="submit2" id="submit2">
+           </div>
+         </div>
+       </div>
+     </div>
+    </form>
+
+    <!-- Modal for Add Item Category Ends Here -->
+
    <form action="DecreaseResource.php" method="post">
     <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
@@ -104,7 +145,7 @@
 <br>
 
 <div class="text-center">
-<a href=""><input class="btn btn-primary" style="width: 150px;" type="button" value="Add Item Type"></a>
+<a href="" data-bs-toggle="modal" data-bs-target="#exampleModal4"><input class="btn btn-primary addItemButton" style="width: 150px;" type="button" value="Add Item Type"></a>
 </div>
 
 
@@ -447,6 +488,8 @@
         });
     
       </script> 
+
+
 </body>
 
 
