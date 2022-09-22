@@ -16,7 +16,10 @@ if(isset($_POST["designation"]))
 }
 if($res)
 {
-    header('location:logInPage.html');
+    echo "<script> alert('Registration is submitted!');
+    location='logInPage.html';
+    </script> ";
+   
 }
 else
 {

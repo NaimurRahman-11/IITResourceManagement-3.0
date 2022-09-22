@@ -67,17 +67,17 @@
             
               <div class="mb-3">
                 <label for="YourID" class="col-form-label">File Name:</label>
-                <input type="text" class="form-control" id="FileName" name="FileName">
+                <input type="text" class="form-control" id="FileName" name="FileName" required>
               </div>
 
               <div class="mb-3">
                 <label for="YourID" class="col-form-label">File Category:</label>
-                <input type="text" class="form-control" id="FileCategory" name="FileCategory">
+                <input type="text" class="form-control" id="FileCategory" name="FileCategory" required>
               </div>
 
               <div class="mb-3">
                 <label for="YourID" class="col-form-label">File Location:</label>
-                <input type="text" class="form-control" id="FileLocation" name="FileLocation">
+                <input type="text" class="form-control" id="FileLocation" name="FileLocation" required>
               </div>
             
           </div>
@@ -107,7 +107,7 @@
             
               <div class="mb-3">
                 <label for="YourID" class="col-form-label">File Name:</label>
-                <input type="text" class="form-control" id="FileName" name="fileName">
+                <input type="text" class="form-control" id="FileName" name="fileName" required>
               </div>
 
             
@@ -142,7 +142,7 @@
             
               <div class="mb-3">
                 <label for="YourID" class="col-form-label">Enter Updated File Location:</label>
-                <input type="text" class="form-control" id="FileLocation" name="FileLocation">
+                <input type="text" class="form-control" id="FileLocation" name="FileLocation" required>
               </div>
   
           </div>

@@ -39,7 +39,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <!-- <a class="nav-link" aria-current="page" href="DirectorPage.php" style="margin-right: 15px;"><i class="fa-solid fa-house-user"></i> Home</a> -->
+            <a class="nav-link" aria-current="page" href="DirectorPage.php" style="margin-right: 15px;"><i class="fa-solid fa-house-user"></i> Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="logout.php"><i class="fa-solid fa-right-from-bracket"></i> Log-Out</a>

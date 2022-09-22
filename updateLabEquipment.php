@@ -66,7 +66,7 @@
             
               <div class="mb-3">
                 <label for="YourID" class="col-form-label">Enter the increased Amount:</label>
-                <input type="text" class="form-control" id="FileLocation" name="increasedAmount">
+                <input type="number" class="form-control" id="FileLocation" name="increasedAmount" required>
               </div>
   
           </div>
@@ -94,7 +94,7 @@
             
               <div class="mb-3">
                 <label for="YourID" class="col-form-label">Enter the decreased Amount:</label>
-                <input type="text" class="form-control" id="FileLocation" name="decreasedAmount">
+                <input type="number" class="form-control" id="FileLocation" name="decreasedAmount" required>
               </div>
   
           </div>

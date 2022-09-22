@@ -41,7 +41,7 @@
         </ul>
       </div>
     </div>
-  </nav>
+  </nav><br>
 <!-- Navigation Bar Ends -->
   
   <!-- <div class="header">

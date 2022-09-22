@@ -221,20 +221,20 @@
                       <div id="stationaryItems" class="tab-pane active">
                         <input type="checkbox" onclick="markerQuantity()" id="marker" name="marker" value="marker">
                         <label for="marker">Marker</label> &nbsp;
-                        <input type="number" style="display: none;" id="quantity" class="text-center quantity-border-radius" name="markerQuantitybox" min="1" max="5"> <br> <br>
+                        <input type="number" style="display: none;" id="quantity" class="text-center quantity-border-radius" name="markerQuantitybox" min="1" max="500"> <br> <br>
 
                         
 
                         <input type="checkbox" onclick="markerQuantity()" id="pen" name="pen" value="pen">
                         <label for="pen">Pen</label> &nbsp;
-                        <input type="number" style="display: none;" class="text-center quantity-border-radius" id="penQuantity" name="penQuantitybox" min="1" max="5"> <br><br>
+                        <input type="number" style="display: none;" class="text-center quantity-border-radius" id="penQuantity" name="penQuantitybox" min="1" max="500"> <br><br>
 
                         
                         
 
                         <input type="checkbox" onclick="markerQuantity()" id="A4Paper" name="A4Paper" value="A4Paper">
                         <label for="A4Paper">A4 Paper</label> &nbsp;
-                        <input type="number" style="display: none;" class="text-center quantity-border-radius" id="A4PaperQuantity" name="A4PaperQuantitybox" min="1" max="5">
+                        <input type="number" style="display: none;" class="text-center quantity-border-radius" id="A4PaperQuantity" name="A4PaperQuantitybox" min="1" max="500">
 
 
                       </div>
@@ -242,12 +242,12 @@
                       <div id="personalItems" class="tab-pane fade">
                         <input type="checkbox" onclick="markerQuantity()" id="tissue" name="tissue" value="tissue">
                         <label for="tissue"> Tissue Box</label> &nbsp;
-                        <input type="number" style="display: none;" class="text-center quantity-border-radius" id="tissueQuantity" name="tissueQuantitybox" min="1" max="5"> <br><br>
+                        <input type="number" style="display: none;" class="text-center quantity-border-radius" id="tissueQuantity" name="tissueQuantitybox" min="1" max="500"> <br><br>
 
                        
                         <input type="checkbox" onclick="markerQuantity()" id="airFreshner" name="airFreshner" value="airFreshner">
                         <label for="airFreshner">Air Freshner</label> &nbsp;
-                        <input type="number" style="display: none;" class="text-center quantity-border-radius" id="airFreshnerQuantity" name="airFreshnerQuantitybox" min="1" max="5">
+                        <input type="number" style="display: none;" class="text-center quantity-border-radius" id="airFreshnerQuantity" name="airFreshnerQuantitybox" min="1" max="500">
                         
                       </div>
                     </div>

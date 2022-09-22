@@ -110,12 +110,12 @@
 
           <div class="mb-3">
             <label for="pcId" class="col-form-label">PC ID:</label>
-            <input type="text" class="form-control" id="pcId" name="PCID">
+            <input type="number" class="form-control" id="pcId" name="PCID" required>
           </div>
 
           <div class="mb-3">
             <label for="message-text" class="col-form-label">Describe your complaint:</label>
-            <textarea class="form-control" id="messageText" name="description"></textarea>
+            <textarea class="form-control" id="messageText" name="description" required></textarea>
           </div>
        
       </div>
