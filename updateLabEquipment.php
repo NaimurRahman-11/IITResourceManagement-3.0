@@ -129,7 +129,7 @@
              
                <div class="mb-3">
                  <label for="YourID" class="col-form-label">Item Name:</label>
-                 <input type="text" class="form-control" id="YourID" name="itemName">
+                 <input type="text" class="form-control" id="YourID" name="itemName" required>
                </div>
              
            </div>
@@ -160,7 +160,7 @@
            <input type="hidden" name="deleteId" id="deleteId">
              
                <div class="mb-3">
-                 <label for="YourID" class="col-form-label">Do you really want to delete this item type</label>
+                 <label for="YourID" class="col-form-label">Do you really want to delete this item type?</label>
                  
                </div>
              
