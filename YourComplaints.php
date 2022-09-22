@@ -81,7 +81,7 @@
                         $Your_ID = $_SESSION['roll'];
                         
                         
-                        $fetchComplaintsSql = "SELECT * FROM placecomplaint WHERE Student_ID = '$Your_ID' and complaintStatus= 'pending'";
+                        $fetchComplaintsSql = "SELECT * FROM placecomplaint WHERE Academic_Roll = '$Your_ID' and complaintStatus= 'pending'";
 
                         $fetchComplaintsSqlresult = mysqli_query($conn,$fetchComplaintsSql);
 
@@ -96,7 +96,7 @@
 
                               $Complaint_No=$row['Complaint_No'];
                              
-                              $PC_ID=$row['PC_ID'];
+                              $PC_ID=$row['PC_Id'];
                               $Description=$row['Description'];
                               $Date =$row['Date'];
                     ?>   
@@ -149,7 +149,7 @@
                         
                         
                         
-                        $fetchSolvedComplaintsSql = "SELECT * FROM solvedcomplaints WHERE Student_ID = '$Your_ID' ";
+                        $fetchSolvedComplaintsSql = "SELECT * FROM solvedcomplaints WHERE Academic_Roll = '$Your_ID' ";
 
                         $fetchSolvedComplaintsSqlresult = mysqli_query($conn,$fetchSolvedComplaintsSql);
 
@@ -162,9 +162,9 @@
                             while ($row = $fetchSolvedComplaintsSqlresult->fetch_assoc()) 
                             {
 
-                              $Complaint_No=$row['Complaint_No'];
+                              $Complaint_No=$row['Complaint_no'];
                               
-                              $PC_ID=$row['PC_ID'];
+                              $PC_ID=$row['PC_Id'];
                               $Description=$row['Description'];
                               $Date =$row['Date'];
                     ?>   
@@ -208,9 +208,14 @@
                     ?>
 
                     <?php
+                    
+                    if(!isset($_SESSION['email']))
+                    {
+                      header('location:logInPage.html');
+                    }
                     include('DatabaseConnection.php');
 
-                        $fetchComplaintsSql = "SELECT * FROM placecomplaint WHERE Student_ID = '$Your_ID' and complaintStatus= 'rejected'";
+                        $fetchComplaintsSql = "SELECT * FROM placecomplaint WHERE Academic_Roll = '$Your_ID' and complaintStatus= 'rejected'";
 
                         $fetchComplaintsSqlresult = mysqli_query($conn,$fetchComplaintsSql);
 
@@ -225,7 +230,7 @@
 
                               $Complaint_No=$row['Complaint_No'];
                               
-                              $PC_ID=$row['PC_ID'];
+                              $PC_ID=$row['PC_Id'];
                               $Description=$row['Description'];
                               $Date =$row['Date'];
                     ?>   

@@ -1,5 +1,9 @@
 <?php
-
+session_start();
+if(!isset($_SESSION['email']))
+{
+    header('location:logInPage.html');
+}
 $id=$_POST['feedbackId'];
 $feedback=$_POST['feedback'];
 

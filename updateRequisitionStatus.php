@@ -1,6 +1,10 @@
 <?php
 
-
+session_start();
+if(!isset($_SESSION['email']))
+{
+    header('location:logInPage.html');
+}
 
 $RequisitionID = $_POST['updateId'];
 $Status = $_POST['Status'];

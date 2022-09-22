@@ -1,5 +1,10 @@
 <?php
 include('DatabaseConnection.php');
+session_start();
+if(!isset($_SESSION['email']))
+{
+    header('location:logInPage.html');
+}
 
 $Complaint_No = $_GET['id'];
 $PC_ID='';

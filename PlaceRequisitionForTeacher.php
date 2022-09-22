@@ -2,6 +2,12 @@
 
 include('DatabaseConnection.php');
 session_start();
+
+
+if(!isset($_SESSION['email']))
+{
+    header('location:logInPage.html');
+}
 $teacherName=$_SESSION['name'];
 $itemName= $_POST['itemName'];
 $description= $_POST['description'];

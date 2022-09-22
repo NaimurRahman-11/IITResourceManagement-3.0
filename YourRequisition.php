@@ -67,6 +67,10 @@
                   </tr>
                 <?php
                 session_start();
+                if(!isset($_SESSION['email']))
+                {
+                  header('location:logInPage.html');
+                }
                 
                 include('DatabaseConnection.php');
                 
@@ -79,7 +83,7 @@
                       $id=$row['id'];
                       
                       $ItemName=$row['ItemName'];
-                      $Description= $row['Description'];
+                      $Description= $row['description'];
                       $RequisitionStatus=$row['RequisitionStatus'];    
 
                 ?>
@@ -121,15 +125,15 @@
                       include('DatabaseConnection.php');
                         
 
-                        $sql= "select * from acceptedRequisition where TeacherName= '$name'";
+                        $sql= "SELECT * from acceptedRequisition where TeacherName= '$name' ";
                         $fetchRequisition= mysqli_query($conn,$sql);
                         while($row= mysqli_fetch_assoc($fetchRequisition))
                         {      
                           $id=$row['id'];
                           
                           $ItemName=$row['ItemName'];
-                          $Description= $row['Description'];
-                          $date= $row['date_of_commencement'];
+                          $Description= $row['description'];
+                          $date= $row['acceptingDate'];
                           $feedback=$row['feedback'];    
 
                     ?>
@@ -180,7 +184,7 @@
                       $id=$row['id'];
                       
                       $ItemName=$row['ItemName'];
-                      $Description= $row['Description'];
+                      $Description= $row['description'];
                       $Date=$row['date_of_commencement'];    
 
                 ?>

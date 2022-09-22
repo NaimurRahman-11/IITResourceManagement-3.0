@@ -1,12 +1,16 @@
 <?php
-
+session_start();
+if(!isset($_SESSION['email']))
+{
+    header('location:logInPage.html');
+}
 
 
 $PC_Id=$_POST['PC_Id'];
 $PC_status= "Active";
 $NoOfComplaint=0; 
 
-addPc($PC_Id,$PC_status,$NoOfComplaint);
+
 
 function addPc($PC_Id,$PC_status,$NoOfComplaint)
 {
@@ -16,6 +20,7 @@ function addPc($PC_Id,$PC_status,$NoOfComplaint)
   $res=mysqli_query($conn, $sql);
   return $res;
 }
+
 if(addPc($PC_Id,$PC_status,$NoOfComplaint)){
        
     echo '<script>alert(" PC is added successfully!");

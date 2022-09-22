@@ -64,6 +64,11 @@
 
   <?php
   include('DatabaseConnection.php');
+  session_start();
+  if(!isset($_SESSION['email']))
+  {
+      header('location:logInPage.html');
+  }
 
   $sql = "SELECT * From placecomplaint where complaintStatus= 'pending'
   ORDER BY Complaint_No DESC";
@@ -77,8 +82,8 @@
     if($count>0){
         while($rows = mysqli_fetch_assoc($res)){
             $Complaint_No = $rows['Complaint_No'];
-            $Student_ID = $rows['Student_ID'];
-            $PC_ID = $rows['PC_ID'];
+            $Student_ID = $rows['Academic_Roll'];
+            $PC_ID = $rows['PC_Id'];
             $Description = $rows['Description'];
             $Date = $rows['Date'];       
 

@@ -1,15 +1,33 @@
 <?php
-include('DatabaseConnection.php');
-$type=$_POST['type'];
-$email=$_POST['email'];
+session_start();
+if(!isset($_SESSION['email']))
+{
+    header('location:logInPage.html');
+}
+include('DatabaseConnection.php'); $type=$_POST['type'];
+ $email=$_POST['email'];
 $password=$_POST['password'];
-$status='approved';
+ $status='approved';
 
-$deleteSql= "DELETE from userTable where Designation= '$type'";
-$deletRes= mysqli_query($conn,$deleteSql);
+$updateSql= "UPDATE  userTable set userStatus='pending' where Designation= '$type'";
+$updateRes= mysqli_query($conn,$updateSql);
 
-$sql= "INSERT into userTable(`Designation`,`Email`,`userPassword`,'userStatus')
+
+$sql= "INSERT into userTable(`Designation`,`Email`,`userPassword`,`userStatus`)
 values ('$type','$email','$password','$status')";
 $res=mysqli_query($conn,$sql);
-header('location:DirectorPage.html');
+if($res)
+{
+    header('location:DirectorPage.html');
+}
+else
+{
+    $updateSql= "UPDATE  userTable set userStatus='approved' where Designation= '$type'";
+    $updateRes= mysqli_query($conn,$updateSql);
+    echo "<script> alert('Can not receive same email');
+    location='DirectorPage.html';
+    </script> ";
+}
+
+
 ?>

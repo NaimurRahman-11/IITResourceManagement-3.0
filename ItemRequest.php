@@ -1,4 +1,9 @@
 <?php
+session_start();
+if(!isset($_SESSION['email']))
+{
+    header('location:logInPage.html');
+}
 $itemRequestArray=array();
 $itemQuantityArray=array();
 
@@ -32,7 +37,7 @@ validateItemRequest($itemRequestArray,$itemQuantityArray);
 
 function validateItemRequest($itemRequestArray,$itemQuantityArray)
 {
-    session_start();
+   
     include('DatabaseConnection.php');;
     
     $validRequest=true;

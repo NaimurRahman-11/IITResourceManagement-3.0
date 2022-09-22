@@ -52,6 +52,11 @@
     
     
   <?php
+  session_start();
+  if(!isset($_SESSION['email']))
+  {
+      header('location:logInPage.html');
+  }
     include('DatabaseConnection.php');
 
     $fetchItemRequestSql= "SELECT * from itemrequest where itemRequeststatus = 'pending'";

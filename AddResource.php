@@ -1,6 +1,10 @@
 <?php
 
-
+session_start();
+if(!isset($_SESSION['email']))
+{
+    header('location:logInPage.html');
+}
 
 $ResourceID = $_POST['addId'];
 $increasedAmount = $_POST['increasedAmount'];

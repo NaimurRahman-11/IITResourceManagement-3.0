@@ -84,13 +84,9 @@
     
   <?php
      include('DatabaseConnection.php');
-    //  session_start();
+     session_start();
 
-    //  if(!isset($_SESSION['name']))
-    //  {
-    //    header('location:logInPage.html');
      
-    //  }
   
     
     $sql= "select * from requisition where RequisitionStatus != 'Rejected'";
@@ -116,7 +112,7 @@
         $id=$row['id'];
         $TeacherName=$row['TeacherName'];
         $ItemName=$row['ItemName'];
-        $Description=$row['Description'];
+        $Description=$row['description'];
         $requisitionStatus=$row['RequisitionStatus'];
         $Date=$row['date_of_commencement'];
               

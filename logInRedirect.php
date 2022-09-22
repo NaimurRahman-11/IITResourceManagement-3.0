@@ -17,13 +17,31 @@ while($row=mysqli_fetch_assoc($res))
         $_SESSION['email']= $email;
         $_SESSION['password'] == $password;
         $flag= true;
-        if($row['Academic_Roll'] != Null)
+        if($row['Designation'] == Null)
         {
             $_SESSION['roll']= $row['Academic_Roll'];
 
             header('location:StudentPage.html');
         }
-        if($row['Designation'] != Null)
+
+
+       
+        elseif($row['Designation'] == 'Director')
+        {
+            header('location:DirectorPage.html');
+
+        }
+        elseif($row['Designation'] == 'Office Assistant')
+        {
+            header('location:OfficeAssistantPage.html');
+
+        }
+        elseif($row['Designation'] == 'Lab Assistant')
+        {
+            header('location:LabAssistantPage.html');
+
+        }
+        else
         {
             $_SESSION['name']= $row['Name'];
             header('location:TeacherPage.html');

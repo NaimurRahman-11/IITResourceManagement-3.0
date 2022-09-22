@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$db = "iitresourcemanagement";
+$db = "newiitresourcemanagement";
 
 
 

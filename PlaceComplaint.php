@@ -2,7 +2,11 @@
 include('DatabaseConnection.php');
 
 session_start();
-   
+
+if(!isset($_SESSION['email']))
+{
+    header('location:logInPage.html');
+}
     $Student_ID = $_SESSION['roll'];
     $PC_ID = $_POST["PCID"];
     $Description = $_POST["description"];
@@ -22,7 +26,7 @@ session_start();
         where PC_Id=$PC_ID";
         mysqli_query($conn, $updatePcStatusAndNoOfComplaints);
         
-        $insertsql = "INSERT INTO placecomplaint (Student_ID, PC_ID, Description) 
+        $insertsql = "INSERT INTO placecomplaint (Academic_Roll, PC_ID, Description) 
         VALUES ('$Student_ID', '$PC_ID', '$Description')";
         mysqli_query($conn, $insertsql);
 
@@ -34,7 +38,7 @@ session_start();
     }
     if(!$flag)
     {
-      echo '<script>alert("your roll number or pc id is wrong!");
+      echo '<script>alert("your  pc id is wrong!");
         location="StudentPage.html";
         </script>';
     

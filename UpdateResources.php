@@ -206,11 +206,13 @@
                         </tr>
 
                         <?php
+                        
                         include('DatabaseConnection.php');
 
                         $sql = "SELECT * From resource where ItemCategory='stationary'";
 
                         $res = mysqli_query($conn, $sql);
+                        
 
                         if($res==true){
 

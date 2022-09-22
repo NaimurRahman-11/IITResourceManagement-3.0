@@ -1,5 +1,10 @@
 <?php
 
+session_start();
+if(!isset($_SESSION['email']))
+{
+    header('location:logInPage.html');
+}
 $rejectRequestId=$_GET['rejectRequestId'];
 
 function sentStockOutResponse($rejectRequestId)

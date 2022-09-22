@@ -1,4 +1,9 @@
 <?php
+session_start();
+if(!isset($_SESSION['email']))
+{
+    header('location:logInPage.html');
+}
 include('DatabaseConnection.php');
 
 $Complaint_No = $_GET['idd'];
@@ -21,8 +26,8 @@ $updatePcStatus= "update pc set PC_status='Active'
 where NoOfComplaints= 0";
 mysqli_query($conn, $updatePcStatus);
 
-$insertSql = "INSERT INTO solvedcomplaints (`Complaint_No`, `Student_ID`, `PC_ID`, `Description`)
-SELECT Complaint_No, Student_ID, PC_ID, Description FROM placecomplaint
+$insertSql = "INSERT INTO solvedcomplaints (`Complaint_No`, `Academic_Roll`, `PC_Id`, `Description`)
+SELECT Complaint_No, Academic_Roll, PC_Id, Description FROM placecomplaint
 WHERE Complaint_No=$Complaint_No";
 
 $insertSqlRes = mysqli_query($conn, $insertSql);

@@ -1,5 +1,9 @@
 <?php
-
+session_start();
+if(!isset($_SESSION['email']))
+{
+    header('location:logInPage.html');
+}
 
 
 $RequisitionID = $_GET['acceptedId'];
@@ -27,7 +31,7 @@ function acceptRequisition($RequisitionID)
 function insertIntoAcceptRequisitionTable($RequisitionID)
 {
     include('DatabaseConnection.php');
-    $sql = "INSERT into acceptedrequisition(`id`,`TeacherName`,`ItemName`,`Description`)
+    $sql = "INSERT into acceptedrequisition(`id`,`TeacherName`,`ItemName`,`description`)
     select `id`, `TeacherName`,`ItemName` , `Description` from requisition
     WHERE `id`=$RequisitionID";
 

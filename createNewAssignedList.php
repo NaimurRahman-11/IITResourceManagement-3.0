@@ -1,4 +1,9 @@
 <?php
+session_start();
+if(!isset($_SESSION['email']))
+{
+    header('location:logInPage.html');
+}
 
 include('DatabaseConnection.php');
 
@@ -34,13 +39,14 @@ function suffleElementsOfEachCategory($group)
 function createGroupArray()
 {
     include('DatabaseConnection.php');
-    $SelectSql= "SELECT `Academic_Roll` from student";
+    $SelectSql= "SELECT `Academic_Roll` from userTable where Academic_Roll != ''";
     $Selectresult= mysqli_query($conn,$SelectSql); 
     
     while($row= mysqli_fetch_assoc($Selectresult))
     {
         $arr[]=$row['Academic_Roll'];
     }
+    
     
     $maxSizeOfACategory=0;
     $array= CreateCategoricalArray($arr);
@@ -51,17 +57,20 @@ function createGroupArray()
          $maxSizeOfACategory=count($element); 
       }
     }
+    // echo $maxSizeOfACategory;
      
     $string="";
-   
+   $count=0;
     for($i=0; $i<$maxSizeOfACategory;$i++)
     {
         foreach($array as $element)
         {
             if(count($element) > $i)
             {
+                $count++;
                 $string= $string.$element[$i];
-                if(($i+1) < count($element))
+
+                if($count< count($element))
                 {
                     $string= $string.", ";
                 }
@@ -70,7 +79,9 @@ function createGroupArray()
         
         }
         $assignedRollArray[]= $string;
+        
         $string="";
+        $count=0;
     }
     
     insertAssignedRoll($assignedRollArray); 
@@ -103,7 +114,7 @@ function insertAssignedRoll($assignedRollArray)
 
 echo '<script>alert("Student rolls are successfully assigned to lab Pcs");
     location="AssignPcForLabAssistant.php";
-    </script>';
+   </script>';
 
 
 

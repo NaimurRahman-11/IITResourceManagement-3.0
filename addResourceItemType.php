@@ -1,4 +1,9 @@
 <?php
+session_start();
+if(!isset($_SESSION['email']))
+{
+    header('location:logInPage.html');
+}
 include('DatabaseConnection.php');
 $category=$_POST['category'];
 $itemName=$_POST['itemName'];
@@ -16,5 +21,6 @@ else
 {
     header('location:UpdateResources.php');
 }
+
 
 ?>

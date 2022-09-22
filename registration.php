@@ -6,13 +6,24 @@ $name= $_POST["firstName"]." ".$_POST["lastName"];
 
 if(isset($_POST["studentID"]))
 {
-    applyAsStudent($name);
+    $res=applyAsStudent($name);
 
 }
 if(isset($_POST["designation"]))
 {
-    applyAsTeacher($name);
+    $res=applyAsTeacher($name);
 
+}
+if($res)
+{
+    header('location:logInPage.html');
+}
+else
+{
+   
+    echo "<script> alert('Can not receive duplicate information');
+    location='logInPage.html';
+    </script> ";
 }
 
 function applyAsStudent($name)
@@ -25,6 +36,7 @@ function applyAsStudent($name)
     $sql="INSERT into usertable(`Name`,`Academic_Roll`,`Email`,`userPassword`,`userStatus`)
     values('$name','$studentID','$exampleInputEmail1','$Password','Processing')";
     $result= mysqli_query($conn,$sql);
+    return $result;
     
 }
 
@@ -38,6 +50,7 @@ function applyAsTeacher($name)
     $sql="INSERT into usertable(`Name`,`Designation`,`Email`,`userPassword`,`userStatus`)
     values('$name','$designation','$exampleInputEmail1','$Password','Processing')";
     $result= mysqli_query($conn,$sql);
+    return $result;
 }
 
 ?>

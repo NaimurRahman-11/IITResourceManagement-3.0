@@ -65,6 +65,7 @@
                         <th>ID</th>
                         <th>Request Description</th>
                         <th>Amount</th>
+                        <th>Date</th>
                         
                       </tr>
 
@@ -86,6 +87,7 @@
                                 $id = $rows['id'];
                                 $description = $rows['description'];
                                 $amount = $rows['amount'];      
+                                $dateColumn = $rows['dateColumn'];  
 
                         ?>
 
@@ -93,7 +95,7 @@
                                         <td><?php echo $id; ?></td>
                                         <td><?php echo $description; ?> </td>
                                         <td><?php echo $amount; ?></td>
-                                        
+                                        <td><?php echo $dateColumn; ?></td>
                                         
                                     </tr>
 
@@ -175,6 +177,7 @@
                         <th>ID</th>
                         <th>Request Description</th>
                         <th>Amount</th>
+                        <th>Date</th>
                         
                       </tr>
 
@@ -195,7 +198,8 @@
                             while($rows = mysqli_fetch_assoc($res)){
                                 $id = $rows['id'];
                                 $description = $rows['description'];
-                                $amount = $rows['amount'];      
+                                $amount = $rows['amount'];  
+                                $dateColumn = $rows['dateColumn'];     
 
                         ?>
 
@@ -203,6 +207,7 @@
                                         <td><?php echo $id; ?></td>
                                         <td><?php echo $description; ?> </td>
                                         <td><?php echo $amount; ?></td>
+                                        <td><?php echo $dateColumn; ?></td>
                                         
                                         
                                     </tr>
