@@ -83,13 +83,13 @@ function validateItemRequest($itemRequestArray,$itemQuantityArray)
         $insertSqlRes= mysqli_query($conn,$insertSql);
 
         echo '<script>alert("Your request is successfully placed.!");
-        location="TeacherPage.html"
+        location="TeacherPage.php"
             </script>';
     }
     else
     {
         echo '<script>alert("Your request can not be accpeted due to shortage.!");
-        location="TeacherPage.html"
+        location="TeacherPage.php"
             </script>';
 
 

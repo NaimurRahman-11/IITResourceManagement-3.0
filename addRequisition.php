@@ -25,12 +25,12 @@ function addRequisition($teacherName,$itemName,$description,$requisitionStatus)
 if(addRequisition($teacherName,$itemName,$description,$requisitionStatus)){
        
     echo '<script>alert("Your requisition is placed successfully!");
-      location="TeacherPage.html";
+      location="TeacherPage.php";
       </script>';
       
   }
   else {
     echo '<script>alert("failed to place your requisition!");
-    location="TeacherPage.html";
+    location="TeacherPage.php";
     </script>';
   }

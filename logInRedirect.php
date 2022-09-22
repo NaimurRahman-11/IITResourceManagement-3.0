@@ -21,30 +21,30 @@ while($row=mysqli_fetch_assoc($res))
         {
             $_SESSION['roll']= $row['Academic_Roll'];
 
-            header('location:StudentPage.html');
+            header('location:StudentPage.php');
         }
 
 
        
         elseif($row['Designation'] == 'Director')
         {
-            header('location:DirectorPage.html');
+            header('location:DirectorPage.php');
 
         }
         elseif($row['Designation'] == 'Office Assistant')
         {
-            header('location:OfficeAssistantPage.html');
+            header('location:OfficeAssistantPage.php');
 
         }
         elseif($row['Designation'] == 'Lab Assistant')
         {
-            header('location:LabAssistantPage.html');
+            header('location:LabAssistantPage.php');
 
         }
         else
         {
             $_SESSION['name']= $row['Name'];
-            header('location:TeacherPage.html');
+            header('location:TeacherPage.php');
         }
 
 

@@ -86,13 +86,7 @@ function updateResourcesOfRequest($itemRequestArray,$itemQuantityArray)
             set amount = amount-$quantity
             where itemName = '$item'";
             $selectRes= mysqli_query($conn,$updateSql);
-            if($selectRes)
-            {
-                echo "succeesful";
-
-            }
-            else
-            echo "failed";
+            return $selectRes;
         }
 
 }

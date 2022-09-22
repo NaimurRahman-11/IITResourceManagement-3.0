@@ -18,14 +18,14 @@ values ('$type','$email','$password','$status')";
 $res=mysqli_query($conn,$sql);
 if($res)
 {
-    header('location:DirectorPage.html');
+    header('location:DirectorPage.php');
 }
 else
 {
     $updateSql= "UPDATE  userTable set userStatus='approved' where Designation= '$type'";
     $updateRes= mysqli_query($conn,$updateSql);
     echo "<script> alert('Can not receive same email');
-    location='DirectorPage.html';
+    location='DirectorPage.php';
     </script> ";
 }
 

@@ -31,7 +31,7 @@ if(!isset($_SESSION['email']))
         mysqli_query($conn, $insertsql);
 
         echo '<script>alert("Complaint Placed Succesfully!");
-        location="StudentPage.html";
+        location="StudentPage.php";
         </script>';
         break;
       }
@@ -39,7 +39,7 @@ if(!isset($_SESSION['email']))
     if(!$flag)
     {
       echo '<script>alert("your  pc id is wrong!");
-        location="StudentPage.html";
+        location="StudentPage.php";
         </script>';
     
     }

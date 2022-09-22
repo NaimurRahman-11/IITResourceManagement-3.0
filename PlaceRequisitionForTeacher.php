@@ -20,12 +20,12 @@ values('$teacherName','$itemName','$description','$requisitionStatus')";
 if(mysqli_query($conn, $sql)){
        
     echo '<script>alert("Your requisition is placed successfully!");
-      location="TeacherPage.html";
+      location="TeacherPage.php";
       </script>';
       
   }
   else {
     echo '<script>alert("failed to place your requisition!");
-    location="TeacherPage.html";
+    location="TeacherPage.php";
     </script>';}
   
