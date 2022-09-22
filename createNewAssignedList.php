@@ -70,7 +70,7 @@ function createGroupArray()
                 $count++;
                 $string= $string.$element[$i];
 
-                if($count< count($element))
+                if($count< count($array))
                 {
                     $string= $string.", ";
                 }
@@ -79,7 +79,7 @@ function createGroupArray()
         
         }
         $assignedRollArray[]= $string;
-        
+        // echo $string."<br>";
         $string="";
         $count=0;
     }

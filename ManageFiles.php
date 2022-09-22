@@ -44,12 +44,7 @@
   </nav>
 <!-- Navigation Bar Ends -->
   
-  <!-- <div class="header">
-    <h1>Office Assistant's Dashboard</h1> 
-    <a href="OfficeAssistantPage.html"><p class="home"><i class="fa-solid fa-house-user"></i> Home</p> </a> 
-    <a href="logInPage.html"><p class="log-out"><i class="fa-solid fa-right-from-bracket"></i> log out</p> </a>
-  </div> -->
-    
+  
 
 <div class="buttons text-center">
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add File</button>&nbsp; &nbsp;
@@ -177,7 +172,7 @@
             
             
               <div class="mb-3">
-                <label for="YourID" class="col-form-label">Are you really want to delete this:</label>
+                <label for="YourID" class="col-form-label">Do You Really Want To Delete This File?</label>
                 
               </div>
   

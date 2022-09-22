@@ -125,7 +125,7 @@
                       include('DatabaseConnection.php');
                         
 
-                        $sql= "SELECT * from acceptedRequisition where TeacherName= '$name' ";
+                        $sql= "SELECT * from acceptedRequisition where TeacherName= '$name'";
                         $fetchRequisition= mysqli_query($conn,$sql);
                         while($row= mysqli_fetch_assoc($fetchRequisition))
                         {      
